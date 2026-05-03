@@ -1,5 +1,5 @@
 @import url("font-awesome.min.css");
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 
 /*
 	Strata by HTML5 UP
@@ -98,8 +98,8 @@ input, select, textarea {
 		}
 
 	body, input, select, textarea {
-		color: #a2a2a2;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		color: #444;
+		font-family: "Inter", "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 16pt;
 		font-weight: 400;
 		line-height: 1.75em;
@@ -111,13 +111,13 @@ input, select, textarea {
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		border-bottom: dotted 1px;
-		color: #49bf9d;
+		color: #6366f1;
 		text-decoration: none;
 	}
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #49bf9d !important;
+			color: #818cf8 !important;
 			text-decoration: none;
 		}
 
@@ -1791,7 +1791,20 @@ input, select, textarea {
 	}
 
 	header.major h2 {
-		font-size: 2em;
+		font-size: 1.75em;
+		color: #1e1b4b;
+		font-weight: 600;
+		letter-spacing: -0.02em;
+	}
+
+	header.major h2:after {
+		content: '';
+		display: block;
+		width: 40px;
+		height: 3px;
+		background: linear-gradient(90deg, #6366f1, #818cf8);
+		margin-top: 0.5em;
+		border-radius: 2px;
 	}
 
 /* Form */
@@ -2553,7 +2566,7 @@ input, select, textarea {
 
 /* Header */
 
-	#header {
+		#header {
 		display: -moz-flex;
 		display: -webkit-flex;
 		display: -ms-flex;
@@ -2570,13 +2583,13 @@ input, select, textarea {
 		-webkit-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
-		background-color: #1f1815;
+		background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
 		background-attachment: scroll,								scroll;
 		background-image: url("images/overlay.png"), url("../../images/bg.jpg");
 		background-position: top left,							top left;
 		background-repeat: repeat,								no-repeat;
 		background-size: auto,								150%;
-		color: rgba(255, 255, 255, 0.5);
+		color: rgba(255, 255, 255, 0.85);
 		height: 100%;
 		left: 0;
 		padding: 8em 4em;
@@ -2584,6 +2597,7 @@ input, select, textarea {
 		text-align: right;
 		top: 0;
 		width: 35%;
+		box-shadow: 4px 0 20px rgba(0,0,0,0.1);
 	}
 
 		#header > * {
@@ -2668,16 +2682,75 @@ input, select, textarea {
 	}
 
 		#main > section {
-			border-top: solid 2px #efefef;
-			margin: 4em 0 0 0;
-			padding: 4em 0 0 0;
+			border-top: none;
+			margin: 3em 0 0 0;
+			padding: 3em 0 0 0;
+			position: relative;
 		}
 
-			#main > section:first-child {
-				border-top: 0;
-				margin-top: 0;
-				padding-top: 0;
-			}
+	#main > section:first-child {
+		border-top: 0;
+		margin-top: 0;
+		padding-top: 0;
+	}
+
+	#main > section:not(:first-child):before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 1px;
+		background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+	}
+
+/* Publication Cards */
+	.publication-item {
+		background: #fafafa;
+		border-radius: 8px;
+		padding: 1.5em;
+		margin-bottom: 1.5em;
+		border: 1px solid #f0f0f0;
+		transition: all 0.25s ease;
+	}
+
+	.publication-item:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(99, 102, 241, 0.1);
+		border-color: #6366f1;
+	}
+
+	.publication-item img {
+		border-radius: 6px;
+	}
+
+/* Social Icons */
+	.social-icons {
+		display: flex;
+		gap: 0.75em;
+		margin-top: 1em;
+		justify-content: flex-end;
+	}
+
+	.social-icons a {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		border-radius: 50%;
+		background: rgba(255,255,255,0.1);
+		border: none;
+		color: rgba(255,255,255,0.8);
+		font-size: 1.1em;
+		transition: all 0.25s ease;
+	}
+
+	.social-icons a:hover {
+		background: #6366f1;
+		color: white;
+		transform: translateY(-2px);
+	}
 
 /* Poptrox */
 
