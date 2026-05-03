@@ -111,13 +111,13 @@ input, select, textarea {
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 		border-bottom: dotted 1px;
-		color: #6366f1;
+		color: #1d4ed8;
 		text-decoration: none;
 	}
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #818cf8 !important;
+			color: #1d4ed8 !important;
 			text-decoration: none;
 		}
 
@@ -1792,8 +1792,8 @@ input, select, textarea {
 
 	header.major h2 {
 		font-size: 1.75em;
-		color: #1e1b4b;
-		font-weight: 600;
+		color: #1e3a5f;
+		font-weight: 700;
 		letter-spacing: -0.02em;
 	}
 
@@ -1802,7 +1802,7 @@ input, select, textarea {
 		display: block;
 		width: 40px;
 		height: 3px;
-		background: linear-gradient(90deg, #6366f1, #818cf8);
+		background: linear-gradient(90deg, #1d4ed8, #3b82f6);
 		margin-top: 0.5em;
 		border-radius: 2px;
 	}
@@ -2583,7 +2583,7 @@ input, select, textarea {
 		-webkit-justify-content: space-between;
 		-ms-justify-content: space-between;
 		justify-content: space-between;
-		background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+		background: linear-gradient(135deg, #1e3a5f 0%, #1d4ed8 100%);
 		background-attachment: scroll,								scroll;
 		background-image: url("images/overlay.png"), url("../../images/bg.jpg");
 		background-position: top left,							top left;
@@ -2717,7 +2717,7 @@ input, select, textarea {
 	.publication-item:hover {
 		transform: translateY(-2px);
 		box-shadow: 0 8px 25px rgba(99, 102, 241, 0.1);
-		border-color: #6366f1;
+		border-color: #1d4ed8;
 	}
 
 	.publication-item img {
@@ -2747,7 +2747,7 @@ input, select, textarea {
 	}
 
 	.social-icons a:hover {
-		background: #6366f1;
+		background: #1d4ed8;
 		color: white;
 		transform: translateY(-2px);
 	}
