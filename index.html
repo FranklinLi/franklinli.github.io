@@ -287,6 +287,255 @@
 			.recruit-callout h2:after {
 				display: none;
 			}
+
+			/* ── Professional Experiences ── */
+			.exp-row {
+				display: flex;
+				gap: 1.5rem;
+				align-items: flex-start;
+				padding: 0.7rem 0;
+				border-bottom: 1px solid #e2e8f0;
+			}
+			.exp-row:last-child { border-bottom: none; }
+
+			.exp-date {
+				min-width: 110px;
+				font-size: 0.8rem;
+				color: #94a3b8;
+				font-family: 'SF Mono', 'Fira Code', monospace;
+				padding-top: 0.15rem;
+				flex-shrink: 0;
+			}
+
+			.exp-role {
+				font-weight: 700;
+				font-size: 0.95rem;
+				color: var(--text);
+				line-height: 1.4;
+			}
+
+			.exp-host {
+				font-size: 0.8rem;
+				color: var(--text-light);
+				margin-top: 0.15rem;
+			}
+
+			/* ── Grants and Fellowships ── */
+			.grant-row {
+				padding: 0.65rem 0;
+				border-bottom: 1px solid #f1f5f9;
+			}
+			.grant-row:last-child { border-bottom: none; }
+
+			.grant-title {
+				font-weight: 600;
+				font-size: 0.9rem;
+				color: var(--text);
+				margin-bottom: 0.15rem;
+			}
+
+			.grant-meta {
+				font-size: 0.78rem;
+				color: var(--text-light);
+				line-height: 1.5;
+			}
+
+			.grant-role {
+				display: inline-block;
+				font-size: 0.68rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				padding: 1px 7px;
+				border-radius: 4px;
+				vertical-align: middle;
+				margin: 0 2px;
+			}
+
+			.role-pi    { background: #dbeafe; color: #1d4ed8; }
+			.role-copi  { background: #ede9fe; color: #6d28d9; }
+			.role-coll  { background: #d1fae5; color: #065f46; }
+
+			.grant-declined {
+				color: #94a3b8;
+				font-style: italic;
+				font-size: 0.75rem;
+			}
+
+			/* ── Awards ── */
+			.award-row {
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+				padding: 0.6rem 0;
+				border-bottom: 1px solid #f1f5f9;
+			}
+			.award-row:last-child { border-bottom: none; }
+
+			.award-dot {
+				width: 8px;
+				height: 8px;
+				border-radius: 50%;
+				background: var(--accent);
+				flex-shrink: 0;
+			}
+
+			.award-gold { background: #f59e0b; }
+
+			.award-title {
+				font-weight: 600;
+				font-size: 0.88rem;
+				color: var(--text);
+			}
+
+			.award-meta {
+				font-size: 0.78rem;
+				color: var(--text-light);
+				margin-top: 0.1rem;
+			}
+
+			/* ── Patent ── */
+			.patent-block {
+				display: flex;
+				align-items: center;
+				gap: 0.9rem;
+				padding: 1rem;
+				background: #f8fafc;
+				border: 1px solid #e2e8f0;
+				border-radius: 8px;
+				margin-top: 0.3rem;
+			}
+
+			.patent-icon { font-size: 1.4rem; flex-shrink: 0; }
+
+			.patent-title {
+				font-weight: 600;
+				font-size: 0.9rem;
+				color: var(--text);
+			}
+
+			.patent-title a {
+				color: var(--accent);
+				text-decoration: none;
+			}
+
+			.patent-title a:hover { text-decoration: underline; }
+
+			.patent-meta {
+				font-size: 0.78rem;
+				color: var(--text-light);
+				margin-top: 0.15rem;
+			}
+
+			/* ── Media Coverage ── */
+			.media-row {
+				display: flex;
+				gap: 0.75rem;
+				align-items: flex-start;
+				padding: 0.6rem 0;
+				border-bottom: 1px solid #f1f5f9;
+			}
+			.media-row:last-child { border-bottom: none; }
+
+			.media-source {
+				min-width: 60px;
+				font-size: 0.7rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.04em;
+				color: white;
+				background: var(--accent);
+				padding: 3px 7px;
+				border-radius: 4px;
+				text-align: center;
+				margin-top: 0.1rem;
+				flex-shrink: 0;
+			}
+
+			.media-title {
+				font-weight: 500;
+				font-size: 0.87rem;
+				color: var(--text);
+				line-height: 1.4;
+			}
+
+			.media-title a {
+				color: var(--text);
+				text-decoration: none;
+			}
+
+			.media-title a:hover {
+				color: var(--accent);
+				text-decoration: underline;
+			}
+
+			.media-date {
+				font-size: 0.75rem;
+				color: #94a3b8;
+				margin-top: 0.1rem;
+			}
+
+			/* ── Community Services ── */
+			.svc-row {
+				padding: 0.55rem 0;
+				border-bottom: 1px solid #f1f5f9;
+			}
+			.svc-row:last-child { border-bottom: none; }
+
+			.svc-label {
+				font-weight: 700;
+				font-size: 0.85rem;
+				color: var(--text);
+				margin-bottom: 0.1rem;
+			}
+
+			.svc-detail {
+				font-size: 0.78rem;
+				color: var(--text-light);
+				line-height: 1.6;
+			}
+
+			/* ── Teaching ── */
+			.teach-row {
+				display: flex;
+				gap: 0.75rem;
+				padding: 0.65rem 0;
+				border-bottom: 1px solid #f1f5f9;
+				align-items: flex-start;
+			}
+			.teach-row:last-child { border-bottom: none; }
+
+			.teach-primary { background: #fefce8; margin: 0 -0.5rem; padding: 0.65rem 0.5rem; border-radius: 6px; border-bottom-color: #fef9c3; }
+			.teach-primary .teach-type { color: #92400e; background: #fde68a; }
+			.teach-primary .teach-title { font-weight: 700; }
+
+			.teach-type {
+				min-width: 120px;
+				font-size: 0.68rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				color: white;
+				background: #059669;
+				padding: 3px 8px;
+				border-radius: 4px;
+				text-align: center;
+				margin-top: 0.1rem;
+				flex-shrink: 0;
+			}
+
+			.teach-title {
+				font-weight: 500;
+				font-size: 0.88rem;
+				color: var(--text);
+				line-height: 1.4;
+			}
+
+			.teach-meta {
+				font-size: 0.78rem;
+				color: var(--text-light);
+				margin-top: 0.15rem;
+			}
 		</style>
 	</head>
 	<body>
@@ -836,10 +1085,26 @@
 						<header class="major">
 							<h2>Professional Experiences</h2>
 						</header>
-						<p>
-						<strong>2025.05 - 2025.08<br /></strong>Research Intern at Google NYC. Hosted by Dr. Cynthia Bennett, and Dr. Shaun Kane <br />
-						<strong>2019.05 - 2019.09<br /></strong>Research Intern at Apple (Turi). Hosted by Dr. Jeffrey P. Bigham, and Dr. Xiaoyi Zhang <br />
-						<strong>2016.05 - 2017.08<br /></strong>Hardware Engineer at AMD<br /></p>
+						<div class="exp-row">
+							<div class="exp-date">2025.05 – 2025.08</div>
+							<div class="exp-body">
+								<div class="exp-role">Research Intern &middot; Google NYC</div>
+								<div class="exp-host">Hosted by Dr. Cynthia Bennett &amp; Dr. Shaun Kane</div>
+							</div>
+						</div>
+						<div class="exp-row">
+							<div class="exp-date">2019.05 – 2019.09</div>
+							<div class="exp-body">
+								<div class="exp-role">Research Intern &middot; Apple (Turi)</div>
+								<div class="exp-host">Hosted by Dr. Jeffrey P. Bigham &amp; Dr. Xiaoyi Zhang</div>
+							</div>
+						</div>
+						<div class="exp-row">
+							<div class="exp-date">2016.05 – 2017.08</div>
+							<div class="exp-body">
+								<div class="exp-role">Hardware Engineer &middot; AMD</div>
+							</div>
+						</div>
 					</section>
 
 				<!-- Grants and Fellowships -->
@@ -847,17 +1112,42 @@
 						<header class="major">
 							<h2>Grants and Fellowships</h2>
 						</header>
-						<p>
-						<strong>NSERC Canada Postdoctoral Research Award (CPRA)</Strong>, Natural Sciences and Engineering Research Council of Canada ($140,000 over 24 Months), Role: PI, Feb 2026 (Declined)<br />
-						 <strong>Betensky-Kraut Endowed Fellowship</Strong>, Carnegie Mellon University, Role: PI, Jan 2026<br />
-						 <strong>Academic Research Fund (AcRF) Tier 2</Strong>, Singapore Ministry of Education ($960,000), Role: Collaborator; PI: Bin Zhu, Aug 2025<br />
-						 <strong>Stuart K. Card Fellowship</Strong>, Carnegie Mellon University ($120,000), Role: PI, Feb 2025<br />
-						 <strong>Google's Research Collabs</Strong>, Google Inc. ($80,000 Plus $20,000 in Google Cloud), Role: Co-PI; PI: Patrick Carrington, Aug 2022<br />
-						 <strong>Postgraduate Scholarship-Doctoral</strong>, Natural Sciences and Engineering Research Council of Canada (NSERC) ($63,000 over 36 Months), Role: PI, April 2021<br />
-						 <strong>Inclusive Design Challenge Award</strong>, US Department of Transportation ($300,000), Role: Collaborator; PI: Nik Martelaro; Co-PIs: Patrick Carrington, Sarah Fox, Jodi Forlizzi, Jan 2021<br />
-						 <strong>Faculty of Arts And Science Tuition Fellowship</strong>, University of Toronto ($18,558), Role: PI, Sept 2018<br />
-						 <strong>Faculty of Arts And Science Program-Level Fellowship</strong>, University of Toronto ($1000), Role: PI, Nov 2018<br />
-						</p>
+						<div class="grant-row">
+							<div class="grant-title">NSERC Canada Postdoctoral Research Award (CPRA)</div>
+							<div class="grant-meta">Natural Sciences and Engineering Research Council of Canada &middot; <strong class="grant-role role-pi">PI</strong> &middot; $140,000 / 24 mo &middot; Feb 2026 <span class="grant-declined">(Declined)</span></div>
+						</div>
+						<div class="grant-row">
+							<div class="grant-title">Betensky-Kraut Endowed Fellowship</div>
+							<div class="grant-meta">Carnegie Mellon University &middot; <strong class="grant-role role-pi">PI</strong> &middot; Jan 2026</div>
+						</div>
+						<div class="grant-row">
+							<div class="grant-title">Academic Research Fund (AcRF) Tier 2</div>
+							<div class="grant-meta">Singapore Ministry of Education &middot; <strong class="grant-role role-coll">Collaborator</strong>; PI: Bin Zhu &middot; $960,000 &middot; Aug 2025</div>
+						</div>
+						<div class="grant-row">
+							<div class="grant-title">Stuart K. Card Fellowship</div>
+							<div class="grant-meta">Carnegie Mellon University &middot; <strong class="grant-role role-pi">PI</strong> &middot; $120,000 &middot; Feb 2025</div>
+						</div>
+						<div class="grant-row">
+							<div class="grant-title">Google's Research Collabs</div>
+							<div class="grant-meta">Google Inc. &middot; <strong class="grant-role role-copi">Co-PI</strong>; PI: Patrick Carrington &middot; $80,000 + $20,000 GCP &middot; Aug 2022</div>
+						</div>
+						<div class="grant-row">
+							<div class="grant-title">Postgraduate Scholarship-Doctoral</div>
+							<div class="grant-meta">NSERC &middot; <strong class="grant-role role-pi">PI</strong> &middot; $63,000 / 36 mo &middot; Apr 2021</div>
+						</div>
+						<div class="grant-row">
+							<div class="grant-title">Inclusive Design Challenge Award</div>
+							<div class="grant-meta">US Dept. of Transportation &middot; <strong class="grant-role role-coll">Collaborator</strong>; PI: Nik Martelaro &middot; $300,000 &middot; Jan 2021</div>
+						</div>
+						<div class="grant-row">
+							<div class="grant-title">Faculty of Arts and Science Tuition Fellowship</div>
+							<div class="grant-meta">University of Toronto &middot; <strong class="grant-role role-pi">PI</strong> &middot; $18,558 &middot; Sept 2018</div>
+						</div>
+						<div class="grant-row">
+							<div class="grant-title">Faculty of Arts and Science Program-Level Fellowship</div>
+							<div class="grant-meta">University of Toronto &middot; <strong class="grant-role role-pi">PI</strong> &middot; $1,000 &middot; Nov 2018</div>
+						</div>
 					</section>
 
 				<!-- Awards and Scholarship -->
@@ -865,12 +1155,41 @@
 						<header class="major">
 							<h2>Awards and Scholarship</h2>
 						</header>
-						<p>
-						 <strong>Graduate Student Assembly/Provost Conference Funds</Strong>, Carnegie Mellon University ($750), Oct 2022<br />
-						 <strong>Graduate Student Assembly/Provost Conference Funds</Strong>, Carnegie Mellon University ($750), Mar 2022<br />
-						 <strong>Best Artifact Award</strong>, ASSETS 2020 ($500), Oct 2020<br />
-						 <strong>Markham Intern of the Year Award Nominee</strong>, AMD, Aug 2017<br />
-						 <strong>UTRECS Scholarship</strong>, University of Toronto ($6000), Aug 2015</p>
+						<div class="award-row">
+							<div class="award-dot"></div>
+							<div class="award-body">
+								<div class="award-title">Graduate Student Assembly/Provost Conference Funds</div>
+								<div class="award-meta">Carnegie Mellon University &middot; $750 &middot; Oct 2022</div>
+							</div>
+						</div>
+						<div class="award-row">
+							<div class="award-dot"></div>
+							<div class="award-body">
+								<div class="award-title">Graduate Student Assembly/Provost Conference Funds</div>
+								<div class="award-meta">Carnegie Mellon University &middot; $750 &middot; Mar 2022</div>
+							</div>
+						</div>
+						<div class="award-row">
+							<div class="award-dot award-gold"></div>
+							<div class="award-body">
+								<div class="award-title">Best Artifact Award</div>
+								<div class="award-meta">ASSETS 2020 &middot; $500 &middot; Oct 2020</div>
+							</div>
+						</div>
+						<div class="award-row">
+							<div class="award-dot"></div>
+							<div class="award-body">
+								<div class="award-title">Markham Intern of the Year Award Nominee</div>
+								<div class="award-meta">AMD &middot; Aug 2017</div>
+							</div>
+						</div>
+						<div class="award-row">
+							<div class="award-dot award-gold"></div>
+							<div class="award-body">
+								<div class="award-title">UTRECS Scholarship</div>
+								<div class="award-meta">University of Toronto &middot; $6,000 &middot; Aug 2015</div>
+							</div>
+						</div>
 					</section>
 
 				<!-- Selected Patent -->
@@ -878,8 +1197,13 @@
 						<header class="major">
 							<h2>Selected Patent</h2>
 						</header>
-						<p>
-						<strong><a href="https://patents.google.com/patent/US11106280B1/en">US Patent: </a></strong>On-the-fly calibration for improved on-device eye tracking (2021.08)<br /></p>
+						<div class="patent-block">
+							<div class="patent-icon">&#128279;</div>
+							<div>
+								<div class="patent-title"><a href="https://patents.google.com/patent/US11106280B1/en">On-the-fly calibration for improved on-device eye tracking</a></div>
+								<div class="patent-meta">US Patent &middot; Aug 2021</div>
+							</div>
+						</div>
 					</section>
 
 				<!-- Media Coverage -->
@@ -887,15 +1211,62 @@
 						<header class="major">
 							<h2>Media Coverage and Featuring</h2>
 						</header>
-						<p>
-						<strong><a href="https://news.cornell.edu/stories/2025/03/ai-ring-tracks-spelled-words-american-sign-language">Cornell Ann S. Bowers College of Computing and Information Science: </a></strong> AI ring tracks spelled words in American Sign Language (2025.03)<br />
-						<strong><a href="https://www.cs.cmu.edu/news/2024/nonvisual-cooking">Carnegie Mellon School of Computer Science: </a></strong> Accessing Recipe Information Without Looking (2024.12)<br />
-						<strong><a href="https://www.hcii.cmu.edu/news/new-search-engine-tool-helps-users-make-sense-unfamiliar-topics">Carnegie Mellon School of Computer Science: </a></strong> New Search Engine Tool Helps Users Make Sense of Unfamiliar Topics (2023.06)<br />
-					        <strong><a href="https://magazine.cs.cmu.edu/accessibility-enables-equality">Carnegie Mellon University: </a></strong> Accessibility Enables Equality (2022.08)<br />
-						<strong><a href="https://dl.acm.org/doi/abs/10.1145/3498367">Communications of the ACM: </a></strong> Eyelid gestures for people with motor impairments (2022.01)<br />
-						<strong><a href="https://spectrum.ieee.org/tech-talk/biomedical/bionics/the-next-frontier-for-gesture-control-is-teeth">IEEE Spectrum: </a></strong> The Next Frontier for Gesture Control is Teeth (2021.05)<br />
-						<strong><a href="https://mobility21.cmu.edu/whats_happening/mobility21-researchers-win-us-department-of-transportation-inclusive-design-challenge-awards/">Mobility21: </a></strong> Mobility21 Researchers Win US Department of Transportation Inclusive Design Challenge Award (2021.01)<br />
-						<strong><a href="https://www.newscientist.com/article/2218025-where-have-i-left-my-wallet-this-smart-camera-can-remind-you/">New Scientist: </a></strong> Where have I left my wallet? This smart camera can remind you (2019.09)<br /></p>
+						<div class="media-row">
+							<div class="media-source">Cornell</div>
+							<div class="media-body">
+								<div class="media-title"><a href="https://news.cornell.edu/stories/2025/03/ai-ring-tracks-spelled-words-american-sign-language">AI ring tracks spelled words in American Sign Language</a></div>
+								<div class="media-date">Mar 2025</div>
+							</div>
+						</div>
+						<div class="media-row">
+							<div class="media-source">CMU SCS</div>
+							<div class="media-body">
+								<div class="media-title"><a href="https://www.cs.cmu.edu/news/2024/nonvisual-cooking">Accessing Recipe Information Without Looking</a></div>
+								<div class="media-date">Dec 2024</div>
+							</div>
+						</div>
+						<div class="media-row">
+							<div class="media-source">CMU SCS</div>
+							<div class="media-body">
+								<div class="media-title"><a href="https://www.hcii.cmu.edu/news/new-search-engine-tool-helps-users-make-sense-unfamiliar-topics">New Search Engine Tool Helps Users Make Sense of Unfamiliar Topics</a></div>
+								<div class="media-date">Jun 2023</div>
+							</div>
+						</div>
+						<div class="media-row">
+							<div class="media-source">CMU</div>
+							<div class="media-body">
+								<div class="media-title"><a href="https://magazine.cs.cmu.edu/accessibility-enables-equality">Accessibility Enables Equality</a></div>
+								<div class="media-date">Aug 2022</div>
+							</div>
+						</div>
+						<div class="media-row">
+							<div class="media-source">CACM</div>
+							<div class="media-body">
+								<div class="media-title"><a href="https://dl.acm.org/doi/abs/10.1145/3498367">Eyelid gestures for people with motor impairments</a></div>
+								<div class="media-date">Jan 2022</div>
+							</div>
+						</div>
+						<div class="media-row">
+							<div class="media-source">IEEE</div>
+							<div class="media-body">
+								<div class="media-title"><a href="https://spectrum.ieee.org/tech-talk/biomedical/bionics/the-next-frontier-for-gesture-control-is-teeth">The Next Frontier for Gesture Control is Teeth</a></div>
+								<div class="media-date">May 2021</div>
+							</div>
+						</div>
+						<div class="media-row">
+							<div class="media-source">Mobility21</div>
+							<div class="media-body">
+								<div class="media-title"><a href="https://mobility21.cmu.edu/whats_happening/mobility21-researchers-win-us-department-of-transportation-inclusive-design-challenge-awards/">Mobility21 Researchers Win US Dept. of Transportation Inclusive Design Challenge Award</a></div>
+								<div class="media-date">Jan 2021</div>
+							</div>
+						</div>
+						<div class="media-row">
+							<div class="media-source">NewSci</div>
+							<div class="media-body">
+								<div class="media-title"><a href="https://www.newscientist.com/article/2218025-where-have-i-left-my-wallet-this-smart-camera-can-remind-you/">Where have I left my wallet? This smart camera can remind you</a></div>
+								<div class="media-date">Sep 2019</div>
+							</div>
+						</div>
 					</section>
 
 				<!-- Community Services -->
@@ -903,11 +1274,26 @@
 						<header class="major">
 							<h2>Community Services</h2>
 						</header>
-						<p><strong>SIGCHI Accessibility Committee</strong><br />Vice-Chair (2024-present)<br />Member (2023-2024)</p>
-						<p><strong>Organizing Committee</strong><br />Publication Chair (CHI 2025), Accessibility Chair (ASSETS 2025, CHI 2024, CSCW 2023, HCOMP/CI 2023, C&C 2023, C&C 2022, C&C 2021), Inclusion and Broad Participation Chair (Ubicomp 2024), Student Volunteer Co-chair (ASSETS 2022)</p>
-						<p><strong>Program Committee</strong><br />Associate Chair (ASSETS 2026, CHI 2026, Ubicomp/ISCW 2025, CHI 2025, ASSETS 2024, CHI 2024, Chinese-CHI 2021, CHI 2020 Late Breaking Works)</p>
-						<p><strong>Reviewers</strong><br />CHI 2026 (13), Ubicomp/ISWC 2025 (5), UIST 2025 (1), CHI 2025 (14), IMWUT 2025 (2), ASSETS 2024 (7), UIST 2024 (2), IMWUT 2024 (2) CHI 2024 (13), ASSETS 2023 (2), CHI 2023 (5), TACCESS 2023 (1), IMWUT 2023 (1), UIST 2023 (1), TACCESS 2022 (1), ISS 2022 (2), CHI 2022 (7), CHI 2022 Late Breaking Works (1), ISS 2021 (1), UIST 2021 (1), CSCW 2021 (3), CHI 2021 (4), Chinese-CHI 2021(3), IDC 2021 (1), EICS PACM 2021 (1), UIST 2020 (1), IJHCS (1), CHI 2020 (2), CHI 2020 Late Breaking Works (8), CHI 2019 Late Breaking Works (5)</p>
-						<p><strong>Student Volunteer</strong><br />ASSETS 2020</p>
+						<div class="svc-row">
+							<div class="svc-label">SIGCHI Accessibility Committee</div>
+							<div class="svc-detail">Vice-Chair (2024–present) &middot; Member (2023–2024)</div>
+						</div>
+						<div class="svc-row">
+							<div class="svc-label">Organizing Committee</div>
+							<div class="svc-detail">Publication Chair (CHI 2025) &middot; Accessibility Chair (ASSETS 2025, CHI 2024, CSCW 2023, HCOMP/CI 2023, C&amp;C 2023, C&amp;C 2022, C&amp;C 2021) &middot; Inclusion and Broad Participation Chair (Ubicomp 2024) &middot; Student Volunteer Co-chair (ASSETS 2022)</div>
+						</div>
+						<div class="svc-row">
+							<div class="svc-label">Program Committee</div>
+							<div class="svc-detail">Associate Chair (ASSETS 2026, CHI 2026, Ubicomp/ISCW 2025, CHI 2025, ASSETS 2024, CHI 2024, Chinese-CHI 2021, CHI 2020 Late Breaking Works)</div>
+						</div>
+						<div class="svc-row">
+							<div class="svc-label">Reviewers</div>
+							<div class="svc-detail">CHI 2026 (13) &middot; Ubicomp/ISWC 2025 (5) &middot; UIST 2025 (1) &middot; CHI 2025 (14) &middot; IMWUT 2025 (2) &middot; ASSETS 2024 (7) &middot; UIST 2024 (2) &middot; IMWUT 2024 (2) &middot; CHI 2024 (13) &middot; ASSETS 2023 (2) &middot; CHI 2023 (5) &middot; TACCESS 2023 (1) &middot; IMWUT 2023 (1) &middot; UIST 2023 (1) &middot; TACCESS 2022 (1) &middot; ISS 2022 (2) &middot; CHI 2022 (7) &middot; CHI 2022 Late Breaking Works (1) &middot; ISS 2021 (1) &middot; UIST 2021 (1) &middot; CSCW 2021 (3) &middot; CHI 2021 (4) &middot; Chinese-CHI 2021 (3) &middot; IDC 2021 (1) &middot; EICS PACM 2021 (1) &middot; UIST 2020 (1) &middot; IJHCS (1) &middot; CHI 2020 (2) &middot; CHI 2020 Late Breaking Works (8) &middot; CHI 2019 Late Breaking Works (5)</div>
+						</div>
+						<div class="svc-row">
+							<div class="svc-label">Student Volunteer</div>
+							<div class="svc-detail">ASSETS 2020</div>
+						</div>
 					</section>
 
 				<!-- Teaching Experiences and Invited Talks -->
@@ -915,19 +1301,90 @@
 						<header class="major">
 							<h2>Teaching Experiences and Invited Talks</h2>
 						</header>
-						<p><strong>Co-Instructor: Accessibility and Assistive Technology (05332/632)</strong><br />Carnegie Mellon University<br />
-						<strong>Invited Talk: Conversational Audio Description Editor</strong><br />Google LLC, Invited by Dr. Cindy Bennett and Dr. Shaun Kane<br />
-						<strong>Invited Talk: Building Usable Systems for People with Disabilities in Physical Activities</strong><br />University of Rochester (Mar 2024), Invited by Dr. Yukang Yan<br />
-						<strong>Guest Lecture: Designing Human-Centered Software</strong><br />Carnegie Mellon University (Mar 2024), Invited by Dr. Aaron Steinfeld<br />
-						<strong>Guest Lecture: Designing Human-Centered Software</strong><br />Carnegie Mellon University (Feb 2024), Invited by Dr. Sherry Tongshuang Wu<br />
-						<strong>Invited Talk: Building Usable Systems for People with Disabilities in Physical Activities</strong><br />University of Notre Dame (Oct 2023), Invited by Dr. Toby Jia-jun Li<br />
-						<strong>Guest Lecture: Designing Human-Centered Software</strong><br />Carnegie Mellon University (Oct 2023), Invited by Dr. Aaron Steinfeld and Dr. Sherry Tongshuang Wu<br />
-						<strong>Teaching Assistant: Designing Human-Centered Software</strong><br />Carnegie Mellon University (May 2023)<br />
-						<strong>Invited Talk: Leveraging AI for Accessibility in Physical Space</strong><br />APEX Lab, The Hong Kong University of Science and Technology (HKUST) (Mar 2023), Invited by Dr. Mingming Fan<br />
-						<strong>Invited Talk: Leveraging AI for Accessibility in Physical Space</strong><br />DGP Lab, University of Toronto (Feb 2023)<br />
-						<strong>Teaching Assistant: User-Centered Research and Evaluation</strong><br />Carnegie Mellon University (Dec 2022)<br />
-						<strong>Teaching Assistant: CSC258H1S: Computer Organization</strong><br />University of Toronto (Apr 2019)<br />
-						<strong>Teaching Assistant: CSC258H1S: Computer Organization</strong><br />University of Toronto (Dec 2018)</p>
+						<div class="teach-row teach-primary">
+							<div class="teach-type">Co-Instructor</div>
+							<div class="teach-body">
+								<div class="teach-title">Accessibility and Assistive Technology (05332/632)</div>
+								<div class="teach-meta">Carnegie Mellon University</div>
+							</div>
+						</div>
+						<div class="teach-row">
+							<div class="teach-type">Invited Talk</div>
+							<div class="teach-body">
+								<div class="teach-title">Conversational Audio Description Editor</div>
+								<div class="teach-meta">Google LLC &middot; Invited by Dr. Cindy Bennett &amp; Dr. Shaun Kane</div>
+							</div>
+						</div>
+						<div class="teach-row">
+							<div class="teach-type">Invited Talk</div>
+							<div class="teach-body">
+								<div class="teach-title">Building Usable Systems for People with Disabilities in Physical Activities</div>
+								<div class="teach-meta">University of Rochester &middot; Invited by Dr. Yukang Yan &middot; Mar 2024</div>
+							</div>
+						</div>
+						<div class="teach-row">
+							<div class="teach-type">Guest Lecture</div>
+							<div class="teach-body">
+								<div class="teach-title">Designing Human-Centered Software</div>
+								<div class="teach-meta">Carnegie Mellon University &middot; Invited by Dr. Aaron Steinfeld &middot; Mar 2024</div>
+							</div>
+						</div>
+						<div class="teach-row">
+							<div class="teach-type">Guest Lecture</div>
+							<div class="teach-body">
+								<div class="teach-title">Designing Human-Centered Software</div>
+								<div class="teach-meta">Carnegie Mellon University &middot; Invited by Dr. Sherry Tongshuang Wu &middot; Feb 2024</div>
+							</div>
+						</div>
+						<div class="teach-row">
+							<div class="teach-type">Invited Talk</div>
+							<div class="teach-body">
+								<div class="teach-title">Building Usable Systems for People with Disabilities in Physical Activities</div>
+								<div class="teach-meta">University of Notre Dame &middot; Invited by Dr. Toby Jia-jun Li &middot; Oct 2023</div>
+							</div>
+						</div>
+						<div class="teach-row">
+							<div class="teach-type">Guest Lecture</div>
+							<div class="teach-body">
+								<div class="teach-title">Designing Human-Centered Software</div>
+								<div class="teach-meta">Carnegie Mellon University &middot; Invited by Dr. Aaron Steinfeld &amp; Dr. Sherry Tongshuang Wu &middot; Oct 2023</div>
+							</div>
+						</div>
+						<div class="teach-row">
+							<div class="teach-type">Teaching Assistant</div>
+							<div class="teach-body">
+								<div class="teach-title">Designing Human-Centered Software</div>
+								<div class="teach-meta">Carnegie Mellon University &middot; May 2023</div>
+							</div>
+						</div>
+						<div class="teach-row">
+							<div class="teach-type">Invited Talk</div>
+							<div class="teach-body">
+								<div class="teach-title">Leveraging AI for Accessibility in Physical Space</div>
+								<div class="teach-meta">APEX Lab, HKUST &middot; Invited by Dr. Mingming Fan &middot; Mar 2023</div>
+							</div>
+						</div>
+						<div class="teach-row">
+							<div class="teach-type">Invited Talk</div>
+							<div class="teach-body">
+								<div class="teach-title">Leveraging AI for Accessibility in Physical Space</div>
+								<div class="teach-meta">DGP Lab, University of Toronto &middot; Feb 2023</div>
+							</div>
+						</div>
+						<div class="teach-row">
+							<div class="teach-type">Teaching Assistant</div>
+							<div class="teach-body">
+								<div class="teach-title">User-Centered Research and Evaluation</div>
+								<div class="teach-meta">Carnegie Mellon University &middot; Dec 2022</div>
+							</div>
+						</div>
+						<div class="teach-row">
+							<div class="teach-type">Teaching Assistant</div>
+							<div class="teach-body">
+								<div class="teach-title">CSC258H1S: Computer Organization</div>
+								<div class="teach-meta">University of Toronto &middot; Apr 2019 &amp; Dec 2018</div>
+							</div>
+						</div>
 					</section>
 
 			</div>
