@@ -287,128 +287,6 @@
 			.recruit-callout h2:after {
 				display: none;
 			}
-
-			/* ── CV / Experience Block System ── */
-			.cv-block {
-				display: flex;
-				flex-direction: column;
-				gap: 0.5rem;
-			}
-
-			.cv-entry {
-				display: flex;
-				gap: 1rem;
-				align-items: flex-start;
-				padding: 0.7rem 1rem;
-				border-radius: 8px;
-				background: rgba(255,255,255,0.04);
-			}
-
-			/* Left-date layout (Professional Experiences) */
-			.cv-entry .cv-left {
-				min-width: 110px;
-				flex-shrink: 0;
-			}
-
-			.cv-date {
-				font-size: 0.78rem;
-				color: rgba(255,255,255,0.4);
-				font-family: monospace;
-				letter-spacing: 0.01em;
-				line-height: 1.5;
-				white-space: nowrap;
-			}
-
-			/* Title + meta */
-			.cv-title {
-				font-weight: 600;
-				font-size: 0.92rem;
-				color: #e2e8f0;
-				line-height: 1.4;
-			}
-
-			.cv-title a {
-				color: #93c5fd;
-				text-decoration: none;
-			}
-
-			.cv-title a:hover {
-				color: #bfdbfe;
-				text-decoration: underline;
-			}
-
-			.cv-meta {
-				font-size: 0.8rem;
-				color: rgba(255,255,255,0.45);
-				margin-top: 0.2rem;
-				line-height: 1.5;
-			}
-
-			.cv-role {
-				font-size: 0.72rem;
-				font-weight: 700;
-				text-transform: uppercase;
-				letter-spacing: 0.05em;
-				background: rgba(147, 197, 253, 0.12);
-				color: #93c5fd;
-				padding: 1px 6px;
-				border-radius: 4px;
-				vertical-align: middle;
-			}
-
-			.cv-declined {
-				font-size: 0.75rem;
-				color: rgba(255,255,255,0.35);
-				font-style: italic;
-			}
-
-			/* Teaching type label */
-			.cv-label {
-				font-size: 0.7rem;
-				font-weight: 700;
-				text-transform: uppercase;
-				letter-spacing: 0.07em;
-				color: #86efac;
-				margin-bottom: 0.15rem;
-			}
-
-			.cv-teach-primary .cv-label {
-				color: #fde68a;
-			}
-
-			.cv-teach-primary {
-				border-left: 3px solid #fde68a;
-			}
-
-			/* Grants — subtle accent */
-			.cv-grant {
-				border-left: 3px solid rgba(147, 197, 253, 0.2);
-			}
-
-			/* Awards — gold accent */
-			.cv-award {
-				border-left: 3px solid rgba(253, 230, 138, 0.3);
-			}
-
-			/* Patent */
-			.cv-patent {
-				border-left: 3px solid rgba(196, 181, 253, 0.3);
-			}
-
-			/* Media */
-			.cv-media {
-				border-left: 3px solid rgba(147, 197, 253, 0.15);
-			}
-
-			/* Community Services */
-			.cv-service {
-				border-left: 3px solid rgba(134, 239, 172, 0.2);
-			}
-
-			/* Teaching */
-			.cv-teach {
-				border-left: 3px solid rgba(134, 239, 172, 0.2);
-			}
 		</style>
 	</head>
 	<body>
@@ -958,34 +836,10 @@
 						<header class="major">
 							<h2>Professional Experiences</h2>
 						</header>
-						<div class="cv-block">
-							<div class="cv-entry">
-								<div class="cv-left">
-									<span class="cv-date">2025.05 – 2025.08</span>
-								</div>
-								<div class="cv-right">
-									<div class="cv-title">Research Intern · Google NYC</div>
-									<div class="cv-meta">Hosted by Dr. Cynthia Bennett &amp; Dr. Shaun Kane</div>
-								</div>
-							</div>
-							<div class="cv-entry">
-								<div class="cv-left">
-									<span class="cv-date">2019.05 – 2019.09</span>
-								</div>
-								<div class="cv-right">
-									<div class="cv-title">Research Intern · Apple (Turi)</div>
-									<div class="cv-meta">Hosted by Dr. Jeffrey P. Bigham &amp; Dr. Xiaoyi Zhang</div>
-								</div>
-							</div>
-							<div class="cv-entry">
-								<div class="cv-left">
-									<span class="cv-date">2016.05 – 2017.08</span>
-								</div>
-								<div class="cv-right">
-									<div class="cv-title">Hardware Engineer · AMD</div>
-								</div>
-							</div>
-						</div>
+						<p>
+						<strong>2025.05 - 2025.08<br /></strong>Research Intern at Google NYC. Hosted by Dr. Cynthia Bennett, and Dr. Shaun Kane <br />
+						<strong>2019.05 - 2019.09<br /></strong>Research Intern at Apple (Turi). Hosted by Dr. Jeffrey P. Bigham, and Dr. Xiaoyi Zhang <br />
+						<strong>2016.05 - 2017.08<br /></strong>Hardware Engineer at AMD<br /></p>
 					</section>
 
 				<!-- Grants and Fellowships -->
@@ -993,44 +847,17 @@
 						<header class="major">
 							<h2>Grants and Fellowships</h2>
 						</header>
-						<div class="cv-block">
-							<div class="cv-entry cv-grant">
-								<div class="cv-title">NSERC Canada Postdoctoral Research Award (CPRA)</div>
-								<div class="cv-meta">Natural Sciences and Engineering Research Council of Canada · $140,000 / 24 mo · <span class="cv-role">PI</span> · Feb 2026 <span class="cv-declined">(Declined)</span></div>
-							</div>
-							<div class="cv-entry cv-grant">
-								<div class="cv-title">Betensky-Kraut Endowed Fellowship</div>
-								<div class="cv-meta">Carnegie Mellon University · <span class="cv-role">PI</span> · Jan 2026</div>
-							</div>
-							<div class="cv-entry cv-grant">
-								<div class="cv-title">Academic Research Fund (AcRF) Tier 2</div>
-								<div class="cv-meta">Singapore Ministry of Education · $960,000 · <span class="cv-role">Collaborator</span>; PI: Bin Zhu · Aug 2025</div>
-							</div>
-							<div class="cv-entry cv-grant">
-								<div class="cv-title">Stuart K. Card Fellowship</div>
-								<div class="cv-meta">Carnegie Mellon University · $120,000 · <span class="cv-role">PI</span> · Feb 2025</div>
-							</div>
-							<div class="cv-entry cv-grant">
-								<div class="cv-title">Google's Research Collabs</div>
-								<div class="cv-meta">Google Inc. · $80,000 + $20,000 GCP · <span class="cv-role">Co-PI</span>; PI: Patrick Carrington · Aug 2022</div>
-							</div>
-							<div class="cv-entry cv-grant">
-								<div class="cv-title">Postgraduate Scholarship-Doctoral</div>
-								<div class="cv-meta">NSERC · $63,000 / 36 mo · <span class="cv-role">PI</span> · Apr 2021</div>
-							</div>
-							<div class="cv-entry cv-grant">
-								<div class="cv-title">Inclusive Design Challenge Award</div>
-								<div class="cv-meta">US Dept. of Transportation · $300,000 · <span class="cv-role">Collaborator</span>; PI: Nik Martelaro · Co-PIs: P. Carrington, S. Fox, J. Forlizzi · Jan 2021</div>
-							</div>
-							<div class="cv-entry cv-grant">
-								<div class="cv-title">Faculty of Arts and Science Tuition Fellowship</div>
-								<div class="cv-meta">University of Toronto · $18,558 · <span class="cv-role">PI</span> · Sept 2018</div>
-							</div>
-							<div class="cv-entry cv-grant">
-								<div class="cv-title">Faculty of Arts and Science Program-Level Fellowship</div>
-								<div class="cv-meta">University of Toronto · $1,000 · <span class="cv-role">PI</span> · Nov 2018</div>
-							</div>
-						</div>
+						<p>
+						<strong>NSERC Canada Postdoctoral Research Award (CPRA)</Strong>, Natural Sciences and Engineering Research Council of Canada ($140,000 over 24 Months), Role: PI, Feb 2026 (Declined)<br />
+						 <strong>Betensky-Kraut Endowed Fellowship</Strong>, Carnegie Mellon University, Role: PI, Jan 2026<br />
+						 <strong>Academic Research Fund (AcRF) Tier 2</Strong>, Singapore Ministry of Education ($960,000), Role: Collaborator; PI: Bin Zhu, Aug 2025<br />
+						 <strong>Stuart K. Card Fellowship</Strong>, Carnegie Mellon University ($120,000), Role: PI, Feb 2025<br />
+						 <strong>Google's Research Collabs</Strong>, Google Inc. ($80,000 Plus $20,000 in Google Cloud), Role: Co-PI; PI: Patrick Carrington, Aug 2022<br />
+						 <strong>Postgraduate Scholarship-Doctoral</strong>, Natural Sciences and Engineering Research Council of Canada (NSERC) ($63,000 over 36 Months), Role: PI, April 2021<br />
+						 <strong>Inclusive Design Challenge Award</strong>, US Department of Transportation ($300,000), Role: Collaborator; PI: Nik Martelaro; Co-PIs: Patrick Carrington, Sarah Fox, Jodi Forlizzi, Jan 2021<br />
+						 <strong>Faculty of Arts And Science Tuition Fellowship</strong>, University of Toronto ($18,558), Role: PI, Sept 2018<br />
+						 <strong>Faculty of Arts And Science Program-Level Fellowship</strong>, University of Toronto ($1000), Role: PI, Nov 2018<br />
+						</p>
 					</section>
 
 				<!-- Awards and Scholarship -->
@@ -1038,28 +865,12 @@
 						<header class="major">
 							<h2>Awards and Scholarship</h2>
 						</header>
-						<div class="cv-block">
-							<div class="cv-entry cv-award">
-								<div class="cv-title">Graduate Student Assembly/Provost Conference Funds</div>
-								<div class="cv-meta">Carnegie Mellon University · $750 · Oct 2022</div>
-							</div>
-							<div class="cv-entry cv-award">
-								<div class="cv-title">Graduate Student Assembly/Provost Conference Funds</div>
-								<div class="cv-meta">Carnegie Mellon University · $750 · Mar 2022</div>
-							</div>
-							<div class="cv-entry cv-award">
-								<div class="cv-title">Best Artifact Award</div>
-								<div class="cv-meta">ASSETS 2020 · $500 · Oct 2020</div>
-							</div>
-							<div class="cv-entry cv-award">
-								<div class="cv-title">Markham Intern of the Year Award Nominee</div>
-								<div class="cv-meta">AMD · Aug 2017</div>
-							</div>
-							<div class="cv-entry cv-award">
-								<div class="cv-title">UTRECS Scholarship</div>
-								<div class="cv-meta">University of Toronto · $6,000 · Aug 2015</div>
-							</div>
-						</div>
+						<p>
+						 <strong>Graduate Student Assembly/Provost Conference Funds</Strong>, Carnegie Mellon University ($750), Oct 2022<br />
+						 <strong>Graduate Student Assembly/Provost Conference Funds</Strong>, Carnegie Mellon University ($750), Mar 2022<br />
+						 <strong>Best Artifact Award</strong>, ASSETS 2020 ($500), Oct 2020<br />
+						 <strong>Markham Intern of the Year Award Nominee</strong>, AMD, Aug 2017<br />
+						 <strong>UTRECS Scholarship</strong>, University of Toronto ($6000), Aug 2015</p>
 					</section>
 
 				<!-- Selected Patent -->
@@ -1067,12 +878,8 @@
 						<header class="major">
 							<h2>Selected Patent</h2>
 						</header>
-						<div class="cv-block">
-							<div class="cv-entry cv-patent">
-								<div class="cv-title"><a href="https://patents.google.com/patent/US11106280B1/en">On-the-fly calibration for improved on-device eye tracking</a></div>
-								<div class="cv-meta">US Patent · Aug 2021</div>
-							</div>
-						</div>
+						<p>
+						<strong><a href="https://patents.google.com/patent/US11106280B1/en">US Patent: </a></strong>On-the-fly calibration for improved on-device eye tracking (2021.08)<br /></p>
 					</section>
 
 				<!-- Media Coverage -->
@@ -1080,40 +887,15 @@
 						<header class="major">
 							<h2>Media Coverage and Featuring</h2>
 						</header>
-						<div class="cv-block">
-							<div class="cv-entry cv-media">
-								<div class="cv-title"><a href="https://news.cornell.edu/stories/2025/03/ai-ring-tracks-spelled-words-american-sign-language">AI ring tracks spelled words in American Sign Language</a></div>
-								<div class="cv-meta">Cornell Ann S. Bowers College of Computing and Information Science · Mar 2025</div>
-							</div>
-							<div class="cv-entry cv-media">
-								<div class="cv-title"><a href="https://www.cs.cmu.edu/news/2024/nonvisual-cooking">Accessing Recipe Information Without Looking</a></div>
-								<div class="cv-meta">Carnegie Mellon School of Computer Science · Dec 2024</div>
-							</div>
-							<div class="cv-entry cv-media">
-								<div class="cv-title"><a href="https://www.hcii.cmu.edu/news/new-search-engine-tool-helps-users-make-sense-unfamiliar-topics">New Search Engine Tool Helps Users Make Sense of Unfamiliar Topics</a></div>
-								<div class="cv-meta">Carnegie Mellon School of Computer Science · Jun 2023</div>
-							</div>
-							<div class="cv-entry cv-media">
-								<div class="cv-title"><a href="https://magazine.cs.cmu.edu/accessibility-enables-equality">Accessibility Enables Equality</a></div>
-								<div class="cv-meta">Carnegie Mellon University · Aug 2022</div>
-							</div>
-							<div class="cv-entry cv-media">
-								<div class="cv-title"><a href="https://dl.acm.org/doi/abs/10.1145/3498367">Eyelid gestures for people with motor impairments</a></div>
-								<div class="cv-meta">Communications of the ACM · Jan 2022</div>
-							</div>
-							<div class="cv-entry cv-media">
-								<div class="cv-title"><a href="https://spectrum.ieee.org/tech-talk/biomedical/bionics/the-next-frontier-for-gesture-control-is-teeth">The Next Frontier for Gesture Control is Teeth</a></div>
-								<div class="cv-meta">IEEE Spectrum · May 2021</div>
-							</div>
-							<div class="cv-entry cv-media">
-								<div class="cv-title"><a href="https://mobility21.cmu.edu/whats_happening/mobility21-researchers-win-us-department-of-transportation-inclusive-design-challenge-awards/">Mobility21 Researchers Win US Department of Transportation Inclusive Design Challenge Award</a></div>
-								<div class="cv-meta">Mobility21 · Jan 2021</div>
-							</div>
-							<div class="cv-entry cv-media">
-								<div class="cv-title"><a href="https://www.newscientist.com/article/2218025-where-have-i-left-my-wallet-this-smart-camera-can-remind-you/">Where have I left my wallet? This smart camera can remind you</a></div>
-								<div class="cv-meta">New Scientist · Sep 2019</div>
-							</div>
-						</div>
+						<p>
+						<strong><a href="https://news.cornell.edu/stories/2025/03/ai-ring-tracks-spelled-words-american-sign-language">Cornell Ann S. Bowers College of Computing and Information Science: </a></strong> AI ring tracks spelled words in American Sign Language (2025.03)<br />
+						<strong><a href="https://www.cs.cmu.edu/news/2024/nonvisual-cooking">Carnegie Mellon School of Computer Science: </a></strong> Accessing Recipe Information Without Looking (2024.12)<br />
+						<strong><a href="https://www.hcii.cmu.edu/news/new-search-engine-tool-helps-users-make-sense-unfamiliar-topics">Carnegie Mellon School of Computer Science: </a></strong> New Search Engine Tool Helps Users Make Sense of Unfamiliar Topics (2023.06)<br />
+					        <strong><a href="https://magazine.cs.cmu.edu/accessibility-enables-equality">Carnegie Mellon University: </a></strong> Accessibility Enables Equality (2022.08)<br />
+						<strong><a href="https://dl.acm.org/doi/abs/10.1145/3498367">Communications of the ACM: </a></strong> Eyelid gestures for people with motor impairments (2022.01)<br />
+						<strong><a href="https://spectrum.ieee.org/tech-talk/biomedical/bionics/the-next-frontier-for-gesture-control-is-teeth">IEEE Spectrum: </a></strong> The Next Frontier for Gesture Control is Teeth (2021.05)<br />
+						<strong><a href="https://mobility21.cmu.edu/whats_happening/mobility21-researchers-win-us-department-of-transportation-inclusive-design-challenge-awards/">Mobility21: </a></strong> Mobility21 Researchers Win US Department of Transportation Inclusive Design Challenge Award (2021.01)<br />
+						<strong><a href="https://www.newscientist.com/article/2218025-where-have-i-left-my-wallet-this-smart-camera-can-remind-you/">New Scientist: </a></strong> Where have I left my wallet? This smart camera can remind you (2019.09)<br /></p>
 					</section>
 
 				<!-- Community Services -->
@@ -1121,28 +903,11 @@
 						<header class="major">
 							<h2>Community Services</h2>
 						</header>
-						<div class="cv-block">
-							<div class="cv-entry cv-service">
-								<div class="cv-title">SIGCHI Accessibility Committee</div>
-								<div class="cv-meta">Vice-Chair (2024–present) · Member (2023–2024)</div>
-							</div>
-							<div class="cv-entry cv-service">
-								<div class="cv-title">Organizing Committee</div>
-								<div class="cv-meta">Publication Chair (CHI 2025) · Accessibility Chair (ASSETS 2025, CHI 2024, CSCW 2023, HCOMP/CI 2023, C&amp;C 2023, C&amp;C 2022, C&amp;C 2021) · Inclusion and Broad Participation Chair (Ubicomp 2024) · Student Volunteer Co-chair (ASSETS 2022)</div>
-							</div>
-							<div class="cv-entry cv-service">
-								<div class="cv-title">Program Committee</div>
-								<div class="cv-meta">Associate Chair (ASSETS 2026, CHI 2026, Ubicomp/ISCW 2025, CHI 2025, ASSETS 2024, CHI 2024, Chinese-CHI 2021, CHI 2020 Late Breaking Works)</div>
-							</div>
-							<div class="cv-entry cv-service">
-								<div class="cv-title">Reviewers</div>
-								<div class="cv-meta">CHI 2026 (13) · Ubicomp/ISWC 2025 (5) · UIST 2025 (1) · CHI 2025 (14) · IMWUT 2025 (2) · ASSETS 2024 (7) · UIST 2024 (2) · IMWUT 2024 (2) · CHI 2024 (13) · ASSETS 2023 (2) · CHI 2023 (5) · TACCESS 2023 (1) · IMWUT 2023 (1) · UIST 2023 (1) · TACCESS 2022 (1) · ISS 2022 (2) · CHI 2022 (7) · CHI 2022 Late Breaking Works (1) · ISS 2021 (1) · UIST 2021 (1) · CSCW 2021 (3) · CHI 2021 (4) · Chinese-CHI 2021 (3) · IDC 2021 (1) · EICS PACM 2021 (1) · UIST 2020 (1) · IJHCS (1) · CHI 2020 (2) · CHI 2020 Late Breaking Works (8) · CHI 2019 Late Breaking Works (5)</div>
-							</div>
-							<div class="cv-entry cv-service">
-								<div class="cv-title">Student Volunteer</div>
-								<div class="cv-meta">ASSETS 2020</div>
-							</div>
-						</div>
+						<p><strong>SIGCHI Accessibility Committee</strong><br />Vice-Chair (2024-present)<br />Member (2023-2024)</p>
+						<p><strong>Organizing Committee</strong><br />Publication Chair (CHI 2025), Accessibility Chair (ASSETS 2025, CHI 2024, CSCW 2023, HCOMP/CI 2023, C&C 2023, C&C 2022, C&C 2021), Inclusion and Broad Participation Chair (Ubicomp 2024), Student Volunteer Co-chair (ASSETS 2022)</p>
+						<p><strong>Program Committee</strong><br />Associate Chair (ASSETS 2026, CHI 2026, Ubicomp/ISCW 2025, CHI 2025, ASSETS 2024, CHI 2024, Chinese-CHI 2021, CHI 2020 Late Breaking Works)</p>
+						<p><strong>Reviewers</strong><br />CHI 2026 (13), Ubicomp/ISWC 2025 (5), UIST 2025 (1), CHI 2025 (14), IMWUT 2025 (2), ASSETS 2024 (7), UIST 2024 (2), IMWUT 2024 (2) CHI 2024 (13), ASSETS 2023 (2), CHI 2023 (5), TACCESS 2023 (1), IMWUT 2023 (1), UIST 2023 (1), TACCESS 2022 (1), ISS 2022 (2), CHI 2022 (7), CHI 2022 Late Breaking Works (1), ISS 2021 (1), UIST 2021 (1), CSCW 2021 (3), CHI 2021 (4), Chinese-CHI 2021(3), IDC 2021 (1), EICS PACM 2021 (1), UIST 2020 (1), IJHCS (1), CHI 2020 (2), CHI 2020 Late Breaking Works (8), CHI 2019 Late Breaking Works (5)</p>
+						<p><strong>Student Volunteer</strong><br />ASSETS 2020</p>
 					</section>
 
 				<!-- Teaching Experiences and Invited Talks -->
@@ -1150,68 +915,19 @@
 						<header class="major">
 							<h2>Teaching Experiences and Invited Talks</h2>
 						</header>
-						<div class="cv-block">
-							<div class="cv-entry cv-teach cv-teach-primary">
-								<div class="cv-label">Co-Instructor</div>
-								<div class="cv-title">Accessibility and Assistive Technology (05332/632)</div>
-								<div class="cv-meta">Carnegie Mellon University</div>
-							</div>
-							<div class="cv-entry cv-teach">
-								<div class="cv-label">Invited Talk</div>
-								<div class="cv-title">Conversational Audio Description Editor</div>
-								<div class="cv-meta">Google LLC · Invited by Dr. Cindy Bennett &amp; Dr. Shaun Kane</div>
-							</div>
-							<div class="cv-entry cv-teach">
-								<div class="cv-label">Invited Talk</div>
-								<div class="cv-title">Building Usable Systems for People with Disabilities in Physical Activities</div>
-								<div class="cv-meta">University of Rochester · Invited by Dr. Yukang Yan · Mar 2024</div>
-							</div>
-							<div class="cv-entry cv-teach">
-								<div class="cv-label">Guest Lecture</div>
-								<div class="cv-title">Designing Human-Centered Software</div>
-								<div class="cv-meta">Carnegie Mellon University · Invited by Dr. Aaron Steinfeld · Mar 2024</div>
-							</div>
-							<div class="cv-entry cv-teach">
-								<div class="cv-label">Guest Lecture</div>
-								<div class="cv-title">Designing Human-Centered Software</div>
-								<div class="cv-meta">Carnegie Mellon University · Invited by Dr. Sherry Tongshuang Wu · Feb 2024</div>
-							</div>
-							<div class="cv-entry cv-teach">
-								<div class="cv-label">Invited Talk</div>
-								<div class="cv-title">Building Usable Systems for People with Disabilities in Physical Activities</div>
-								<div class="cv-meta">University of Notre Dame · Invited by Dr. Toby Jia-jun Li · Oct 2023</div>
-							</div>
-							<div class="cv-entry cv-teach">
-								<div class="cv-label">Guest Lecture</div>
-								<div class="cv-title">Designing Human-Centered Software</div>
-								<div class="cv-meta">Carnegie Mellon University · Invited by Dr. Aaron Steinfeld &amp; Dr. Sherry Tongshuang Wu · Oct 2023</div>
-							</div>
-							<div class="cv-entry cv-teach">
-								<div class="cv-label">Teaching Assistant</div>
-								<div class="cv-title">Designing Human-Centered Software</div>
-								<div class="cv-meta">Carnegie Mellon University · May 2023</div>
-							</div>
-							<div class="cv-entry cv-teach">
-								<div class="cv-label">Invited Talk</div>
-								<div class="cv-title">Leveraging AI for Accessibility in Physical Space</div>
-								<div class="cv-meta">APEX Lab, HKUST · Invited by Dr. Mingming Fan · Mar 2023</div>
-							</div>
-							<div class="cv-entry cv-teach">
-								<div class="cv-label">Invited Talk</div>
-								<div class="cv-title">Leveraging AI for Accessibility in Physical Space</div>
-								<div class="cv-meta">DGP Lab, University of Toronto · Feb 2023</div>
-							</div>
-							<div class="cv-entry cv-teach">
-								<div class="cv-label">Teaching Assistant</div>
-								<div class="cv-title">User-Centered Research and Evaluation</div>
-								<div class="cv-meta">Carnegie Mellon University · Dec 2022</div>
-							</div>
-							<div class="cv-entry cv-teach">
-								<div class="cv-label">Teaching Assistant</div>
-								<div class="cv-title">CSC258H1S: Computer Organization</div>
-								<div class="cv-meta">University of Toronto · Apr 2019 &amp; Dec 2018</div>
-							</div>
-						</div>
+						<p><strong>Co-Instructor: Accessibility and Assistive Technology (05332/632)</strong><br />Carnegie Mellon University<br />
+						<strong>Invited Talk: Conversational Audio Description Editor</strong><br />Google LLC, Invited by Dr. Cindy Bennett and Dr. Shaun Kane<br />
+						<strong>Invited Talk: Building Usable Systems for People with Disabilities in Physical Activities</strong><br />University of Rochester (Mar 2024), Invited by Dr. Yukang Yan<br />
+						<strong>Guest Lecture: Designing Human-Centered Software</strong><br />Carnegie Mellon University (Mar 2024), Invited by Dr. Aaron Steinfeld<br />
+						<strong>Guest Lecture: Designing Human-Centered Software</strong><br />Carnegie Mellon University (Feb 2024), Invited by Dr. Sherry Tongshuang Wu<br />
+						<strong>Invited Talk: Building Usable Systems for People with Disabilities in Physical Activities</strong><br />University of Notre Dame (Oct 2023), Invited by Dr. Toby Jia-jun Li<br />
+						<strong>Guest Lecture: Designing Human-Centered Software</strong><br />Carnegie Mellon University (Oct 2023), Invited by Dr. Aaron Steinfeld and Dr. Sherry Tongshuang Wu<br />
+						<strong>Teaching Assistant: Designing Human-Centered Software</strong><br />Carnegie Mellon University (May 2023)<br />
+						<strong>Invited Talk: Leveraging AI for Accessibility in Physical Space</strong><br />APEX Lab, The Hong Kong University of Science and Technology (HKUST) (Mar 2023), Invited by Dr. Mingming Fan<br />
+						<strong>Invited Talk: Leveraging AI for Accessibility in Physical Space</strong><br />DGP Lab, University of Toronto (Feb 2023)<br />
+						<strong>Teaching Assistant: User-Centered Research and Evaluation</strong><br />Carnegie Mellon University (Dec 2022)<br />
+						<strong>Teaching Assistant: CSC258H1S: Computer Organization</strong><br />University of Toronto (Apr 2019)<br />
+						<strong>Teaching Assistant: CSC258H1S: Computer Organization</strong><br />University of Toronto (Dec 2018)</p>
 					</section>
 
 			</div>
