@@ -2597,7 +2597,6 @@ input, select, textarea {
 		text-align: right;
 		top: 0;
 		width: 35%;
-		box-shadow: 4px 0 20px rgba(0,0,0,0.1);
 	}
 
 		#header > * {
