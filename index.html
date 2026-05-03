@@ -1,1467 +1,614 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Franklin Mingzhe Li - HCI & Accessibility Researcher</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #0f172a;
-            --primary-light: #1e293b;
-            --accent: #6366f1;
-            --accent-light: #818cf8;
-            --accent-glow: rgba(99, 102, 241, 0.15);
-            --surface: #ffffff;
-            --surface-alt: #f8fafc;
-            --text: #334155;
-            --text-light: #64748b;
-            --border: #e2e8f0;
-            --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-            --gradient-2: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            color: var(--text);
-            line-height: 1.7;
-            background: var(--surface);
-        }
-
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .nav-brand {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .nav-cta {
-            background: var(--gradient-1);
-            color: white !important;
-            padding: 0.5rem 1.25rem;
-            border-radius: 50px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-        }
-
-        .nav-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(180deg, var(--surface-alt) 0%, var(--surface) 100%);
-            position: relative;
-            overflow: hidden;
-            padding: 6rem 2rem 4rem;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 70%;
-            height: 150%;
-            background: radial-gradient(ellipse, var(--accent-glow) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--accent-glow);
-            color: var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-badge i {
-            font-size: 0.75rem;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-title span {
-            display: block;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.15rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            max-width: 540px;
-        }
-
-        .hero-uni {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding: 1.25rem 1.5rem;
-            background: white;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-        }
-
-        .hero-uni-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--gradient-1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.25rem;
-        }
-
-        .hero-uni-text {
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        .hero-uni-sub {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.75rem;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.25s ease;
-        }
-
-        .btn-primary {
-            background: var(--gradient-1);
-            color: white;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(99, 102, 241, 0.4);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 1px solid var(--border);
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .hero-image {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .hero-image-wrapper {
-            position: relative;
-            width: 380px;
-            height: 380px;
-        }
-
-        .hero-image-bg {
-            position: absolute;
-            inset: -20px;
-            background: var(--gradient-1);
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            opacity: 0.2;
-            animation: morph 8s ease-in-out infinite;
-        }
-
-        @keyframes morph {
-            0%, 100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
-        }
-
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid white;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-        .stat-label {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-
-        /* Section Styles */
-        .section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-label {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--accent);
-            margin-bottom: 0.75rem;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .section-desc {
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        /* About Section */
-        .about {
-            background: var(--surface-alt);
-            padding: 6rem 2rem;
-        }
-
-        .about-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--text);
-        }
-
-        .about-text a {
-            color: var(--accent);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s ease;
-        }
-
-        .about-text a:hover {
-            border-bottom-color: var(--accent);
-        }
-
-        .recruitment-box {
-            background: var(--gradient-1);
-            color: white;
-            padding: 1.5rem 2rem;
-            border-radius: 16px;
-            margin-top: 2rem;
-        }
-
-        .recruitment-box h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .recruitment-box p {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            margin: 0;
-        }
-
-        .research-areas {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.25rem;
-        }
-
-        .research-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .research-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-            border-color: var(--accent);
-        }
-
-        .research-card i {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 0.75rem;
-        }
-
-        .research-card h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .research-card p {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin: 0;
-        }
-
-        /* News Section */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .news-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .news-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-        }
-
-        .news-date {
-            display: inline-block;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--accent);
-            background: var(--accent-glow);
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            margin-bottom: 0.75rem;
-        }
-
-        .news-card h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--primary);
-            line-height: 1.4;
-            margin-bottom: 0.5rem;
-        }
-
-        .news-card p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin: 0;
-        }
-
-        /* Publications */
-        .publications {
-            background: var(--surface-alt);
-            padding: 6rem 2rem;
-        }
-
-        .pub-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .pub-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .pub-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .pub-image {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            background: linear-gradient(135deg, var(--accent-glow) 0%, var(--surface-alt) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .pub-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .pub-content {
-            padding: 1.5rem;
-        }
-
-        .pub-venue {
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.5rem;
-        }
-
-        .pub-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--primary);
-            line-height: 1.4;
-            margin-bottom: 0.75rem;
-        }
-
-        .pub-authors {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            line-height: 1.5;
-        }
-
-        .pub-authors strong {
-            color: var(--text);
-            font-weight: 600;
-        }
-
-        .pub-links {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .pub-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--accent);
-            text-decoration: none;
-            padding: 0.35rem 0.75rem;
-            background: var(--accent-glow);
-            border-radius: 50px;
-            transition: all 0.2s ease;
-        }
-
-        .pub-link:hover {
-            background: var(--accent);
-            color: white;
-        }
-
-        .pub-award {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #f59e0b;
-            background: #fef3c7;
-            padding: 0.35rem 0.75rem;
-            border-radius: 50px;
-        }
-
-        /* Experience Section */
-        .experience-timeline {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--accent) 0%, var(--border) 100%);
-        }
-
-        .exp-item {
-            position: relative;
-            padding-left: 2.5rem;
-            padding-bottom: 2.5rem;
-        }
-
-        .exp-item:last-child {
-            padding-bottom: 0;
-        }
-
-        .exp-dot {
-            position: absolute;
-            left: -5px;
-            top: 0;
-            width: 12px;
-            height: 12px;
-            background: var(--accent);
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 2px var(--accent);
-        }
-
-        .exp-date {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .exp-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-
-        .exp-card h4 {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.25rem;
-        }
-
-        .exp-company {
-            color: var(--text-light);
-            margin-bottom: 0.75rem;
-        }
-
-        .exp-desc {
-            font-size: 0.9rem;
-            color: var(--text);
-        }
-
-        /* Grants & Awards */
-        .grants-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .grant-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .grant-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        .grant-amount {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .grant-title {
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .grant-meta {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-
-        /* Services */
-        .services-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-        }
-
-        .service-card {
-            background: var(--surface-alt);
-            border-radius: 16px;
-            padding: 2rem;
-        }
-
-        .service-card h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .service-card h4 i {
-            color: var(--accent);
-            width: 24px;
-        }
-
-        .service-list {
-            list-style: none;
-            font-size: 0.9rem;
-            color: var(--text);
-        }
-
-        .service-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .service-list li:last-child {
-            border-bottom: none;
-        }
-
-        /* Media Coverage */
-        .media-grid {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1rem;
-        }
-
-        .media-card {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.25rem;
-            transition: all 0.3s ease;
-        }
-
-        .media-card:hover {
-            border-color: var(--accent);
-        }
-
-        .media-source {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .media-card a {
-            font-size: 0.9rem;
-            font-weight: 500;
-            color: var(--primary);
-            text-decoration: none;
-            line-height: 1.4;
-            display: block;
-        }
-
-        .media-card a:hover {
-            color: var(--accent);
-        }
-
-        /* Teaching */
-        .teaching-list {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .teaching-item {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .teaching-item h4 {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .teaching-item p {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin: 0;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: var(--gradient-2);
-            color: white;
-            padding: 6rem 2rem;
-            text-align: center;
-        }
-
-        .contact-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .contact h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact p {
-            opacity: 0.8;
-            margin-bottom: 2rem;
-        }
-
-        .contact-links {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .contact-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            color: white;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .contact-link:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary);
-            color: rgba(255, 255, 255, 0.6);
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-content {
-                order: 2;
-            }
-
-            .hero-image {
-                order: 1;
-            }
-
-            .hero-subtitle {
-                margin: 0 auto 2rem;
-            }
-
-            .hero-buttons {
-                justify-content: center;
-            }
-
-            .hero-stats {
-                justify-content: center;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav {
-                padding: 1rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            .hero-image-wrapper {
-                width: 280px;
-                height: 280px;
-            }
-
-            .section {
-                padding: 4rem 1.5rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .news-grid,
-            .pub-grid,
-            .grants-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .research-areas {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="nav">
-        <a href="#" class="nav-brand">Franklin Li</a>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#services">Service</a></li>
-            <li><a href="#contact" class="nav-cta">Contact</a></li>
-        </ul>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-circle"></i>
-                    Accepting PhD Students Fall 2027
-                </div>
-                <h1 class="hero-title">
-                    Franklin Mingzhe Li
-                    <span>HCI & Accessibility Researcher</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Designing and deploying assistive technologies that empower people with disabilities in physical spaces and daily activities through AI-powered solutions.
-                </p>
-                <div class="hero-uni">
-                    <div class="hero-uni-icon">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <div>
-                        <div class="hero-uni-text">Incoming Assistant Professor</div>
-                        <div class="hero-uni-sub">UNC-Chapel Hill, School of Data Science and Society</div>
-                    </div>
-                </div>
-                <div class="hero-buttons">
-                    <a href="Franklin_Mingzhe_Li_Resume_Final.pdf" class="btn btn-primary">
-                        <i class="fas fa-download"></i> Download CV
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=jZa4SPIAAAAJ&hl=en" class="btn btn-secondary">
-                        <i class="fas fa-graduation-cap"></i> Google Scholar
-                    </a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">30+</div>
-                        <div class="stat-label">Publications</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Awards</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">5</div>
-                        <div class="stat-label">Top Venues</div>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-image-wrapper">
-                    <div class="hero-image-bg"></div>
-                    <img src="franklin-profile.jpg" alt="Franklin Mingzhe Li">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="about-content">
-            <div class="about-text">
-                <span class="section-label">About Me</span>
-                <h2 class="section-title">Research that Matters</h2>
-                <p>
-                    I am a final-year PhD candidate at Carnegie Mellon University's Human-Computer Interaction Institute, advised by <a href="https://www.patrickcarrington.com/">Prof. Patrick A. Carrington</a>. My research sits at the intersection of HCI, Assistive Technology, and Ubiquitous Computing.
-                </p>
-                <p>
-                    My dissertation focuses on enabling non-visual cooking for people with vision impairments through AI and assistive technologies. I've developed systems that help users understand their surroundings, track progress in complex tasks, and navigate daily activities with greater independence.
-                </p>
-                <p>
-                    Before CMU, I completed my M.Sc. at the University of Toronto under <a href="https://www.cs.toronto.edu/~khai/">Prof. Khai N. Truong</a>, following my B.Eng. in Electrical Engineering.
-                </p>
-                <div class="recruitment-box">
-                    <h4>Open Positions</h4>
-                    <p>I'm recruiting RAs for Fall 2026 and PhD students for Fall 2027 at UNC-Chapel Hill!</p>
-                </div>
-            </div>
-            <div class="research-areas">
-                <div class="research-card">
-                    <i class="fas fa-eye-slash"></i>
-                    <h4>Visual Accessibility</h4>
-                    <p>Non-visual interfaces and assistive technologies</p>
-                </div>
-                <div class="research-card">
-                    <i class="fas fa-robot"></i>
-                    <h4>AI for Accessibility</h4>
-                    <p>Leveraging AI to enhance independence</p>
-                </div>
-                <div class="research-card">
-                    <i class="fas fa-hands-helping"></i>
-                    <h4>Assistive Tech</h4>
-                    <p>Physical activity support systems</p>
-                </div>
-                <div class="research-card">
-                    <i class="fas fa-mobile-alt"></i>
-                    <h4>Mobile HCI</h4>
-                    <p>Ubiquitous computing solutions</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- News Section -->
-    <section id="news" class="section">
-        <div class="section-header">
-            <span class="section-label">Stay Updated</span>
-            <h2 class="section-title">Recent News</h2>
-        </div>
-        <div class="news-grid">
-            <div class="news-card">
-                <span class="news-date">Apr 2026</span>
-                <h4>Assistant Professor at UNC-Chapel Hill</h4>
-                <p>Accepted position at the School of Data Science and Society</p>
-            </div>
-            <div class="news-card">
-                <span class="news-date">Dec 2025</span>
-                <h4>Invited Talk at UMich</h4>
-                <p>Visiting Dr. Anhong Guo's lab for a research talk</p>
-            </div>
-            <div class="news-card">
-                <span class="news-date">Oct 2025</span>
-                <h4>ASSETS 2025 in Denver</h4>
-                <p>Presented 2 papers with 5 total acceptances</p>
-            </div>
-            <div class="news-card">
-                <span class="news-date">Sep 2025</span>
-                <h4>UIST 2025 Workshop</h4>
-                <p>Co-organized "Accessible Cyber-Physical Activities"</p>
-            </div>
-            <div class="news-card">
-                <span class="news-date">Aug 2025</span>
-                <h4>Accessibility Course Co-Instructor</h4>
-                <p>Teaching 05332/632 at Carnegie Mellon</p>
-            </div>
-            <div class="news-card">
-                <span class="news-date">Aug 2025</span>
-                <h4>Google Research Talks</h4>
-                <p>Gave 4 invited talks at Google NYC</p>
-            </div>
-            <div class="news-card">
-                <span class="news-date">May 2025</span>
-                <h4>Research Intern at Google</h4>
-                <p>Hosted by Dr. Cynthia Bennett & Dr. Shaun Kane</p>
-            </div>
-            <div class="news-card">
-                <span class="news-date">Apr 2025</span>
-                <h4>CHI 2025 in Yokohama</h4>
-                <p>Presented 3 papers in Japan</p>
-            </div>
-            <div class="news-card">
-                <span class="news-date">Feb 2025</span>
-                <h4>Stuart K. Card Fellowship</h4>
-                <p>$120,000 fellowship award</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section id="publications" class="publications">
-        <div class="section-header">
-            <span class="section-label">Research Output</span>
-            <h2 class="section-title">Selected Publications</h2>
-            <p class="section-desc">Peer-reviewed papers from top HCI and accessibility venues</p>
-        </div>
-        <div class="pub-grid">
-            <div class="pub-card">
-                <div class="pub-image"><img src="ADCanvas.png" alt="ADCanvas"></div>
-                <div class="pub-content">
-                    <div class="pub-venue">CHI 2026</div>
-                    <h3 class="pub-title">ADCanvas: Accessible and Conversational Audio Description Authoring</h3>
-                    <p class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Michael Xieyang Liu, Cynthia L Bennett, Shaun K Kane</p>
-                    <div class="pub-links">
-                        <a href="3772318.3791158.pdf" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pub-card">
-                <div class="pub-image"><img src="ACL2026.png" alt="OSCBench"></div>
-                <div class="pub-content">
-                    <div class="pub-venue">ACL 2026</div>
-                    <h3 class="pub-title">OSCBench: Benchmarking Object State Change in Text-to-Video</h3>
-                    <p class="pub-authors">Xianjing Han, Bin Zhu, Shiqi Hu, <strong>Franklin Mingzhe Li</strong>, Patrick Carrington, Roger Zimmermann, Jingjing Chen</p>
-                    <div class="pub-links">
-                        <a href="2603.11698v2.pdf" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pub-card">
-                <div class="pub-image"><img src="blind_nature.png" alt="Nature Engagement"></div>
-                <div class="pub-content">
-                    <div class="pub-venue">CHI 2026</div>
-                    <h3 class="pub-title">Understanding Nature Engagement Experiences of Blind People</h3>
-                    <p class="pub-authors">Mengjie Tang, Xinman Li, Juxiao Zhang, <strong>Franklin Mingzhe Li</strong>, Zhuying Li</p>
-                    <div class="pub-links">
-                        <a href="3772318.3790515.pdf" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pub-card">
-                <div class="pub-image"><img src="ASSETS_25_Makeup.jpg" alt="Non-visual Makeup"></div>
-                <div class="pub-content">
-                    <div class="pub-venue">ASSETS 2025</div>
-                    <h3 class="pub-title">More than One Step at a Time: Designing Procedural Feedback for Non-visual Makeup</h3>
-                    <p class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Akihiko Oharazawa, Chloe Qingyu Zhu, Misty Fan, Daisuke Sato, Chieko Asakawa, Patrick Carrington</p>
-                    <div class="pub-links">
-                        <a href="2507.03942v1.pdf.pdf" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pub-card">
-                <div class="pub-image"><img src="ASSETS_25_VizXpress.jpg" alt="VizXpress"></div>
-                <div class="pub-content">
-                    <div class="pub-venue">ASSETS 2025</div>
-                    <h3 class="pub-title">VizXpress: Expressive Visual Content by Blind Creators Through AI</h3>
-                    <p class="pub-authors">Lotus Zhang, Zhuohao Jerry Zhang, Gina Clepper, <strong>Franklin Mingzhe Li</strong>, Patrick Carrington, Jacob O Wobbrock, Leah Findlater</p>
-                    <div class="pub-links">
-                        <a href="Camera_Ready_ASSETS25__VizXpress.pdf.pdf" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pub-card">
-                <div class="pub-image"><img src="assets_oscar.png" alt="OSCAR"></div>
-                <div class="pub-content">
-                    <div class="pub-venue">ASSETS 2025</div>
-                    <h3 class="pub-title">Exploring Object Status Recognition for Recipe Progress Tracking</h3>
-                    <p class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Kaitlyn Ng, Bin Zhu, Patrick Carrington</p>
-                    <div class="pub-links">
-                        <a href="2507.03330v1.pdf.pdf" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pub-card">
-                <div class="pub-image"><img src="UIST_25_AROMA.jpg" alt="AROMA"></div>
-                <div class="pub-content">
-                    <div class="pub-venue">UIST 2025</div>
-                    <h3 class="pub-title">AROMA: Mixed-Initiative AI for Non-Visual Cooking</h3>
-                    <p class="pub-authors">Zheng Ning, Leyang Li, Daniel Killough, JooYoung Seo, Patrick Carrington, Yapeng Tian, Yuhang Zhao, <strong>Franklin Mingzhe Li</strong>, Toby Jia-Jun Li</p>
-                    <div class="pub-links">
-                        <a href="2507.10963v1.pdf.pdf" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pub-card">
-                <div class="pub-image"><img src="nonvisualrecipe.png" alt="Non-visual Recipe"></div>
-                <div class="pub-content">
-                    <div class="pub-venue">ASSETS 2024</div>
-                    <h3 class="pub-title">A Recipe for Success? Improving Non-Visual Access to Cooking Instructions</h3>
-                    <p class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Ashley Wang, Patrick Carrington, Shaun K Kane</p>
-                    <div class="pub-links">
-                        <a href="2407.19065v1.pdf" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pub-card">
-                <div class="pub-image"><img src="spellring.jpg" alt="SpellRing"></div>
-                <div class="pub-content">
-                    <div class="pub-venue">CHI 2025</div>
-                    <h3 class="pub-title">SpellRing: Recognizing Continuous Fingerspelling using a Ring</h3>
-                    <p class="pub-authors">Hyunchul Lim, Nam Anh Dang, Dylan Lee, Tianhong Catherine Yu, Jane Lu, <strong>Franklin Mingzhe Li</strong>, Yiqi Jin, Yan Ma, Xiaojun Bi, François Guimbretiere, Cheng Zhang</p>
-                    <div class="pub-links">
-                        <a href="2502.10830v1.pdf" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pub-card">
-                <div class="pub-image"><img src="chi23-260.png" alt="Visual Arts"></div>
-                <div class="pub-content">
-                    <div class="pub-venue">CHI 2023</div>
-                    <h3 class="pub-title">Understanding Visual Arts Experiences of Blind People</h3>
-                    <p class="pub-authors"><strong>Franklin Mingzhe Li*</strong>, Lotus Zhang*, Maryam Bandukda, Abigale Stangl, Kristen Shinohara, Leah Findlater, Patrick Carrington (*Equal contribution)</p>
-                    <div class="pub-links">
-                        <a href="chi23-260.pdf" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pub-card">
-                <div class="pub-image"><img src="BlindMakeup.png" alt="Blind Makeup"></div>
-                <div class="pub-content">
-                    <div class="pub-venue">CHI 2022</div>
-                    <h3 class="pub-title">"It Feels Like Taking a Gamble": Makeup for People with Visual Impairments</h3>
-                    <p class="pub-authors"><strong>Franklin Mingzhe Li*</strong>, Francheska Spektor*, Meng Xia*, Mina Huh*, Peter Cederberg, Yuqi Gong, Kristen Shinohara, Patrick Carrington (*Equal contribution)</p>
-                    <div class="pub-links">
-                        <a href="BlindMakeup.pdf" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                    </div>
-                </div>
-            </div>
-            <div class="pub-card">
-                <div class="pub-image"><img src="images/Assets20-Eyelid.JPG" alt="Eyelid Gestures"></div>
-                <div class="pub-content">
-                    <div class="pub-venue">ASSETS 2020</div>
-                    <h3 class="pub-title">Eyelid Gestures on Mobile Devices for People with Motor Impairments</h3>
-                    <p class="pub-authors">Mingming Fan*, Zhen Li*, <strong>Franklin Mingzhe Li*</strong> (*Equal contribution)</p>
-                    <div class="pub-links">
-                        <a href="assets20a-sub1243-cam-i26.pdf" class="pub-link"><i class="fas fa-file-pdf"></i> PDF</a>
-                        <span class="pub-award"><i class="fas fa-trophy"></i> Best Artifact Award</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="section">
-        <div class="section-header">
-            <span class="section-label">Career Path</span>
-            <h2 class="section-title">Professional Experience</h2>
-        </div>
-        <div class="experience-timeline">
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-date">May 2025 - Aug 2025</div>
-                <div class="exp-card">
-                    <h4>Research Intern</h4>
-                    <p class="exp-company">Google NYC | Hosted by Dr. Cynthia Bennett & Dr. Shaun Kane</p>
-                    <p class="exp-desc">Conducted research on accessible audio description tools for blind content creators.</p>
-                </div>
-            </div>
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-date">May 2019 - Sept 2019</div>
-                <div class="exp-card">
-                    <h4>Research Intern</h4>
-                    <p class="exp-company">Apple (Turi) | Hosted by Dr. Jeffrey P. Bigham & Dr. Xiaoyi Zhang</p>
-                    <p class="exp-desc">Worked on accessibility-related projects at Apple's machine learning division.</p>
-                </div>
-            </div>
-            <div class="exp-item">
-                <div class="exp-dot"></div>
-                <div class="exp-date">May 2016 - Aug 2017</div>
-                <div class="exp-card">
-                    <h4>Hardware Engineer</h4>
-                    <p class="exp-company">AMD</p>
-                    <p class="exp-desc">Developed hardware solutions for graphics processing units.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Grants & Awards -->
-    <section class="section" style="background: var(--surface-alt);">
-        <div class="section-header">
-            <span class="section-label">Recognition</span>
-            <h2 class="section-title">Grants & Fellowships</h2>
-        </div>
-        <div class="grants-grid">
-            <div class="grant-card">
-                <div class="grant-amount">$140,000</div>
-                <h4 class="grant-title">NSERC Canada Postdoctoral Research Award</h4>
-                <p class="grant-meta">Natural Sciences and Engineering Research Council of Canada (Declined)</p>
-            </div>
-            <div class="grant-card">
-                <div class="grant-amount">$120,000</div>
-                <h4 class="grant-title">Stuart K. Card Fellowship</h4>
-                <p class="grant-meta">Carnegie Mellon University, 2025</p>
-            </div>
-            <div class="grant-card">
-                <div class="grant-amount">$960,000</div>
-                <h4 class="grant-title">Academic Research Fund (AcRF) Tier 2</h4>
-                <p class="grant-meta">Singapore Ministry of Education, Collaborator</p>
-            </div>
-            <div class="grant-card">
-                <div class="grant-amount">$100,000</div>
-                <h4 class="grant-title">Google Research Collabs</h4>
-                <p class="grant-meta">Google Inc., Co-PI</p>
-            </div>
-            <div class="grant-card">
-                <div class="grant-amount">$63,000</div>
-                <h4 class="grant-title">NSERC Postgraduate Scholarship</h4>
-                <p class="grant-meta">Natural Sciences and Engineering Research Council of Canada</p>
-            </div>
-            <div class="grant-card">
-                <div class="grant-amount">$300,000</div>
-                <h4 class="grant-title">Inclusive Design Challenge Award</h4>
-                <p class="grant-meta">US Department of Transportation, Collaborator</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Service Section -->
-    <section id="services" class="section">
-        <div class="section-header">
-            <span class="section-label">Community</span>
-            <h2 class="section-title">Academic Service</h2>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <h4><i class="fas fa-users"></i> Organizing Committee</h4>
-                <ul class="service-list">
-                    <li>Publication Chair - CHI 2025</li>
-                    <li>Accessibility Chair - ASSETS 2025, CHI 2024</li>
-                    <li>Inclusion Chair - Ubicomp 2024</li>
-                    <li>Student Volunteer Co-chair - ASSETS 2022</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <h4><i class="fas fa-clipboard-check"></i> Program Committee</h4>
-                <ul class="service-list">
-                    <li>Associate Chair - ASSETS 2026, CHI 2026</li>
-                    <li>Associate Chair - Ubicomp/ISCW 2025, CHI 2025</li>
-                    <li>Associate Chair - ASSETS 2024, CHI 2024</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <h4><i class="fas fa-star"></i> Awards</h4>
-                <ul class="service-list">
-                    <li>Best Artifact Award - ASSETS 2020</li>
-                    <li>Markham Intern of the Year Nominee - AMD 2017</li>
-                    <li>UTRECS Scholarship - U of Toronto 2015</li>
-                </ul>
-            </div>
-            <div class="service-card">
-                <h4><i class="fas fa-award"></i> Committees</h4>
-                <ul class="service-list">
-                    <li>Vice-Chair - SIGCHI Accessibility Committee (2024-present)</li>
-                    <li>Member - SIGCHI Accessibility Committee (2023-2024)</li>
-                    <li>Student Volunteer - ASSETS 2020</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Media Coverage -->
-    <section class="section" style="background: var(--surface-alt);">
-        <div class="section-header">
-            <span class="section-label">Press</span>
-            <h2 class="section-title">Media Coverage</h2>
-        </div>
-        <div class="media-grid">
-            <div class="media-card">
-                <div class="media-source">Cornell Ann S. Bowers College</div>
-                <a href="https://news.cornell.edu/stories/2025/03/ai-ring-tracks-spelled-words-american-sign-language">AI ring tracks spelled words in American Sign Language</a>
-            </div>
-            <div class="media-card">
-                <div class="media-source">Carnegie Mellon School of CS</div>
-                <a href="https://www.cs.cmu.edu/news/2024/nonvisual-cooking">Accessing Recipe Information Without Looking</a>
-            </div>
-            <div class="media-card">
-                <div class="media-source">Communications of the ACM</div>
-                <a href="https://dl.acm.org/doi/abs/10.1145/3498367">Eyelid gestures for people with motor impairments</a>
-            </div>
-            <div class="media-card">
-                <div class="media-source">IEEE Spectrum</div>
-                <a href="https://spectrum.ieee.org/tech-talk/biomedical/bionics/the-next-frontier-for-gesture-control-is-teeth">The Next Frontier for Gesture Control is Teeth</a>
-            </div>
-            <div class="media-card">
-                <div class="media-source">New Scientist</div>
-                <a href="https://www.newscientist.com/article/2218025-where-have-i-left-my-wallet-this-smart-camera-can-remind-you/">Where have I left my wallet? This smart camera can remind you</a>
-            </div>
-            <div class="media-card">
-                <div class="media-source">CMU Magazine</div>
-                <a href="https://magazine.cs.cmu.edu/accessibility-enables-equality">Accessibility Enables Equality</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="contact-content">
-            <h2>Let's Connect</h2>
-            <p>I'm always interested in collaborating on accessibility research or discussing opportunities.</p>
-            <div class="contact-links">
-                <a href="mailto:mingzhe2@andrew.cmu.edu" class="contact-link">
-                    <i class="fas fa-envelope"></i> Email
-                </a>
-                <a href="https://scholar.google.com/citations?user=jZa4SPIAAAAJ&hl=en" class="contact-link">
-                    <i class="fas fa-graduation-cap"></i> Scholar
-                </a>
-                <a href="https://www.linkedin.com/in/franklin-li/" class="contact-link">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://twitter.com/FranklinLiAI" class="contact-link">
-                    <i class="fab fa-twitter"></i> Twitter
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Franklin Mingzhe Li. Built with care.</p>
-    </footer>
-
-    <script>
-        // Smooth scroll for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Nav background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.nav');
-            if (window.scrollY > 50) {
-                nav.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.boxShadow = 'none';
-            }
-        });
-    </script>
-</body>
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Franklin Mingzhe Li</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+		<style>
+			:root {
+				--accent: #6366f1;
+				--accent-glow: rgba(99, 102, 241, 0.15);
+				--accent-light: #818cf8;
+				--text: #334155;
+				--text-light: #64748b;
+				--border: #e2e8f0;
+			}
+
+			/* Override Strata pub styles with modern cards */
+			#one section#one,
+			section#one {
+				margin-bottom: 3rem;
+			}
+
+			.pub-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+				gap: 1.5rem;
+				margin-top: 2rem;
+			}
+
+			.pub-card {
+				background: white;
+				border-radius: 12px;
+				overflow: hidden;
+				border: 1px solid var(--border);
+				transition: all 0.3s ease;
+				break-inside: avoid;
+				margin-bottom: 1.5rem;
+				page-break-inside: avoid;
+			}
+
+			.pub-card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+			}
+
+			.pub-image {
+				width: 100%;
+				height: 140px;
+				object-fit: cover;
+				background: linear-gradient(135deg, var(--accent-glow) 0%, #f8fafc 100%);
+				display: block;
+			}
+
+			.pub-image img {
+				width: 100%;
+				height: 140px;
+				object-fit: cover;
+				display: block;
+			}
+
+			.pub-body {
+				padding: 1.25rem;
+			}
+
+			.pub-venue {
+				display: inline-block;
+				font-size: 0.7rem;
+				font-weight: 600;
+				color: var(--accent);
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				background: var(--accent-glow);
+				padding: 0.2rem 0.6rem;
+				border-radius: 50px;
+				margin-bottom: 0.6rem;
+			}
+
+			.pub-title {
+				font-size: 0.95rem;
+				font-weight: 600;
+				color: #0f172a;
+				line-height: 1.4;
+				margin-bottom: 0.5rem;
+			}
+
+			.pub-authors {
+				font-size: 0.8rem;
+				color: var(--text-light);
+				margin-bottom: 0.75rem;
+				line-height: 1.5;
+			}
+
+			.pub-authors strong {
+				color: var(--text);
+				font-weight: 600;
+			}
+
+			.pub-links {
+				display: flex;
+				gap: 0.5rem;
+				flex-wrap: wrap;
+			}
+
+			.pub-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.3rem;
+				font-size: 0.75rem;
+				font-weight: 500;
+				color: var(--accent);
+				text-decoration: none;
+				padding: 0.25rem 0.6rem;
+				background: var(--accent-glow);
+				border-radius: 50px;
+				transition: all 0.2s ease;
+			}
+
+			.pub-link:hover {
+				background: var(--accent);
+				color: white;
+			}
+
+			.pub-award {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.3rem;
+				font-size: 0.75rem;
+				font-weight: 600;
+				color: #b45309;
+				background: #fef3c7;
+				padding: 0.25rem 0.6rem;
+				border-radius: 50px;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="image avatar"><img src="franklin-profile.jpg" alt="" /></a>
+					<h1><strong>FRANKLIN MINGZHE LI</strong></h1>
+					<p>407 S. Craig Street, Room 212<br />
+					Pittsburgh, PA 15213<br />
+					mingzhe2[at]andrew[dot]cmu[dot]edu<br />
+					</p>
+					<p>
+					<strong><a href="Franklin_Mingzhe_Li_Resume_Final.pdf" style="border:none; background: rgba(99,102,241,0.3); padding: 0.5em 1em; border-radius: 4px;">CV</a></strong> &nbsp;
+					<strong><a href="https://scholar.google.com/citations?user=jZa4SPIAAAAJ&hl=en" style="border:none; background: rgba(99,102,241,0.3); padding: 0.5em 1em; border-radius: 4px;">Google Scholar</a></strong>
+					</p>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- About -->
+					<section id="one">
+						<header class="major">
+							<h2>HCI, Accessibility, and AI</h2>
+						</header>
+						<p>Franklin Mingzhe Li is an incoming Tenure-Track Assistant Professor at the School of Data Science and Society at UNC-Chapel Hill starting from July 2026. Franklin Mingzhe Li is also a <a href="https://pittsburghfoundation.org/fund/10553">Betensky-Kraut Endowed Fellow</a>, a <a href="https://makepossible.cmu.edu/the-cards/">Stuart K. Card Fellow</a>, a <a href="https://www.nserc-crsng.gc.ca/students-etudiants/pg-cs/bellandpostgrad-belletsuperieures_eng.asp">NSERC Postgraduate Fellow</a> and a final-year PhD Candidate advised by <a href="https://www.patrickcarrington.com/">Prof. Patrick A. Carrington</a> in the Human-Computer Interaction Institute at Carnegie Mellon University. He obtained Master of Science degree supervised by <a href="https://www.cs.toronto.edu/~khai/">Prof. Khai N. Truong</a> in the Department of Computer Science at the University of Toronto. He also obtained Bachelor of Electrical Engineering at the University of Toronto. His research interests are in Human-Computer Interaction (HCI), Assistive Technology, and Ubiquitous Computing (UbiComp). His research focuses on exploring, designing, and deploying Assistive Technologies for physical space and Activities of Daily Living for people with disabilities. His dissertation aims to support and enable non-visual cooking for people with vision impairments through AI and Assistive Technologies.</p>
+
+						<h2>I am open to recruit RA starting from Fall 2026 and PhD students starting from Fall 2027!</h2>
+					</section>
+
+				<!-- News -->
+					<section id="one">
+						<header class="major">
+							<h2>Recent News</h2>
+						</header>
+						<p>
+						Apr 2026, Accepted the position of Tenure-Track Assistant Professor at UNC Chapel Hill School of Data Science and Society!<br />
+						Dec 2025, Visiting UMich at Ann Arbor for a Talk invited by Dr. Anhong Guo!<br />
+						Oct 2025, Attended ASSETS 2025 in Denver, with 5 papers, presenting two of them!<br />
+						Sep 2025, Co-organized "Accessible Cyber-Physical Activities" Workshop at UIST 2025!<br />
+						Aug 2025, Starting as a Co-Instructor for 05332/632 Accessibility and Assistive Technology!<br />
+						Aug 2025, 4 Invited Talks at Google Research!<br />
+						Jul 2025, 5 papers accepted at ASSETS 2025, 1 paper accepted at UIST 2025, 1 paper accepted at CSCW 2025!<br />
+						May 2025, Starting as Research Intern at Google in NYC!<br />
+						Apr 2025, Traveling to CHI 2025 (Yokohama, Japan)!<br />
+						Feb 2025, Received Stuart K. Card Fellowship!<br />
+						Jan 2025, Three papers accepted to CHI 2025!<br />
+						Oct 2024, Attending ASSETS 2024 (St John's, Canada)!<br />
+						Oct 2024, Attending to UIST 2024 (Pittsburgh, USA)!<br />
+						Jun 2024, Traveling to HCIC 2024 (Wisconsin, USA)!<br />
+						May 2024, Traveling to CHI 2024 (Hawaii, USA)!<br />
+						Jan 2024, Four papers accepted to CHI 2024!<br />
+						Oct 2023, Invited Talk at University of Notre Dame (Topic: Building Usable Systems for People with Disabilities in Physical Activities)<br />
+						Oct 2023, Traveling to Ubicomp 2023 (Cancun, Mexico)<br />
+						Jul 2023, One paper and one poster got accepted to ASSETS 2023!<br />
+						Apr 2023, Traveling to CHI 2023 (Hamburg, Germany)<br />
+						Feb 2023, Invited Talk at DGP, University of Toronto (Topic: Leveraging AI for Accessibility in Physical Space)<br />
+						Feb 2023, Two papers accepted to CHI 2023!<br />
+						...</p>
+					</section>
+
+				<!-- Publications -->
+					<section id="one">
+						<header class="major">
+							<h2>Selected Peer-Reviewed Full Conference or Journal Publications</h2>
+						</header>
+
+						<div class="pub-grid">
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="ADCanvas.png" alt="ADCanvas"></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2026</div>
+									<div class="pub-title">ADCanvas: Accessible and Conversational Audio Description Authoring for Blind and Low Vision Creators</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Michael Xieyang Liu, Cynthia L Bennett, Shaun K Kane</div>
+									<div class="pub-links"><a href="3772318.3791158.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="ACL2026.png" alt="OSCBench"></div>
+								<div class="pub-body">
+									<div class="pub-venue">ACL 2026</div>
+									<div class="pub-title">OSCBench: Benchmarking Object State Change in Text-to-Video Generation</div>
+									<div class="pub-authors">Xianjing Han, Bin Zhu, Shiqi Hu, <strong>Franklin Mingzhe Li</strong>, Patrick Carrington, Roger Zimmermann, Jingjing Chen</div>
+									<div class="pub-links"><a href="2603.11698v2.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="blind_nature.png" alt="Nature Engagement"></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2026</div>
+									<div class="pub-title">Understanding Nature Engagement Experiences of Blind People</div>
+									<div class="pub-authors">Mengjie Tang, Xinman Li, Juxiao Zhang, <strong>Franklin Mingzhe Li</strong>, Zhuying Li</div>
+									<div class="pub-links"><a href="3772318.3790515.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="ASSETS_25_Makeup.jpg" alt="Non-visual Makeup"></div>
+								<div class="pub-body">
+									<div class="pub-venue">ASSETS 2025</div>
+									<div class="pub-title">More than One Step at a Time: Designing Procedural Feedback for Non-visual Makeup Routines</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Akihiko Oharazawa, Chloe Qingyu Zhu, Misty Fan, Daisuke Sato, Chieko Asakawa, Patrick Carrington</div>
+									<div class="pub-links"><a href="2507.03942v1.pdf.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="ASSETS_25_VizXpress.jpg" alt="VizXpress"></div>
+								<div class="pub-body">
+									<div class="pub-venue">ASSETS 2025</div>
+									<div class="pub-title">VizXpress: Towards Expressive Visual Content by Blind Creators Through AI Support</div>
+									<div class="pub-authors">Lotus Zhang, Zhuohao Jerry Zhang, Gina Clepper, <strong>Franklin Mingzhe Li</strong>, Patrick Carrington, Jacob O Wobbrock, Leah Findlater</div>
+									<div class="pub-links"><a href="Camera_Ready_ASSETS25__VizXpress.pdf.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="assets_oscar.png" alt="OSCAR"></div>
+								<div class="pub-body">
+									<div class="pub-venue">ASSETS 2025</div>
+									<div class="pub-title">Exploring Object Status Recognition for Recipe Progress Tracking in Non-Visual Cooking</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Kaitlyn Ng, Bin Zhu, Patrick Carrington</div>
+									<div class="pub-links"><a href="2507.03330v1.pdf.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="UIST_25_AROMA.jpg" alt="AROMA"></div>
+								<div class="pub-body">
+									<div class="pub-venue">UIST 2025</div>
+									<div class="pub-title">AROMA: Mixed-Initiative AI Assistance for Non-Visual Cooking by Grounding Multi-modal Information</div>
+									<div class="pub-authors">Zheng Ning, Leyang Li, Daniel Killough, JooYoung Seo, Patrick Carrington, Yapeng Tian, Yuhang Zhao, <strong>Franklin Mingzhe Li</strong>, Toby Jia-Jun Li</div>
+									<div class="pub-links"><a href="2507.10963v1.pdf.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="spellring.jpg" alt="SpellRing"></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2025</div>
+									<div class="pub-title">SpellRing: Recognizing Continuous Fingerspelling in American Sign Language using a Ring</div>
+									<div class="pub-authors">Hyunchul Lim, Nam Anh Dang, Dylan Lee, Tianhong Catherine Yu, Jane Lu, <strong>Franklin Mingzhe Li</strong>, Yiqi Jin, Yan Ma, Xiaojun Bi, François Guimbretière, Cheng Zhang</div>
+									<div class="pub-links"><a href="2502.10830v1.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="mobilegame.jpg" alt="Mobile Games"></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2025</div>
+									<div class="pub-title">How Users Who are Blind or Low Vision Play Mobile Games: Perceptions, Challenges, and Strategies</div>
+									<div class="pub-authors">Zihe Ran, Xiyu Li, Qing Xiao, Xianzhe Fan, <strong>Franklin Mingzhe Li</strong>, Yanyun Wang, Zhicong Lu</div>
+									<div class="pub-links"><a href="3706598.3714205.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="nonvisualrecipe.png" alt="Non-visual Recipe"></div>
+								<div class="pub-body">
+									<div class="pub-venue">ASSETS 2024</div>
+									<div class="pub-title">A Recipe for Success? Exploring Strategies for Improving Non-Visual Access to Cooking Instructions</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Ashley Wang, Patrick Carrington, Shaun K Kane</div>
+									<div class="pub-links"><a href="2407.19065v1.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/chi24-343-fig2.jpg" alt="Contextual Inquiry Cooking"></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2024</div>
+									<div class="pub-title">A Contextual Inquiry of People with Vision Impairments in Cooking</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Michael Xieyang Liu, Shaun K Kane, Patrick Carrington</div>
+									<div class="pub-links"><a href="Contextual Inquiry Cooking 1.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/chi24-977-fig6.jpg" alt="Accessible Robots"></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2024</div>
+									<div class="pub-title">Co-design Accessible Public Robots: Insights from People with Mobility Disability, Robotic Practitioners and Their Collaborations</div>
+									<div class="pub-authors">Howard Ziyu Han, <strong>Franklin Mingzhe Li</strong>, Alesandra Baca Vazquez, Daragh Byrne, Nikolas Martelaro, Sarah E Fox</div>
+									<div class="pub-links"><a href="Accessible Robot.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/chi24-986-fig5.jpg" alt="Gesture VR"></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2024</div>
+									<div class="pub-title">Designing Upper-Body Gesture Interaction with and for People with Spinal Muscular Atrophy in VR</div>
+									<div class="pub-authors">Jingze Tian, Yingna Wang, Keye Yu, Liyi Xu, Junan Xie, <strong>Franklin Mingzhe Li</strong>, Yafeng Niu, Mingming Fan</div>
+									<div class="pub-links"><a href="Gesture VR.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/chi24-260-fig2.jpg" alt="Selenite"></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2024</div>
+									<div class="pub-title">Selenite: Scaffolding Online Sensemaking with Comprehensive Overviews Elicited from Large Language Models</div>
+									<div class="pub-authors">Michael Xieyang Liu, Tongshuang Wu, Tianying Chen, <strong>Franklin Mingzhe Li</strong>, Aniket Kittur, Brad A Myers</div>
+									<div class="pub-links"><a href="Selenite.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="chi23-260.png" alt="Visual Arts"></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2023</div>
+									<div class="pub-title">Understanding Visual Arts Experiences of Blind People</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li*</strong>, Lotus Zhang*, Maryam Bandukda, Abigale Stangl, Kristen Shinohara, Leah Findlater, Patrick Carrington (*Equal contribution)</div>
+									<div class="pub-links"><a href="chi23-260.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="upper_extremity_health.png" alt="Upper Extremity Health"></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2023</div>
+									<div class="pub-title">Breaking the "Inescapable" Cycle of Pain: Supporting Wheelchair Users' Upper Extremity Health Awareness and Management with Tracking Technologies</div>
+									<div class="pub-authors">Yunzhi Li, <strong>Franklin Mingzhe Li</strong>, Patrick Carrington</div>
+									<div class="pub-links"><a href="upper_extremity_health.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/multimodal.png" alt="Multimodal"></div>
+								<div class="pub-body">
+									<div class="pub-venue">ASSETS 2022</div>
+									<div class="pub-title">Freedom to Choose: Understanding Input Modality Preferences of People with Upper-body Motor Impairments for Activities of Daily Living</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Michael Xieyang Liu, Yang Zhang, Patrick Carrington</div>
+									<div class="pub-links"><a href="multimodal.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="BlindMakeup.png" alt="Blind Makeup"></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2022</div>
+									<div class="pub-title">"It Feels Like Taking a Gamble": Exploring Perceptions, Practices, and Challenges of Using Makeup and Cosmetics for People with Visual Impairments</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li*</strong>, Francheska Spektor*, Meng Xia*, Mina Huh*, Peter Cederberg, Yuqi Gong, Kristen Shinohara, Patrick Carrington (*Equal contribution)</div>
+									<div class="pub-links"><a href="BlindMakeup.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/Craption.jpg" alt="Craption"></div>
+								<div class="pub-body">
+									<div class="pub-venue">CSCW 2022</div>
+									<div class="pub-title">An Exploration of Captioning Practices and Challenges of Individual Content Creators on YouTube for People with Hearing Impairments</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Cheng Lu, Zhicong Lu, Patrick Carrington, Khai N. Truong</div>
+									<div class="pub-links"><a href="CSCW22_Craption.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/nonvisualcooking.JPG" alt="Non-visual Cooking"></div>
+								<div class="pub-body">
+									<div class="pub-venue">ASSETS 2021</div>
+									<div class="pub-title">Non-Visual Cooking: Exploring Practices and Challenges of Meal Preparation by People with Visual Impairments</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Jamie Dorst, Peter Cederberg, Patrick Carrington</div>
+									<div class="pub-links"><a href="2107.05783.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/ThumbTrak.png" alt="ThumbTrak"></div>
+								<div class="pub-body">
+									<div class="pub-venue">MobileHCI 2021</div>
+									<div class="pub-title">ThumbTrak: Recognizing Micro-finger Poses Using a Ring with Proximity Sensing</div>
+									<div class="pub-authors">Wei Sun, <strong>Franklin Mingzhe Li</strong>, Congshu Huang, Zhenyu Lei, Benjamin Steeper, Songyun Tao, Feng Tian, Cheng Zhang</div>
+									<div class="pub-links"><a href="ThumbTrak_MobileHCI'21.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/Misperception.png" alt="Misperception"></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2021</div>
+									<div class="pub-title">"I Choose Assistive Devices That Save My Face" A Study on Perceptions of Accessibility and Assistive Technology Use Conducted in China</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Di Laura Chen, Mingming Fan, Khai N. Truong</div>
+									<div class="pub-links"><a href="ChineseATs.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/TeethTap.JPG" alt="TeethTap"></div>
+								<div class="pub-body">
+									<div class="pub-venue">IUI 2021</div>
+									<div class="pub-title">TeethTap: Recognizing Discrete Teeth Gestures using Motion and Acoustic Sensing on an Earpiece</div>
+									<div class="pub-authors">Wei Sun*, <strong>Franklin Mingzhe Li*</strong>, Benjamin Steeper*, Songlin Xu, Feng Tian, Cheng Zhang (*Equal contribution)</div>
+									<div class="pub-links"><a href="iui21a-sub1165-i6 (2).pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/Assets20-Eyelid.JPG" alt="Eyelid Gestures"></div>
+								<div class="pub-body">
+									<div class="pub-venue">ASSETS 2020</div>
+									<div class="pub-title">Eyelid Gestures on Mobile Devices for People with Motor Impairments</div>
+									<div class="pub-authors">Mingming Fan*, Zhen Li*, <strong>Franklin Mingzhe Li*</strong> (*Equal contribution)</div>
+									<div class="pub-links">
+										<a href="assets20a-sub1243-cam-i26.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+										<span class="pub-award"><i class="fa fa-trophy" aria-hidden="true"></i> Best Artifact Award</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/FMT.png" alt="FMT"></div>
+								<div class="pub-body">
+									<div class="pub-venue">IMWUT 2019</div>
+									<div class="pub-title">FMT: A Wearable Camera-Based Object Tracking Memory Aid for Older Adults</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Di Laura Chen, Mingming Fan, Khai N. Truong</div>
+									<div class="pub-links"><a href="FMT-IMWUT-19-CameraReady-FinalVersion-V2.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/Face Recognition.png" alt="Face Recognition"></div>
+								<div class="pub-body">
+									<div class="pub-venue">IMWUT 2019</div>
+									<div class="pub-title">Face Recognition Assistant for People with Visual Impairments</div>
+									<div class="pub-authors">Mohammad Kianpisheh, <strong>Franklin Mingzhe Li</strong>, Khai N. Truong</div>
+									<div class="pub-links"><a href="imwut18c-sub2624-cam-i26 (2).pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/BrailleSketch2.png" alt="BrailleSketch"></div>
+								<div class="pub-body">
+									<div class="pub-venue">ASSETS 2017</div>
+									<div class="pub-title">BrailleSketch: A Gesture-based Text Input Method for People with Visual Impairments</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Mingming Fan, Khai N. Truong</div>
+									<div class="pub-links"><a href="braillesketch.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/Haunted.png" alt="Haunted"></div>
+								<div class="pub-body">
+									<div class="pub-venue">DIS 2016</div>
+									<div class="pub-title">The Living Room: Exploring the Haunted and Paranormal to Transform Design and Interaction</div>
+									<div class="pub-authors">Michelle Annett, Matthew Lakier, <strong>Franklin Mingzhe Li</strong>, Daniel Wigdor, Tovi Grossman, George Fitzmaurice</div>
+									<div class="pub-links"><a href="thelivingroom.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+				<!-- Professional Experiences -->
+					<section id="one">
+						<header class="major">
+							<h2>Professional Experiences</h2>
+						</header>
+						<p>
+						<strong>2025.05 - 2025.08<br /></strong>Research Intern at Google NYC. Hosted by Dr. Cynthia Bennett, and Dr. Shaun Kane <br />
+						<strong>2019.05 - 2019.09<br /></strong>Research Intern at Apple (Turi). Hosted by Dr. Jeffrey P. Bigham, and Dr. Xiaoyi Zhang <br />
+						<strong>2016.05 - 2017.08<br /></strong>Hardware Engineer at AMD<br /></p>
+					</section>
+
+				<!-- Grants and Fellowships -->
+					<section id="one">
+						<header class="major">
+							<h2>Grants and Fellowships</h2>
+						</header>
+						<p>
+						<strong>NSERC Canada Postdoctoral Research Award (CPRA)</Strong>, Natural Sciences and Engineering Research Council of Canada ($140,000 over 24 Months), Role: PI, Feb 2026 (Declined)<br />
+						 <strong>Betensky-Kraut Endowed Fellowship</Strong>, Carnegie Mellon University, Role: PI, Jan 2026<br />
+						 <strong>Academic Research Fund (AcRF) Tier 2</Strong>, Singapore Ministry of Education ($960,000), Role: Collaborator; PI: Bin Zhu, Aug 2025<br />
+						 <strong>Stuart K. Card Fellowship</Strong>, Carnegie Mellon University ($120,000), Role: PI, Feb 2025<br />
+						 <strong>Google's Research Collabs</Strong>, Google Inc. ($80,000 Plus $20,000 in Google Cloud), Role: Co-PI; PI: Patrick Carrington, Aug 2022<br />
+						 <strong>Postgraduate Scholarship-Doctoral</strong>, Natural Sciences and Engineering Research Council of Canada (NSERC) ($63,000 over 36 Months), Role: PI, April 2021<br />
+						 <strong>Inclusive Design Challenge Award</strong>, US Department of Transportation ($300,000), Role: Collaborator; PI: Nik Martelaro; Co-PIs: Patrick Carrington, Sarah Fox, Jodi Forlizzi, Jan 2021<br />
+						 <strong>Faculty of Arts And Science Tuition Fellowship</strong>, University of Toronto ($18,558), Role: PI, Sept 2018<br />
+						 <strong>Faculty of Arts And Science Program-Level Fellowship</strong>, University of Toronto ($1000), Role: PI, Nov 2018<br />
+						</p>
+					</section>
+
+				<!-- Awards and Scholarship -->
+					<section id="one">
+						<header class="major">
+							<h2>Awards and Scholarship</h2>
+						</header>
+						<p>
+						 <strong>Graduate Student Assembly/Provost Conference Funds</Strong>, Carnegie Mellon University ($750), Oct 2022<br />
+						 <strong>Graduate Student Assembly/Provost Conference Funds</Strong>, Carnegie Mellon University ($750), Mar 2022<br />
+						 <strong>Best Artifact Award</strong>, ASSETS 2020 ($500), Oct 2020<br />
+						 <strong>Markham Intern of the Year Award Nominee</strong>, AMD, Aug 2017<br />
+						 <strong>UTRECS Scholarship</strong>, University of Toronto ($6000), Aug 2015</p>
+					</section>
+
+				<!-- Selected Patent -->
+					<section id="one">
+						<header class="major">
+							<h2>Selected Patent</h2>
+						</header>
+						<p>
+						<strong><a href="https://patents.google.com/patent/US11106280B1/en">US Patent: </a></strong>On-the-fly calibration for improved on-device eye tracking (2021.08)<br /></p>
+					</section>
+
+				<!-- Media Coverage -->
+					<section id="one">
+						<header class="major">
+							<h2>Media Coverage and Featuring</h2>
+						</header>
+						<p>
+						<strong><a href="https://news.cornell.edu/stories/2025/03/ai-ring-tracks-spelled-words-american-sign-language">Cornell Ann S. Bowers College of Computing and Information Science: </a></strong> AI ring tracks spelled words in American Sign Language (2025.03)<br />
+						<strong><a href="https://www.cs.cmu.edu/news/2024/nonvisual-cooking">Carnegie Mellon School of Computer Science: </a></strong> Accessing Recipe Information Without Looking (2024.12)<br />
+						<strong><a href="https://www.hcii.cmu.edu/news/new-search-engine-tool-helps-users-make-sense-unfamiliar-topics">Carnegie Mellon School of Computer Science: </a></strong> New Search Engine Tool Helps Users Make Sense of Unfamiliar Topics (2023.06)<br />
+					        <strong><a href="https://magazine.cs.cmu.edu/accessibility-enables-equality">Carnegie Mellon University: </a></strong> Accessibility Enables Equality (2022.08)<br />
+						<strong><a href="https://dl.acm.org/doi/abs/10.1145/3498367">Communications of the ACM: </a></strong> Eyelid gestures for people with motor impairments (2022.01)<br />
+						<strong><a href="https://spectrum.ieee.org/tech-talk/biomedical/bionics/the-next-frontier-for-gesture-control-is-teeth">IEEE Spectrum: </a></strong> The Next Frontier for Gesture Control is Teeth (2021.05)<br />
+						<strong><a href="https://mobility21.cmu.edu/whats_happening/mobility21-researchers-win-us-department-of-transportation-inclusive-design-challenge-awards/">Mobility21: </a></strong> Mobility21 Researchers Win US Department of Transportation Inclusive Design Challenge Award (2021.01)<br />
+						<strong><a href="https://www.newscientist.com/article/2218025-where-have-i-left-my-wallet-this-smart-camera-can-remind-you/">New Scientist: </a></strong> Where have I left my wallet? This smart camera can remind you (2019.09)<br /></p>
+					</section>
+
+				<!-- Community Services -->
+					<section id="one">
+						<header class="major">
+							<h2>Community Services</h2>
+						</header>
+						<p><strong>SIGCHI Accessibility Committee</strong><br />Vice-Chair (2024-present)<br />Member (2023-2024)</p>
+						<p><strong>Organizing Committee</strong><br />Publication Chair (CHI 2025), Accessibility Chair (ASSETS 2025, CHI 2024, CSCW 2023, HCOMP/CI 2023, C&C 2023, C&C 2022, C&C 2021), Inclusion and Broad Participation Chair (Ubicomp 2024), Student Volunteer Co-chair (ASSETS 2022)</p>
+						<p><strong>Program Committee</strong><br />Associate Chair (ASSETS 2026, CHI 2026, Ubicomp/ISCW 2025, CHI 2025, ASSETS 2024, CHI 2024, Chinese-CHI 2021, CHI 2020 Late Breaking Works)</p>
+						<p><strong>Reviewers</strong><br />CHI 2026 (13), Ubicomp/ISWC 2025 (5), UIST 2025 (1), CHI 2025 (14), IMWUT 2025 (2), ASSETS 2024 (7), UIST 2024 (2), IMWUT 2024 (2) CHI 2024 (13), ASSETS 2023 (2), CHI 2023 (5), TACCESS 2023 (1), IMWUT 2023 (1), UIST 2023 (1), TACCESS 2022 (1), ISS 2022 (2), CHI 2022 (7), CHI 2022 Late Breaking Works (1), ISS 2021 (1), UIST 2021 (1), CSCW 2021 (3), CHI 2021 (4), Chinese-CHI 2021(3), IDC 2021 (1), EICS PACM 2021 (1), UIST 2020 (1), IJHCS (1), CHI 2020 (2), CHI 2020 Late Breaking Works (8), CHI 2019 Late Breaking Works (5)</p>
+						<p><strong>Student Volunteer</strong><br />ASSETS 2020</p>
+					</section>
+
+				<!-- Teaching Experiences and Invited Talks -->
+					<section id="one">
+						<header class="major">
+							<h2>Teaching Experiences and Invited Talks</h2>
+						</header>
+						<p><strong>Co-Instructor: Accessibility and Assistive Technology (05332/632)</strong><br />Carnegie Mellon University<br />
+						<strong>Invited Talk: Conversational Audio Description Editor</strong><br />Google LLC, Invited by Dr. Cindy Bennett and Dr. Shaun Kane<br />
+						<strong>Invited Talk: Building Usable Systems for People with Disabilities in Physical Activities</strong><br />University of Rochester (Mar 2024), Invited by Dr. Yukang Yan<br />
+						<strong>Guest Lecture: Designing Human-Centered Software</strong><br />Carnegie Mellon University (Mar 2024), Invited by Dr. Aaron Steinfeld<br />
+						<strong>Guest Lecture: Designing Human-Centered Software</strong><br />Carnegie Mellon University (Feb 2024), Invited by Dr. Sherry Tongshuang Wu<br />
+						<strong>Invited Talk: Building Usable Systems for People with Disabilities in Physical Activities</strong><br />University of Notre Dame (Oct 2023), Invited by Dr. Toby Jia-jun Li<br />
+						<strong>Guest Lecture: Designing Human-Centered Software</strong><br />Carnegie Mellon University (Oct 2023), Invited by Dr. Aaron Steinfeld and Dr. Sherry Tongshuang Wu<br />
+						<strong>Teaching Assistant: Designing Human-Centered Software</strong><br />Carnegie Mellon University (May 2023)<br />
+						<strong>Invited Talk: Leveraging AI for Accessibility in Physical Space</strong><br />APEX Lab, The Hong Kong University of Science and Technology (HKUST) (Mar 2023), Invited by Dr. Mingming Fan<br />
+						<strong>Invited Talk: Leveraging AI for Accessibility in Physical Space</strong><br />DGP Lab, University of Toronto (Feb 2023)<br />
+						<strong>Teaching Assistant: User-Centered Research and Evaluation</strong><br />Carnegie Mellon University (Dec 2022)<br />
+						<strong>Teaching Assistant: CSC258H1S: Computer Organization</strong><br />University of Toronto (Apr 2019)<br />
+						<strong>Teaching Assistant: CSC258H1S: Computer Organization</strong><br />University of Toronto (Dec 2018)</p>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
 </html>
