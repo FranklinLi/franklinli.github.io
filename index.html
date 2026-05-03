@@ -29,6 +29,110 @@
 				margin-bottom: 3rem;
 			}
 
+			/* News ticker */
+			.news-ticker-wrapper {
+				margin-top: 1.5rem;
+				position: relative;
+				background: white;
+				border: 1px solid var(--border);
+				border-radius: 12px;
+				overflow: hidden;
+				padding: 1rem 0;
+			}
+
+			.news-ticker-label {
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				width: 100px;
+				background: linear-gradient(90deg, white 60%, transparent);
+				z-index: 2;
+				display: flex;
+				align-items: center;
+				padding-left: 1.25rem;
+				pointer-events: none;
+			}
+
+			.news-ticker-label span {
+				font-size: 0.7rem;
+				font-weight: 700;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+				color: var(--accent);
+				white-space: nowrap;
+				background: white;
+				padding: 0.25rem 0.5rem;
+				border-radius: 4px;
+			}
+
+			.news-ticker {
+				display: flex;
+				gap: 2rem;
+				animation: ticker 40s linear infinite;
+				width: max-content;
+				padding-left: 120px;
+			}
+
+			.news-ticker:hover {
+				animation-play-state: paused;
+			}
+
+			.news-ticker-item {
+				display: flex;
+				align-items: center;
+				gap: 0.75rem;
+				white-space: nowrap;
+				flex-shrink: 0;
+			}
+
+			.news-ticker-date {
+				font-size: 0.7rem;
+				font-weight: 700;
+				color: white;
+				background: var(--accent);
+				padding: 0.25rem 0.6rem;
+				border-radius: 50px;
+				text-transform: uppercase;
+				letter-spacing: 0.03em;
+			}
+
+			.news-ticker-text {
+				font-size: 0.9rem;
+				color: var(--text);
+				line-height: 1.4;
+			}
+
+			.news-ticker-dot {
+				color: var(--accent);
+				font-size: 0.5rem;
+				flex-shrink: 0;
+			}
+
+			@keyframes ticker {
+				0% { transform: translateX(0); }
+				100% { transform: translateX(-50%); }
+			}
+
+			/* Hide ticker on very small screens */
+			@media (max-width: 480px) {
+				.news-ticker-wrapper {
+					max-height: 120px;
+					overflow-y: auto;
+				}
+
+				.news-ticker {
+					flex-direction: column;
+					animation: none;
+					padding-left: 1rem;
+					width: 100%;
+				}
+
+				.news-ticker-label {
+					display: none;
+				}
+			}
+
 			.pub-grid {
 				display: grid;
 				grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -178,30 +282,212 @@
 						<header class="major">
 							<h2>Recent News</h2>
 						</header>
-						<p>
-						Apr 2026, Accepted the position of Tenure-Track Assistant Professor at UNC Chapel Hill School of Data Science and Society!<br />
-						Dec 2025, Visiting UMich at Ann Arbor for a Talk invited by Dr. Anhong Guo!<br />
-						Oct 2025, Attended ASSETS 2025 in Denver, with 5 papers, presenting two of them!<br />
-						Sep 2025, Co-organized "Accessible Cyber-Physical Activities" Workshop at UIST 2025!<br />
-						Aug 2025, Starting as a Co-Instructor for 05332/632 Accessibility and Assistive Technology!<br />
-						Aug 2025, 4 Invited Talks at Google Research!<br />
-						Jul 2025, 5 papers accepted at ASSETS 2025, 1 paper accepted at UIST 2025, 1 paper accepted at CSCW 2025!<br />
-						May 2025, Starting as Research Intern at Google in NYC!<br />
-						Apr 2025, Traveling to CHI 2025 (Yokohama, Japan)!<br />
-						Feb 2025, Received Stuart K. Card Fellowship!<br />
-						Jan 2025, Three papers accepted to CHI 2025!<br />
-						Oct 2024, Attending ASSETS 2024 (St John's, Canada)!<br />
-						Oct 2024, Attending to UIST 2024 (Pittsburgh, USA)!<br />
-						Jun 2024, Traveling to HCIC 2024 (Wisconsin, USA)!<br />
-						May 2024, Traveling to CHI 2024 (Hawaii, USA)!<br />
-						Jan 2024, Four papers accepted to CHI 2024!<br />
-						Oct 2023, Invited Talk at University of Notre Dame (Topic: Building Usable Systems for People with Disabilities in Physical Activities)<br />
-						Oct 2023, Traveling to Ubicomp 2023 (Cancun, Mexico)<br />
-						Jul 2023, One paper and one poster got accepted to ASSETS 2023!<br />
-						Apr 2023, Traveling to CHI 2023 (Hamburg, Germany)<br />
-						Feb 2023, Invited Talk at DGP, University of Toronto (Topic: Leveraging AI for Accessibility in Physical Space)<br />
-						Feb 2023, Two papers accepted to CHI 2023!<br />
-						...</p>
+					<div class="news-ticker-wrapper">
+						<div class="news-ticker-label"><span>News</span></div>
+						<div class="news-ticker">
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Apr 2026</span>
+								<span class="news-ticker-text">Accepted Tenure-Track Assistant Professor at UNC-Chapel Hill</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Dec 2025</span>
+								<span class="news-ticker-text">Invited Talk at UMich by Dr. Anhong Guo</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Oct 2025</span>
+								<span class="news-ticker-text">ASSETS 2025 in Denver — 5 papers accepted</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Sep 2025</span>
+								<span class="news-ticker-text">Co-organized "Accessible Cyber-Physical Activities" Workshop at UIST 2025</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Aug 2025</span>
+								<span class="news-ticker-text">Co-Instructor: 05332/632 Accessibility and Assistive Technology</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Aug 2025</span>
+								<span class="news-ticker-text">4 Invited Talks at Google Research</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">May 2025</span>
+								<span class="news-ticker-text">Research Intern at Google NYC</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Apr 2025</span>
+								<span class="news-ticker-text">CHI 2025 in Yokohama, Japan</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Feb 2025</span>
+								<span class="news-ticker-text">Stuart K. Card Fellowship Award</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Jan 2025</span>
+								<span class="news-ticker-text">3 papers accepted to CHI 2025</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Oct 2024</span>
+								<span class="news-ticker-text">ASSETS 2024 in St John's, Canada</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Oct 2024</span>
+								<span class="news-ticker-text">UIST 2024 in Pittsburgh</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">May 2024</span>
+								<span class="news-ticker-text">CHI 2024 in Hawaii</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Jan 2024</span>
+								<span class="news-ticker-text">4 papers accepted to CHI 2024</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Oct 2023</span>
+								<span class="news-ticker-text">Invited Talk at University of Notre Dame</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Oct 2023</span>
+								<span class="news-ticker-text">Ubicomp 2023 in Cancun, Mexico</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Jul 2023</span>
+								<span class="news-ticker-text">Paper and poster accepted to ASSETS 2023</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Apr 2023</span>
+								<span class="news-ticker-text">CHI 2023 in Hamburg, Germany</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Feb 2023</span>
+								<span class="news-ticker-text">Invited Talk at DGP, University of Toronto</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Feb 2023</span>
+								<span class="news-ticker-text">2 papers accepted to CHI 2023</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<!-- Duplicate for seamless loop -->
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Apr 2026</span>
+								<span class="news-ticker-text">Accepted Tenure-Track Assistant Professor at UNC-Chapel Hill</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Dec 2025</span>
+								<span class="news-ticker-text">Invited Talk at UMich by Dr. Anhong Guo</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Oct 2025</span>
+								<span class="news-ticker-text">ASSETS 2025 in Denver — 5 papers accepted</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Sep 2025</span>
+								<span class="news-ticker-text">Co-organized "Accessible Cyber-Physical Activities" Workshop at UIST 2025</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Aug 2025</span>
+								<span class="news-ticker-text">Co-Instructor: 05332/632 Accessibility and Assistive Technology</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Aug 2025</span>
+								<span class="news-ticker-text">4 Invited Talks at Google Research</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">May 2025</span>
+								<span class="news-ticker-text">Research Intern at Google NYC</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Apr 2025</span>
+								<span class="news-ticker-text">CHI 2025 in Yokohama, Japan</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Feb 2025</span>
+								<span class="news-ticker-text">Stuart K. Card Fellowship Award</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Jan 2025</span>
+								<span class="news-ticker-text">3 papers accepted to CHI 2025</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Oct 2024</span>
+								<span class="news-ticker-text">ASSETS 2024 in St John's, Canada</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Oct 2024</span>
+								<span class="news-ticker-text">UIST 2024 in Pittsburgh</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">May 2024</span>
+								<span class="news-ticker-text">CHI 2024 in Hawaii</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Jan 2024</span>
+								<span class="news-ticker-text">4 papers accepted to CHI 2024</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Oct 2023</span>
+								<span class="news-ticker-text">Invited Talk at University of Notre Dame</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Oct 2023</span>
+								<span class="news-ticker-text">Ubicomp 2023 in Cancun, Mexico</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Jul 2023</span>
+								<span class="news-ticker-text">Paper and poster accepted to ASSETS 2023</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Apr 2023</span>
+								<span class="news-ticker-text">CHI 2023 in Hamburg, Germany</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Feb 2023</span>
+								<span class="news-ticker-text">Invited Talk at DGP, University of Toronto</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+							<div class="news-ticker-item">
+								<span class="news-ticker-date">Feb 2023</span>
+								<span class="news-ticker-text">2 papers accepted to CHI 2023</span>
+								<span class="news-ticker-dot">&#9679;</span>
+							</div>
+						</div>
+					</div>
 					</section>
 
 				<!-- Publications -->
