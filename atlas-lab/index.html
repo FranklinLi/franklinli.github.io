@@ -1,0 +1,741 @@
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html lang="en">
+	<head>
+		<title>ATLAS Lab | Accessible Technology and Life Augmented Systems Lab</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="ATLAS Lab (Accessible Technology and Life Augmented Systems Lab) at the School of Data Science and Society, UNC-Chapel Hill. Directed by Prof. Franklin Mingzhe Li." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+		<style>
+			:root {
+				--accent: #1d4ed8;
+				--accent-glow: rgba(59, 130, 246, 0.15);
+				--accent-light: #3b82f6;
+				--text: #1e293b;
+				--text-light: #475569;
+				--border: #cbd5e1;
+				--carolina: #4B9CD3;
+			}
+
+			section#one {
+				margin-bottom: 3rem;
+			}
+
+			/* Header monogram in place of a portrait */
+			.lab-monogram {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 128px;
+				height: 128px;
+				margin: 0 auto 1rem auto;
+				border-radius: 100%;
+				background: rgba(255, 255, 255, 0.12);
+				border: 2px solid rgba(255, 255, 255, 0.35);
+				font-family: 'Playfair Display', Georgia, serif;
+				font-size: 1.9rem;
+				font-weight: 700;
+				letter-spacing: 0.06em;
+				color: #ffffff;
+			}
+
+			.lab-fullname {
+				font-size: 0.8rem;
+				line-height: 1.5;
+				letter-spacing: 0.02em;
+			}
+
+			/* Header navigation back to the personal site */
+			.lab-nav {
+				margin-top: 1.25rem;
+				font-size: 0.8rem;
+				letter-spacing: 0.05em;
+				text-transform: uppercase;
+			}
+
+			.lab-nav a {
+				color: #ffffff;
+				text-decoration: none;
+				border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+				padding-bottom: 2px;
+			}
+
+			.lab-nav a:hover {
+				border-bottom-color: #ffffff;
+			}
+
+			.icon-link {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 36px;
+				height: 36px;
+				border-radius: 50%;
+				background: rgba(255, 255, 255, 0.15);
+				color: #ffffff;
+				text-decoration: none;
+				font-size: 1rem;
+				transition: all 0.2s ease;
+			}
+
+			.icon-link:hover {
+				background: rgba(255, 255, 255, 0.3);
+				color: #ffffff;
+			}
+
+			/* Mission statement */
+			.lab-tagline {
+				font-size: 1.15rem;
+				line-height: 1.6;
+				color: #0f172a;
+				font-weight: 500;
+				border-left: 4px solid var(--accent);
+				padding-left: 1.25rem;
+				margin-bottom: 1.5rem;
+			}
+
+			/* Research theme cards */
+			.theme-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 1.25rem;
+				margin-top: 1.75rem;
+			}
+
+			.theme-card {
+				background: white;
+				border: 1px solid var(--border);
+				border-radius: 12px;
+				padding: 1.4rem 1.5rem;
+				transition: all 0.25s ease;
+			}
+
+			.theme-card:hover {
+				border-color: var(--accent);
+				box-shadow: 0 10px 26px rgba(29, 78, 216, 0.09);
+				transform: translateY(-3px);
+			}
+
+			.theme-card h3 {
+				font-size: 1rem;
+				font-weight: 700;
+				color: #0f172a;
+				margin-bottom: 0.5rem;
+				line-height: 1.35;
+			}
+
+			.theme-card p {
+				font-size: 0.88rem;
+				color: var(--text-light);
+				line-height: 1.6;
+				margin: 0;
+			}
+
+			.theme-icon {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 40px;
+				height: 40px;
+				border-radius: 10px;
+				background: var(--accent-glow);
+				color: var(--accent);
+				font-size: 1.05rem;
+				margin-bottom: 0.9rem;
+			}
+
+			/* People */
+			.people-role {
+				font-size: 0.75rem;
+				font-weight: 700;
+				letter-spacing: 0.08em;
+				text-transform: uppercase;
+				color: var(--accent);
+				margin: 2rem 0 1rem 0;
+				padding-bottom: 0.4rem;
+				border-bottom: 1px solid var(--border);
+			}
+
+			.people-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+				gap: 1.25rem;
+			}
+
+			.person-card {
+				display: flex;
+				align-items: center;
+				gap: 1rem;
+				background: white;
+				border: 1px solid var(--border);
+				border-radius: 12px;
+				padding: 1rem 1.1rem;
+				transition: all 0.25s ease;
+			}
+
+			.person-card:hover {
+				border-color: var(--accent);
+				box-shadow: 0 8px 20px rgba(29, 78, 216, 0.08);
+			}
+
+			.person-photo,
+			.person-initials {
+				width: 62px;
+				height: 62px;
+				border-radius: 100%;
+				flex-shrink: 0;
+				object-fit: cover;
+			}
+
+			.person-initials {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				background: linear-gradient(135deg, var(--accent) 0%, var(--carolina) 100%);
+				color: #ffffff;
+				font-size: 1.15rem;
+				font-weight: 600;
+				letter-spacing: 0.02em;
+			}
+
+			.person-name {
+				font-size: 0.98rem;
+				font-weight: 600;
+				color: #0f172a;
+				line-height: 1.3;
+				margin-bottom: 0.2rem;
+			}
+
+			.person-name a {
+				color: #0f172a;
+				text-decoration: none;
+				border-bottom: 1px solid var(--border);
+			}
+
+			.person-name a:hover {
+				color: var(--accent);
+				border-bottom-color: var(--accent);
+			}
+
+			.person-meta {
+				font-size: 0.8rem;
+				color: var(--text-light);
+				line-height: 1.45;
+			}
+
+			.person-card.pi {
+				grid-column: 1 / -1;
+				align-items: flex-start;
+			}
+
+			.person-card.pi .person-photo {
+				width: 88px;
+				height: 88px;
+			}
+
+			.person-card.pi .person-meta {
+				margin-top: 0.35rem;
+			}
+
+			/* Publications */
+			.pub-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+				gap: 1.5rem;
+				margin-top: 1.75rem;
+			}
+
+			.pub-card {
+				background: white;
+				border-radius: 12px;
+				overflow: hidden;
+				border: 1px solid var(--border);
+				transition: all 0.3s ease;
+			}
+
+			.pub-card:hover {
+				transform: translateY(-4px);
+				box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+			}
+
+			.pub-image img {
+				width: 100%;
+				height: 140px;
+				object-fit: cover;
+				display: block;
+				background: linear-gradient(135deg, var(--accent-glow) 0%, #f8fafc 100%);
+			}
+
+			.pub-body {
+				padding: 1.25rem;
+			}
+
+			.pub-venue {
+				display: inline-block;
+				font-size: 0.7rem;
+				font-weight: 600;
+				color: var(--accent);
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				background: var(--accent-glow);
+				padding: 0.2rem 0.6rem;
+				border-radius: 50px;
+				margin-bottom: 0.6rem;
+			}
+
+			.pub-title {
+				font-size: 0.95rem;
+				font-weight: 600;
+				color: #0f172a;
+				line-height: 1.4;
+				margin-bottom: 0.5rem;
+			}
+
+			.pub-authors {
+				font-size: 0.8rem;
+				color: var(--text-light);
+				margin-bottom: 0.75rem;
+				line-height: 1.5;
+			}
+
+			.pub-authors strong {
+				color: var(--text);
+				font-weight: 600;
+			}
+
+			.pub-links {
+				display: flex;
+				gap: 0.5rem;
+				flex-wrap: wrap;
+			}
+
+			.pub-link {
+				display: inline-flex;
+				align-items: center;
+				gap: 0.3rem;
+				font-size: 0.75rem;
+				font-weight: 500;
+				color: var(--accent);
+				text-decoration: none;
+				padding: 0.25rem 0.6rem;
+				background: var(--accent-glow);
+				border-radius: 50px;
+				transition: all 0.2s ease;
+			}
+
+			.pub-link:hover {
+				background: var(--accent);
+				color: white;
+			}
+
+			.more-link {
+				display: inline-block;
+				margin-top: 1.5rem;
+				font-size: 0.9rem;
+				font-weight: 600;
+				color: var(--accent);
+				text-decoration: none;
+			}
+
+			.more-link:hover {
+				text-decoration: underline;
+			}
+
+			/* Join us */
+			.recruit-callout {
+				background: linear-gradient(135deg, rgba(29, 78, 216, 0.08) 0%, rgba(75, 156, 211, 0.10) 100%);
+				border: 2px solid rgba(29, 78, 216, 0.3);
+				border-radius: 12px;
+				padding: 1.2rem 1.5rem;
+				margin: 0 0 1.75rem 0;
+				text-align: center;
+			}
+
+			.recruit-callout h2 {
+				font-size: 1.1em;
+				font-weight: 700;
+				color: #1d4ed8;
+				margin: 0;
+				letter-spacing: -0.01em;
+				line-height: 1.4;
+			}
+
+			.recruit-callout h2:after {
+				display: none;
+			}
+
+			.join-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.join-list li {
+				position: relative;
+				padding-left: 1.6rem;
+				margin-bottom: 0.85rem;
+				line-height: 1.6;
+			}
+
+			.join-list li:before {
+				content: "\f105";
+				font-family: FontAwesome;
+				position: absolute;
+				left: 0.35rem;
+				top: 0;
+				color: var(--accent);
+				font-weight: 700;
+			}
+
+			/* Contact */
+			.contact-box {
+				background: white;
+				border: 1px solid var(--border);
+				border-radius: 12px;
+				padding: 1.4rem 1.6rem;
+				line-height: 1.7;
+			}
+
+			/* Visually hidden text for screen readers */
+			.sr-only {
+				position: absolute;
+				width: 1px;
+				height: 1px;
+				padding: 0;
+				margin: -1px;
+				overflow: hidden;
+				clip: rect(0, 0, 0, 0);
+				white-space: nowrap;
+				border: 0;
+			}
+
+			@media screen and (max-width: 736px) {
+				.person-card.pi {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+			}
+		</style>
+	</head>
+	<body>
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<div class="lab-monogram">ATLAS</div>
+					<h1><strong>ATLAS LAB</strong></h1>
+					<p class="lab-fullname">Accessible Technology and<br />
+					Life Augmented Systems Lab<br /><br />
+					School of Data Science and Society<br />
+					UNC-Chapel Hill<br />
+					ITS Manning, Room 4501<br />
+					Chapel Hill, NC 27599<br />
+					fmli[at]unc[dot]edu</p>
+					<p>
+					<a href="https://scholar.google.com/citations?user=jZa4SPIAAAAJ&hl=en" class="icon-link" title="Google Scholar" target="_blank" rel="noopener"><i class="fa fa-google" aria-hidden="true"></i><span class="sr-only">Google Scholar</span></a> &nbsp;
+					<a href="https://www.linkedin.com/in/franklin-mingzhe-li-4b3b8986/?skipRedirect=true" class="icon-link" title="LinkedIn" target="_blank" rel="noopener"><i class="fa fa-linkedin" aria-hidden="true"></i><span class="sr-only">LinkedIn</span></a> &nbsp;
+					<a href="https://x.com/Franklin_M_Li" class="icon-link" title="Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter" aria-hidden="true"></i><span class="sr-only">Twitter</span></a>
+					</p>
+					<p class="lab-nav"><a href="https://franklin-li.com/">&larr; PI Homepage</a></p>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- About -->
+					<section id="one">
+						<header class="major">
+							<h2>About the Lab</h2>
+						</header>
+
+						<p class="lab-tagline">ATLAS Lab &mdash; the Accessible Technology and Life Augmented Systems Lab &mdash; builds interactive systems that make everyday physical activities accessible to people with disabilities.</p>
+
+						<p>We are a Human-Computer Interaction (HCI) research group in the <a href="https://sdss.unc.edu/" target="_blank" rel="noopener">School of Data Science and Society</a> at the University of North Carolina at Chapel Hill, directed by <a href="https://franklin-li.com/">Prof. Franklin Mingzhe Li</a>. Our work sits at the intersection of HCI, accessibility, assistive technology, ubiquitous computing (UbiComp), and AI.</p>
+
+						<p>Much of accessibility research has focused on digital interfaces, yet many of the hardest barriers people with disabilities encounter are physical and situated: cooking a meal, applying makeup, navigating a public space, managing long-term health, or creating and sharing media. ATLAS Lab explores, designs, builds, and deploys systems that close this gap. We work closely with disabled collaborators throughout the research process, combining qualitative inquiry, participatory and co-design methods, wearable and ambient sensing, and multimodal AI to produce technologies that are usable in the real world rather than only in the lab.</p>
+					</section>
+
+				<!-- Research Themes -->
+					<section id="one">
+						<header class="major">
+							<h2>Research Themes</h2>
+						</header>
+
+						<div class="theme-grid">
+
+							<div class="theme-card">
+								<div class="theme-icon"><i class="fa fa-cutlery" aria-hidden="true"></i></div>
+								<h3>Accessible Activities of Daily Living</h3>
+								<p>Understanding and supporting everyday physical tasks &mdash; cooking, meal preparation, makeup and self-presentation &mdash; for people with vision impairments, through contextual inquiry and AI-driven procedural assistance.</p>
+							</div>
+
+							<div class="theme-card">
+								<div class="theme-icon"><i class="fa fa-microchip" aria-hidden="true"></i></div>
+								<h3>Wearable and Ubiquitous Sensing</h3>
+								<p>Low-effort input and interaction techniques built on rings, earpieces, and cameras &mdash; including fingerspelling recognition, micro-finger poses, teeth gestures, and eyelid gestures &mdash; designed with and for people with motor and sensory disabilities.</p>
+							</div>
+
+							<div class="theme-card">
+								<div class="theme-icon"><i class="fa fa-magic" aria-hidden="true"></i></div>
+								<h3>Multimodal AI for Accessibility</h3>
+								<p>Grounding large multimodal models in real physical context so they can track task progress, recognize object state, and offer mixed-initiative assistance that is timely, trustworthy, and correctable by the user.</p>
+							</div>
+
+							<div class="theme-card">
+								<div class="theme-icon"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></div>
+								<h3>Accessible Content Creation</h3>
+								<p>Tools that let disabled people create rather than only consume &mdash; conversational audio description authoring, expressive visual content creation by blind creators, and captioning practices of independent content creators.</p>
+							</div>
+
+							<div class="theme-card">
+								<div class="theme-icon"><i class="fa fa-heartbeat" aria-hidden="true"></i></div>
+								<h3>Health, Mobility, and Well-being</h3>
+								<p>Tracking and awareness technologies for long-term conditions &mdash; wheelchair users' upper extremity health, driving assistance for people with Parkinson's disease, and accessible public robots.</p>
+							</div>
+
+							<div class="theme-card">
+								<div class="theme-icon"><i class="fa fa-users" aria-hidden="true"></i></div>
+								<h3>Inclusive Design and Participation</h3>
+								<p>Co-design and cross-cultural studies of how assistive technology is actually adopted, abandoned, or adapted &mdash; including perceptions of accessibility and AT use across different social and cultural contexts.</p>
+							</div>
+
+						</div>
+					</section>
+
+				<!-- People -->
+					<section id="one">
+						<header class="major">
+							<h2>People</h2>
+						</header>
+
+						<div class="people-role">Principal Investigator</div>
+						<div class="people-grid">
+							<div class="person-card pi">
+								<img class="person-photo" src="images/franklin-profile.jpg" alt="Franklin Mingzhe Li" />
+								<div>
+									<div class="person-name"><a href="https://franklin-li.com/">Franklin Mingzhe Li</a></div>
+									<div class="person-meta">
+										Tenure-Track Assistant Professor, School of Data Science and Society, UNC-Chapel Hill<br />
+										PhD, Human-Computer Interaction Institute, Carnegie Mellon University<br />
+										Betensky-Kraut Endowed Fellow &middot; Stuart K. Card Fellow &middot; NSERC Postgraduate Fellow
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="people-role">Graduate Researchers</div>
+						<div class="people-grid">
+							<div class="person-card">
+								<div class="person-initials" aria-hidden="true">YP</div>
+								<div>
+									<div class="person-name">Yuting Peng</div>
+									<div class="person-meta">Visiting Scholar</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="people-role">Undergraduate Researchers</div>
+						<div class="people-grid">
+							<div class="person-card">
+								<div class="person-initials" aria-hidden="true">RL</div>
+								<div>
+									<div class="person-name">Ruitong Liu</div>
+									<div class="person-meta">UNC-Chapel Hill</div>
+								</div>
+							</div>
+							<div class="person-card">
+								<div class="person-initials" aria-hidden="true">SK</div>
+								<div>
+									<div class="person-name">Sharvi Kulkarni</div>
+									<div class="person-meta">UNC-Chapel Hill</div>
+								</div>
+							</div>
+						</div>
+					</section>
+
+				<!-- Selected Publications -->
+					<section id="one">
+						<header class="major">
+							<h2>Selected Publications</h2>
+						</header>
+
+						<div class="pub-grid">
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/ADCanvas.png" alt="" /></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2026</div>
+									<div class="pub-title">ADCanvas: Accessible and Conversational Audio Description Authoring for Blind and Low Vision Creators</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Michael Xieyang Liu, Cynthia L Bennett, Shaun K Kane</div>
+									<div class="pub-links"><a href="https://franklin-li.com/3772318.3791158.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/blind_nature.png" alt="" /></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2026</div>
+									<div class="pub-title">Understanding Nature Engagement Experiences of Blind People</div>
+									<div class="pub-authors">Mengjie Tang, Xinman Li, Juxiao Zhang, <strong>Franklin Mingzhe Li</strong>, Zhuying Li</div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/UIST_25_AROMA.jpg" alt="" /></div>
+								<div class="pub-body">
+									<div class="pub-venue">UIST 2025</div>
+									<div class="pub-title">AROMA: Mixed-Initiative AI Assistance for Non-Visual Cooking by Grounding Multi-modal Information</div>
+									<div class="pub-authors">Zheng Ning, Leyang Li, Daniel Killough, JooYoung Seo, Patrick Carrington, Yapeng Tian, Yuhang Zhao, <strong>Franklin Mingzhe Li</strong>, Toby Jia-Jun Li</div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/assets_oscar.png" alt="" /></div>
+								<div class="pub-body">
+									<div class="pub-venue">ASSETS 2025</div>
+									<div class="pub-title">Exploring Object Status Recognition for Recipe Progress Tracking in Non-Visual Cooking</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Kaitlyn Ng, Bin Zhu, Patrick Carrington</div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/ASSETS_25_VizXpress.jpg" alt="" /></div>
+								<div class="pub-body">
+									<div class="pub-venue">ASSETS 2025</div>
+									<div class="pub-title">VizXpress: Towards Expressive Visual Content by Blind Creators Through AI Support</div>
+									<div class="pub-authors">Lotus Zhang, Zhuohao Jerry Zhang, Gina Clepper, <strong>Franklin Mingzhe Li</strong>, Patrick Carrington, Jacob O Wobbrock, Leah Findlater</div>
+									<div class="pub-links"><a href="https://franklin-li.com/Camera_Ready_ASSETS25__VizXpress.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/ASSETS_25_Makeup.jpg" alt="" /></div>
+								<div class="pub-body">
+									<div class="pub-venue">ASSETS 2025</div>
+									<div class="pub-title">More than One Step at a Time: Designing Procedural Feedback for Non-visual Makeup Routines</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Akihiko Oharazawa, Chloe Qingyu Zhu, Misty Fan, Daisuke Sato, Chieko Asakawa, Patrick Carrington</div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/spellring.jpg" alt="" /></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2025</div>
+									<div class="pub-title">SpellRing: Recognizing Continuous Fingerspelling in American Sign Language using a Ring</div>
+									<div class="pub-authors">Hyunchul Lim, Nam Anh Dang, Dylan Lee, Tianhong Catherine Yu, Jane Lu, <strong>Franklin Mingzhe Li</strong>, Yiqi Jin, Yan Ma, Xiaojun Bi, Fran&ccedil;ois Guimbreti&egrave;re, Cheng Zhang</div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/Panda.jpg" alt="" /></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2025</div>
+									<div class="pub-title">PANDA: Parkinson's Assistance and Notification Driving Aid</div>
+									<div class="pub-authors">Tianyang Wen, Xucheng Zhang, Zhirong Wan, Jing Zhao, Yicheng Zhu, Ning Su, Xiaolan Peng, Jin Huang, Wei Sun, Feng Tian, <strong>Franklin Mingzhe Li</strong></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/mobilegame.jpg" alt="" /></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2025</div>
+									<div class="pub-title">How Users Who are Blind or Low Vision Play Mobile Games: Perceptions, Challenges, and Strategies</div>
+									<div class="pub-authors">Zihe Ran, Xiyu Li, Qing Xiao, Xianzhe Fan, <strong>Franklin Mingzhe Li</strong>, Yanyun Wang, Zhicong Lu</div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/chi24-343-fig2.jpg" alt="" /></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2024</div>
+									<div class="pub-title">A Contextual Inquiry of People with Vision Impairments in Cooking</div>
+									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Michael Xieyang Liu, Shaun K Kane, Patrick Carrington</div>
+									<div class="pub-links"><a href="https://franklin-li.com/Contextual%20Inquiry%20Cooking%201.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/upper_extremity_health.png" alt="" /></div>
+								<div class="pub-body">
+									<div class="pub-venue">CHI 2023</div>
+									<div class="pub-title">Breaking the "Inescapable" Cycle of Pain: Supporting Wheelchair Users' Upper Extremity Health Awareness and Management with Tracking Technologies</div>
+									<div class="pub-authors">Yunzhi Li, <strong>Franklin Mingzhe Li</strong>, Patrick Carrington</div>
+									<div class="pub-links"><a href="https://franklin-li.com/upper_extremity_health.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+								</div>
+							</div>
+
+							<div class="pub-card">
+								<div class="pub-image"><img src="images/Assets20-Eyelid.JPG" alt="" /></div>
+								<div class="pub-body">
+									<div class="pub-venue">ASSETS 2020</div>
+									<div class="pub-title">Eyelid Gestures on Mobile Devices for People with Motor Impairments</div>
+									<div class="pub-authors">Mingming Fan*, Zhen Li*, <strong>Franklin Mingzhe Li</strong>* (*Equal contribution)</div>
+									<div class="pub-links">
+										<a href="https://franklin-li.com/ASSETS2020_Eyelid.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+										<span class="pub-link"><i class="fa fa-trophy" aria-hidden="true"></i> Best Artifact Award</span>
+									</div>
+								</div>
+							</div>
+
+						</div>
+
+						<a class="more-link" href="https://franklin-li.com/#one">See the full publication list on the PI's homepage &rarr;</a>
+					</section>
+
+				<!-- Join Us -->
+					<section id="one">
+						<header class="major">
+							<h2>Join Us</h2>
+						</header>
+
+						<div class="recruit-callout">
+							<h2>ATLAS Lab is recruiting research assistants starting Fall 2026 and PhD students starting Fall 2027!</h2>
+						</div>
+
+						<ul class="join-list">
+							<li><strong>Prospective PhD students:</strong> apply to the School of Data Science and Society at UNC-Chapel Hill and mention Prof. Franklin Mingzhe Li in your application. Email a short note describing your research interests, along with your CV.</li>
+							<li><strong>UNC undergraduate and master's students:</strong> we regularly take on research assistants. Email a note about what draws you to accessibility research, your CV, and your availability per week.</li>
+							<li><strong>Visiting scholars and interns:</strong> get in touch with a description of your background, the dates you have in mind, and your funding situation.</li>
+						</ul>
+
+						<p>No prior accessibility research experience is required. We value curiosity, care in working with our community partners, and a willingness to learn methods that are new to you &mdash; whether that means qualitative study design, hardware prototyping, or building with multimodal models.</p>
+					</section>
+
+				<!-- Contact -->
+					<section id="one">
+						<header class="major">
+							<h2>Contact</h2>
+						</header>
+
+						<div class="contact-box">
+							<strong>ATLAS Lab</strong><br />
+							Accessible Technology and Life Augmented Systems Lab<br />
+							School of Data Science and Society<br />
+							University of North Carolina at Chapel Hill<br />
+							ITS Manning, Room 4501<br />
+							Chapel Hill, NC 27599<br /><br />
+							Email: fmli[at]unc[dot]edu
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.poptrox.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
