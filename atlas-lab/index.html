@@ -10,6 +10,24 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content="ATLAS Lab (Accessible Technology and Life Augmented Systems Lab) at the School of Data and Information Sciences, UNC-Chapel Hill. Directed by Prof. Franklin Mingzhe Li." />
+		<link rel="icon" type="image/png" href="images/atlas-lab-mark.png" />
+		<link rel="apple-touch-icon" href="images/atlas-lab-mark.png" />
+		<link rel="canonical" href="https://franklin-li.com/atlas-lab/" />
+
+		<!-- Social preview -->
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="ATLAS Lab" />
+		<meta property="og:title" content="ATLAS Lab &mdash; Accessible Technology and Life Augmented Systems Lab" />
+		<meta property="og:description" content="An HCI and AI research group at UNC-Chapel Hill building interactive systems that make everyday physical activities accessible to people with disabilities and older adults." />
+		<meta property="og:url" content="https://franklin-li.com/atlas-lab/" />
+		<meta property="og:image" content="https://franklin-li.com/atlas-lab/images/atlas-lab-og.png" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="ATLAS Lab &mdash; UNC-Chapel Hill" />
+		<meta name="twitter:description" content="HCI, accessibility, and multimodal AI research at the School of Data and Information Sciences, UNC-Chapel Hill." />
+		<meta name="twitter:image" content="https://franklin-li.com/atlas-lab/images/atlas-lab-og.png" />
+
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +45,112 @@
 
 			section#one {
 				margin-bottom: 3rem;
+			}
+
+			/* At-a-glance figures under the tagline */
+			.stat-strip {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+				gap: 1rem;
+				margin: 1.75rem 0 0.5rem 0;
+			}
+
+			.stat {
+				background: #ffffff;
+				border: 1px solid var(--border);
+				border-left: 3px solid var(--accent);
+				border-radius: 8px;
+				padding: 0.9rem 1rem;
+			}
+
+			.stat-num {
+				font-size: 1.15rem;
+				font-weight: 700;
+				color: var(--accent);
+				line-height: 1.25;
+				letter-spacing: -0.01em;
+			}
+
+			.stat-label {
+				font-size: 0.78rem;
+				color: var(--text-light);
+				line-height: 1.4;
+				margin-top: 0.25rem;
+			}
+
+			/* Research-interest tags on a person card */
+			.person-tags {
+				margin-top: 0.5rem;
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.35rem;
+			}
+
+			.tag {
+				font-size: 0.7rem;
+				font-weight: 600;
+				color: var(--accent);
+				background: var(--accent-glow);
+				border-radius: 50px;
+				padding: 0.18rem 0.55rem;
+				white-space: nowrap;
+			}
+
+			/* Funding, media and news lists */
+			.fact-list {
+				list-style: none;
+				margin: 1.5rem 0 0 0;
+				padding: 0;
+			}
+
+			.fact-list li {
+				border-left: 2px solid var(--border);
+				padding: 0 0 0 1rem;
+				margin: 0 0 1.1rem 0;
+				line-height: 1.55;
+			}
+
+			.fact-list li:hover {
+				border-left-color: var(--accent);
+			}
+
+			.fact-title {
+				font-weight: 600;
+				color: #0f172a;
+			}
+
+			.fact-meta {
+				display: block;
+				font-size: 0.82rem;
+				color: var(--text-light);
+				margin-top: 0.15rem;
+			}
+
+			.news-line {
+				display: flex;
+				gap: 0.85rem;
+				align-items: baseline;
+				padding: 0.6rem 0;
+				border-bottom: 1px solid var(--border);
+			}
+
+			.news-line:last-child {
+				border-bottom: 0;
+			}
+
+			.news-when {
+				flex: 0 0 auto;
+				min-width: 5.5rem;
+				font-size: 0.72rem;
+				font-weight: 700;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+				color: var(--accent);
+			}
+
+			.news-what {
+				font-size: 0.95rem;
+				line-height: 1.5;
 			}
 
 			/* Header lab mark. Inline-block so it follows the header's
@@ -465,7 +589,42 @@
 
 						<p>We are a Human-Computer Interaction (HCI) research group in the <a href="https://sdis.unc.edu/" target="_blank" rel="noopener">School of Data and Information Sciences</a> at the University of North Carolina at Chapel Hill, directed by <a href="https://franklin-li.com/">Prof. Franklin Mingzhe Li</a>. Our work sits at the intersection of HCI, accessibility, assistive technology, ubiquitous computing (UbiComp), and AI.</p>
 
+						<div class="stat-strip">
+							<div class="stat">
+								<div class="stat-num">30+</div>
+								<div class="stat-label">Full papers at CHI, UIST, ASSETS, IMWUT, CSCW, and IUI</div>
+							</div>
+							<div class="stat">
+								<div class="stat-num">Multimodal AI</div>
+								<div class="stat-label">Vision-language models grounded in physical, real-world context</div>
+							</div>
+							<div class="stat">
+								<div class="stat-num">Wearables</div>
+								<div class="stat-label">Rings, earpieces, and cameras built and deployed in the field</div>
+							</div>
+							<div class="stat">
+								<div class="stat-num">Co-design</div>
+								<div class="stat-label">Disabled and older collaborators involved throughout the process</div>
+							</div>
+						</div>
+
 						<p>Much of accessibility research has focused on digital interfaces, yet many of the hardest barriers people with disabilities and older adults encounter are physical and situated: cooking a meal, applying makeup, navigating a public space, managing long-term health and care, or creating and sharing media. ATLAS Lab explores, designs, builds, and deploys systems that close this gap across home, community, and health care settings. We work closely with these collaborators throughout the research process, combining qualitative inquiry, participatory and co-design methods, wearable and ambient sensing, and multimodal AI to produce technologies that are usable in the real world rather than only in the lab.</p>
+
+						<p>Technically, that means building and evaluating systems rather than only studying them: grounding vision-language models in physical context so they can track task progress and recognize object state, designing wearable and ambient sensing pipelines that run on-body in real time, constructing benchmarks and datasets for physical-world tasks that existing models handle poorly, and developing mixed-initiative interfaces where a person can inspect and correct what a model concluded.</p>
+					</section>
+
+				<!-- Lab News -->
+					<section id="one">
+						<header class="major">
+							<h2>Lab News</h2>
+						</header>
+
+						<div class="news-line"><span class="news-when">Jul 2026</span><span class="news-what">ATLAS Lab opens at the School of Data and Information Sciences, UNC-Chapel Hill.</span></div>
+						<div class="news-line"><span class="news-when">Apr 2026</span><span class="news-what">Two papers presented at CHI 2026 in Barcelona.</span></div>
+						<div class="news-line"><span class="news-when">Oct 2025</span><span class="news-what">Five papers presented at ASSETS 2025 in Denver.</span></div>
+						<div class="news-line"><span class="news-when">Sep 2025</span><span class="news-what">Co-organized the "Accessible Cyber-Physical Activities" workshop at UIST 2025.</span></div>
+						<div class="news-line"><span class="news-when">Aug 2025</span><span class="news-what">Four invited talks at Google Research.</span></div>
+						<div class="news-line"><span class="news-when">May 2025</span><span class="news-what">Research internship at Google NYC, hosted by Dr. Cynthia Bennett and Dr. Shaun Kane.</span></div>
 					</section>
 
 				<!-- Research Themes -->
@@ -537,6 +696,14 @@
 										Tenure-Track Assistant Professor, School of Data and Information Sciences, UNC-Chapel Hill<br />
 										PhD, Human-Computer Interaction Institute, Carnegie Mellon University<br />
 										Betensky-Kraut Endowed Fellow &middot; Stuart K. Card Fellow &middot; NSERC Postgraduate Fellow
+									</div>
+									<div class="person-tags">
+										<span class="tag">Human-Computer Interaction</span>
+										<span class="tag">Accessibility</span>
+										<span class="tag">Multimodal AI</span>
+										<span class="tag">Ubiquitous Computing</span>
+										<span class="tag">Wearable Sensing</span>
+										<span class="tag">Assistive Technology</span>
 									</div>
 								</div>
 							</div>
@@ -709,6 +876,74 @@
 						</div>
 
 						<a class="more-link" href="https://franklin-li.com/#one">See the full publication list on the PI's homepage &rarr;</a>
+					</section>
+
+				<!-- Research Funding -->
+					<section id="one">
+						<header class="major">
+							<h2>Research Funding</h2>
+						</header>
+
+						<ul class="fact-list">
+							<li>
+								<span class="fact-title">Academic Research Fund (AcRF) Tier 2</span>
+								<span class="fact-meta">Singapore Ministry of Education &middot; $960,000 &middot; Role: Collaborator (PI: Bin Zhu) &middot; Aug 2025</span>
+							</li>
+							<li>
+								<span class="fact-title">Google Research Collabs</span>
+								<span class="fact-meta">Google Inc. &middot; $80,000 plus $20,000 in Google Cloud &middot; Role: Co-PI (PI: Patrick Carrington) &middot; Aug 2022</span>
+							</li>
+							<li>
+								<span class="fact-title">Inclusive Design Challenge Award</span>
+								<span class="fact-meta">US Department of Transportation &middot; $300,000 &middot; Role: Collaborator (PI: Nik Martelaro) &middot; Jan 2021</span>
+							</li>
+							<li>
+								<span class="fact-title">Stuart K. Card Fellowship</span>
+								<span class="fact-meta">Carnegie Mellon University &middot; $120,000 &middot; Role: PI &middot; Feb 2025</span>
+							</li>
+							<li>
+								<span class="fact-title">Betensky-Kraut Endowed Fellowship</span>
+								<span class="fact-meta">Carnegie Mellon University &middot; $13,000 &middot; Role: PI &middot; Jan 2026</span>
+							</li>
+							<li>
+								<span class="fact-title">Postgraduate Scholarship &ndash; Doctoral</span>
+								<span class="fact-meta">Natural Sciences and Engineering Research Council of Canada &middot; $63,000 over 36 months &middot; Role: PI &middot; Apr 2021</span>
+							</li>
+						</ul>
+					</section>
+
+				<!-- Media Coverage -->
+					<section id="one">
+						<header class="major">
+							<h2>Media Coverage</h2>
+						</header>
+
+						<ul class="fact-list">
+							<li>
+								<span class="fact-title"><a href="https://news.cornell.edu/stories/2025/03/ai-ring-tracks-spelled-words-american-sign-language" target="_blank" rel="noopener">AI ring tracks spelled words in American Sign Language</a></span>
+								<span class="fact-meta">Cornell Ann S. Bowers College of Computing and Information Science &middot; Mar 2025</span>
+							</li>
+							<li>
+								<span class="fact-title"><a href="https://www.cs.cmu.edu/news/2024/nonvisual-cooking" target="_blank" rel="noopener">Accessing Recipe Information Without Looking</a></span>
+								<span class="fact-meta">Carnegie Mellon School of Computer Science &middot; Dec 2024</span>
+							</li>
+							<li>
+								<span class="fact-title"><a href="https://www.hcii.cmu.edu/news/new-search-engine-tool-helps-users-make-sense-unfamiliar-topics" target="_blank" rel="noopener">New Search Engine Tool Helps Users Make Sense of Unfamiliar Topics</a></span>
+								<span class="fact-meta">Carnegie Mellon Human-Computer Interaction Institute &middot; Jun 2023</span>
+							</li>
+							<li>
+								<span class="fact-title"><a href="https://dl.acm.org/doi/abs/10.1145/3498367" target="_blank" rel="noopener">Eyelid gestures for people with motor impairments</a></span>
+								<span class="fact-meta">Communications of the ACM &middot; Jan 2022</span>
+							</li>
+							<li>
+								<span class="fact-title"><a href="https://spectrum.ieee.org/tech-talk/biomedical/bionics/the-next-frontier-for-gesture-control-is-teeth" target="_blank" rel="noopener">The Next Frontier for Gesture Control is Teeth</a></span>
+								<span class="fact-meta">IEEE Spectrum &middot; May 2021</span>
+							</li>
+							<li>
+								<span class="fact-title"><a href="https://www.newscientist.com/article/2218025-where-have-i-left-my-wallet-this-smart-camera-can-remind-you/" target="_blank" rel="noopener">Where have I left my wallet? This smart camera can remind you</a></span>
+								<span class="fact-meta">New Scientist &middot; Sep 2019</span>
+							</li>
+						</ul>
 					</section>
 
 				<!-- Join Us -->
