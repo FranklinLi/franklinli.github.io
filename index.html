@@ -4,11 +4,11 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="en">
 	<head>
 		<title>Franklin Mingzhe Li</title>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +24,7 @@
 			}
 
 			/* Override Strata pub styles with modern cards */
-			#one section#one,
-			section#one {
+			#main > section {
 				margin-bottom: 3rem;
 			}
 
@@ -241,7 +240,7 @@
 				text-align: center;
 			}
 
-			.recruit-callout h2 {
+			.recruit-callout .recruit-text {
 				font-size: 1.1em;
 				font-weight: 700;
 				color: #1d4ed8;
@@ -250,48 +249,59 @@
 				line-height: 1.4;
 			}
 
-			.recruit-callout h2:after {
-				display: none;
+
+			/* Accessibility: visible keyboard focus, dark sidebar beyond the photo */
+			a:focus-visible, button:focus-visible {
+				outline: 3px solid #1d4ed8;
+				outline-offset: 2px;
 			}
-		</style>
+
+			#header a:focus-visible {
+				outline-color: #ffffff;
+			}
+
+			#header {
+				background-color: #1e293b;
+			}
+			</style>
 	</head>
 	<body>
 
 		<!-- Header -->
 			<header id="header">
 				<div class="inner">
-					<a href="#" class="image avatar"><img src="franklin-profile.jpg" alt="" /></a>
+					<span class="image avatar"><img src="franklin-profile.jpg" alt="Franklin Mingzhe Li" /></span>
 					<h1><strong>FRANKLIN MINGZHE LI</strong></h1>
 					<p>ITS Manning, Room 4501<br />
 					Chapel Hill, NC 27599<br />
 					fmli[at]unc[dot]edu<br />
 					</p>
 					<p>
-					<strong><a href="Franklin_Mingzhe_Li_Resume_Final.pdf" class="icon-link" title="CV"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></strong> &nbsp;
-					<strong><a href="https://scholar.google.com/citations?user=jZa4SPIAAAAJ&hl=en" class="icon-link" title="Google Scholar" target="_blank" rel="noopener"><i class="fa fa-google" aria-hidden="true"></i></a></strong> &nbsp;
-					<strong><a href="https://www.linkedin.com/in/franklin-mingzhe-li-4b3b8986/?skipRedirect=true" class="icon-link" title="LinkedIn" target="_blank" rel="noopener"><i class="fa fa-linkedin" aria-hidden="true"></i></a></strong> &nbsp;
-					<strong><a href="https://x.com/Franklin_M_Li" class="icon-link" title="Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter" aria-hidden="true"></i></a></strong>
+					<strong><a href="Franklin_Mingzhe_Li_Resume_Final.pdf" class="icon-link" title="CV" aria-label="CV"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></strong> &nbsp;
+					<strong><a href="https://scholar.google.com/citations?user=jZa4SPIAAAAJ&hl=en" class="icon-link" title="Google Scholar" aria-label="Google Scholar" target="_blank" rel="noopener"><i class="fa fa-google" aria-hidden="true"></i></a></strong> &nbsp;
+					<strong><a href="https://www.linkedin.com/in/franklin-mingzhe-li-4b3b8986/?skipRedirect=true" class="icon-link" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa fa-linkedin" aria-hidden="true"></i></a></strong> &nbsp;
+					<strong><a href="https://x.com/Franklin_M_Li" class="icon-link" title="Twitter" aria-label="Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter" aria-hidden="true"></i></a></strong>
 					</p>
 				</div>
 			</header>
 
 		<!-- Main -->
-			<div id="main">
+			<div id="main" role="main">
 
 				<!-- About -->
-					<section id="one">
+					<section id="hci-accessibility-and-ai">
 						<header class="major">
 							<h2>HCI, Accessibility, and AI</h2>
 						</header>
 						<p>Franklin Mingzhe Li is a Tenure-Track Assistant Professor at the School of Data and Information Sciences at UNC-Chapel Hill, where he directs the <a href="https://unc-atlas-lab.github.io/">ATLAS Lab</a>. Franklin Mingzhe Li is also a <a href="https://pittsburghfoundation.org/fund/10553">Betensky-Kraut Endowed Fellow</a>, a <a href="https://makepossible.cmu.edu/the-cards/">Stuart K. Card Fellow</a>, and a <a href="https://www.nserc-crsng.gc.ca/students-etudiants/pg-cs/bellandpostgrad-belletsuperieures_eng.asp">NSERC Postgraduate Fellow</a>. He obtained his PhD advised by <a href="https://www.patrickcarrington.com/">Prof. Patrick A. Carrington</a> in the Human-Computer Interaction Institute at Carnegie Mellon University. He obtained Master of Science degree supervised by <a href="https://www.cs.toronto.edu/~khai/">Prof. Khai N. Truong</a> in the Department of Computer Science at the University of Toronto. He also obtained Bachelor of Electrical Engineering at the University of Toronto. His research interests are in Human-Computer Interaction (HCI), Assistive Technology, and Ubiquitous Computing (UbiComp). His research focuses on exploring, designing, and deploying Assistive Technologies for physical space and Activities of Daily Living for people with disabilities. His dissertation aims to support and enable non-visual cooking for people with vision impairments through AI and Assistive Technologies.</p>
 
 						<div class="recruit-callout">
-						<h2>I am open to recruit RA starting from Fall 2026 and <a href="https://sdis.unc.edu/academics/doctoral/phd-data-science/" target="_blank" rel="noopener">PhD students</a> starting from Fall 2027!</h2>
+						<p class="recruit-text">I am open to recruit RA starting from Fall 2026 and <a href="https://sdis.unc.edu/academics/doctoral/phd-data-science/" target="_blank" rel="noopener">PhD students</a> starting from Fall 2027!</p>
 					</div>
 					</section>
 
 				<!-- News -->
-					<section id="one">
+					<section id="recent-news">
 						<header class="major">
 							<h2>Recent News</h2>
 						</header>
@@ -396,7 +406,7 @@
 					</section>
 
 				<!-- Publications -->
-					<section id="one">
+					<section id="publications">
 						<header class="major">
 							<h2>Selected Peer-Reviewed Full Conference or Journal Publications</h2>
 						</header>
@@ -409,7 +419,7 @@
 									<div class="pub-venue">CHI 2026</div>
 									<div class="pub-title">ADCanvas: Accessible and Conversational Audio Description Authoring for Blind and Low Vision Creators</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Michael Xieyang Liu, Cynthia L Bennett, Shaun K Kane</div>
-									<div class="pub-links"><a href="3772318.3791158.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="3772318.3791158.pdf" class="pub-link" aria-label="PDF: ADCanvas: Accessible and Conversational Audio Description Authoring for Blind and Low Vision Creators"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -419,7 +429,7 @@
 									<div class="pub-venue">ACL 2026</div>
 									<div class="pub-title">OSCBench: Benchmarking Object State Change in Text-to-Video Generation</div>
 									<div class="pub-authors">Xianjing Han, Bin Zhu, Shiqi Hu, <strong>Franklin Mingzhe Li</strong>, Patrick Carrington, Roger Zimmermann, Jingjing Chen</div>
-									<div class="pub-links"><a href="2603.11698v2.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="2603.11698v2.pdf" class="pub-link" aria-label="PDF: OSCBench: Benchmarking Object State Change in Text-to-Video Generation"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -429,7 +439,7 @@
 									<div class="pub-venue">CHI 2026</div>
 									<div class="pub-title">Understanding Nature Engagement Experiences of Blind People</div>
 									<div class="pub-authors">Mengjie Tang, Xinman Li, Juxiao Zhang, <strong>Franklin Mingzhe Li</strong>, Zhuying Li</div>
-									<div class="pub-links"><a href="3772318.3790515.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="3772318.3790515.pdf" class="pub-link" aria-label="PDF: Understanding Nature Engagement Experiences of Blind People"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -439,7 +449,7 @@
 									<div class="pub-venue">ASSETS 2025</div>
 									<div class="pub-title">More than One Step at a Time: Designing Procedural Feedback for Non-visual Makeup Routines</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Akihiko Oharazawa, Chloe Qingyu Zhu, Misty Fan, Daisuke Sato, Chieko Asakawa, Patrick Carrington</div>
-									<div class="pub-links"><a href="2507.03942v1.pdf.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="2507.03942v1.pdf.pdf" class="pub-link" aria-label="PDF: More than One Step at a Time: Designing Procedural Feedback for Non-visual Makeup Routines"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -449,7 +459,7 @@
 									<div class="pub-venue">ASSETS 2025</div>
 									<div class="pub-title">VizXpress: Towards Expressive Visual Content by Blind Creators Through AI Support</div>
 									<div class="pub-authors">Lotus Zhang, Zhuohao Jerry Zhang, Gina Clepper, <strong>Franklin Mingzhe Li</strong>, Patrick Carrington, Jacob O Wobbrock, Leah Findlater</div>
-									<div class="pub-links"><a href="Camera_Ready_ASSETS25__VizXpress.pdf.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="Camera_Ready_ASSETS25__VizXpress.pdf.pdf" class="pub-link" aria-label="PDF: VizXpress: Towards Expressive Visual Content by Blind Creators Through AI Support"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -459,7 +469,7 @@
 									<div class="pub-venue">ASSETS 2025</div>
 									<div class="pub-title">Exploring Object Status Recognition for Recipe Progress Tracking in Non-Visual Cooking</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Kaitlyn Ng, Bin Zhu, Patrick Carrington</div>
-									<div class="pub-links"><a href="2507.03330v1.pdf.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="2507.03330v1.pdf.pdf" class="pub-link" aria-label="PDF: Exploring Object Status Recognition for Recipe Progress Tracking in Non-Visual Cooking"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -469,7 +479,7 @@
 									<div class="pub-venue">UIST 2025</div>
 									<div class="pub-title">AROMA: Mixed-Initiative AI Assistance for Non-Visual Cooking by Grounding Multi-modal Information</div>
 									<div class="pub-authors">Zheng Ning, Leyang Li, Daniel Killough, JooYoung Seo, Patrick Carrington, Yapeng Tian, Yuhang Zhao, <strong>Franklin Mingzhe Li</strong>, Toby Jia-Jun Li</div>
-									<div class="pub-links"><a href="2507.10963v1.pdf.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="2507.10963v1.pdf.pdf" class="pub-link" aria-label="PDF: AROMA: Mixed-Initiative AI Assistance for Non-Visual Cooking by Grounding Multi-modal Information"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -479,7 +489,7 @@
 									<div class="pub-venue">CHI 2025</div>
 									<div class="pub-title">PANDA: Parkinson's Assistance and Notification Driving Aid</div>
 									<div class="pub-authors">Tianyang Wen, Xucheng Zhang, Zhirong Wan, Jing Zhao, Yicheng Zhu, Ning Su, Xiaolan Peng, Jin Huang, Wei Sun, Feng Tian, <strong>Franklin Mingzhe Li</strong></div>
-									<div class="pub-links"><a href="3706598.3713920.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="3706598.3713920.pdf" class="pub-link" aria-label="PDF: PANDA: Parkinson&#x27;s Assistance and Notification Driving Aid"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -489,7 +499,7 @@
 									<div class="pub-venue">CHI 2025</div>
 									<div class="pub-title">SpellRing: Recognizing Continuous Fingerspelling in American Sign Language using a Ring</div>
 									<div class="pub-authors">Hyunchul Lim, Nam Anh Dang, Dylan Lee, Tianhong Catherine Yu, Jane Lu, <strong>Franklin Mingzhe Li</strong>, Yiqi Jin, Yan Ma, Xiaojun Bi, François Guimbretière, Cheng Zhang</div>
-									<div class="pub-links"><a href="2502.10830v1.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="2502.10830v1.pdf" class="pub-link" aria-label="PDF: SpellRing: Recognizing Continuous Fingerspelling in American Sign Language using a Ring"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -499,7 +509,7 @@
 									<div class="pub-venue">CHI 2025</div>
 									<div class="pub-title">How Users Who are Blind or Low Vision Play Mobile Games: Perceptions, Challenges, and Strategies</div>
 									<div class="pub-authors">Zihe Ran, Xiyu Li, Qing Xiao, Xianzhe Fan, <strong>Franklin Mingzhe Li</strong>, Yanyun Wang, Zhicong Lu</div>
-									<div class="pub-links"><a href="3706598.3714205.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="3706598.3714205.pdf" class="pub-link" aria-label="PDF: How Users Who are Blind or Low Vision Play Mobile Games: Perceptions, Challenges, and Strategies"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -509,7 +519,7 @@
 									<div class="pub-venue">ASSETS 2024</div>
 									<div class="pub-title">A Recipe for Success? Exploring Strategies for Improving Non-Visual Access to Cooking Instructions</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Ashley Wang, Patrick Carrington, Shaun K Kane</div>
-									<div class="pub-links"><a href="2407.19065v1.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="2407.19065v1.pdf" class="pub-link" aria-label="PDF: A Recipe for Success? Exploring Strategies for Improving Non-Visual Access to Cooking Instructions"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -519,7 +529,7 @@
 									<div class="pub-venue">CHI 2024</div>
 									<div class="pub-title">A Contextual Inquiry of People with Vision Impairments in Cooking</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Michael Xieyang Liu, Shaun K Kane, Patrick Carrington</div>
-									<div class="pub-links"><a href="Contextual Inquiry Cooking 1.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="Contextual Inquiry Cooking 1.pdf" class="pub-link" aria-label="PDF: A Contextual Inquiry of People with Vision Impairments in Cooking"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -529,7 +539,7 @@
 									<div class="pub-venue">CHI 2024</div>
 									<div class="pub-title">Co-design Accessible Public Robots: Insights from People with Mobility Disability, Robotic Practitioners and Their Collaborations</div>
 									<div class="pub-authors">Howard Ziyu Han, <strong>Franklin Mingzhe Li</strong>, Alesandra Baca Vazquez, Daragh Byrne, Nikolas Martelaro, Sarah E Fox</div>
-									<div class="pub-links"><a href="Accessible Robot.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="Accessible Robot.pdf" class="pub-link" aria-label="PDF: Co-design Accessible Public Robots: Insights from People with Mobility Disability, Robotic Practitioners and Their Collaborations"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -539,7 +549,7 @@
 									<div class="pub-venue">CHI 2024</div>
 									<div class="pub-title">Designing Upper-Body Gesture Interaction with and for People with Spinal Muscular Atrophy in VR</div>
 									<div class="pub-authors">Jingze Tian, Yingna Wang, Keye Yu, Liyi Xu, Junan Xie, <strong>Franklin Mingzhe Li</strong>, Yafeng Niu, Mingming Fan</div>
-									<div class="pub-links"><a href="Gesture VR.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="Gesture VR.pdf" class="pub-link" aria-label="PDF: Designing Upper-Body Gesture Interaction with and for People with Spinal Muscular Atrophy in VR"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -549,7 +559,7 @@
 									<div class="pub-venue">CHI 2024</div>
 									<div class="pub-title">Selenite: Scaffolding Online Sensemaking with Comprehensive Overviews Elicited from Large Language Models</div>
 									<div class="pub-authors">Michael Xieyang Liu, Tongshuang Wu, Tianying Chen, <strong>Franklin Mingzhe Li</strong>, Aniket Kittur, Brad A Myers</div>
-									<div class="pub-links"><a href="Selenite.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="Selenite.pdf" class="pub-link" aria-label="PDF: Selenite: Scaffolding Online Sensemaking with Comprehensive Overviews Elicited from Large Language Models"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -559,7 +569,7 @@
 									<div class="pub-venue">CHI 2023</div>
 									<div class="pub-title">Understanding Visual Arts Experiences of Blind People</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li*</strong>, Lotus Zhang*, Maryam Bandukda, Abigale Stangl, Kristen Shinohara, Leah Findlater, Patrick Carrington (*Equal contribution)</div>
-									<div class="pub-links"><a href="chi23-260.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="chi23-260.pdf" class="pub-link" aria-label="PDF: Understanding Visual Arts Experiences of Blind People"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -569,7 +579,7 @@
 									<div class="pub-venue">CHI 2023</div>
 									<div class="pub-title">Breaking the "Inescapable" Cycle of Pain: Supporting Wheelchair Users' Upper Extremity Health Awareness and Management with Tracking Technologies</div>
 									<div class="pub-authors">Yunzhi Li, <strong>Franklin Mingzhe Li</strong>, Patrick Carrington</div>
-									<div class="pub-links"><a href="upper_extremity_health.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="upper_extremity_health.pdf" class="pub-link" aria-label="PDF: Breaking the &quot;Inescapable&quot; Cycle of Pain: Supporting Wheelchair Users&#x27; Upper Extremity Health Awareness and Management with Tracking Technologies"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -579,7 +589,7 @@
 									<div class="pub-venue">ASSETS 2022</div>
 									<div class="pub-title">Freedom to Choose: Understanding Input Modality Preferences of People with Upper-body Motor Impairments for Activities of Daily Living</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Michael Xieyang Liu, Yang Zhang, Patrick Carrington</div>
-									<div class="pub-links"><a href="multimodal.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="multimodal.pdf" class="pub-link" aria-label="PDF: Freedom to Choose: Understanding Input Modality Preferences of People with Upper-body Motor Impairments for Activities of Daily Living"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -589,7 +599,7 @@
 									<div class="pub-venue">CHI 2022</div>
 									<div class="pub-title">"It Feels Like Taking a Gamble": Exploring Perceptions, Practices, and Challenges of Using Makeup and Cosmetics for People with Visual Impairments</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li*</strong>, Francheska Spektor*, Meng Xia*, Mina Huh*, Peter Cederberg, Yuqi Gong, Kristen Shinohara, Patrick Carrington (*Equal contribution)</div>
-									<div class="pub-links"><a href="BlindMakeup.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="BlindMakeup.pdf" class="pub-link" aria-label="PDF: &quot;It Feels Like Taking a Gamble&quot;: Exploring Perceptions, Practices, and Challenges of Using Makeup and Cosmetics for People with Visual Impairments"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -599,7 +609,7 @@
 									<div class="pub-venue">CSCW 2022</div>
 									<div class="pub-title">An Exploration of Captioning Practices and Challenges of Individual Content Creators on YouTube for People with Hearing Impairments</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Cheng Lu, Zhicong Lu, Patrick Carrington, Khai N. Truong</div>
-									<div class="pub-links"><a href="CSCW22_Craption.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="CSCW22_Craption.pdf" class="pub-link" aria-label="PDF: An Exploration of Captioning Practices and Challenges of Individual Content Creators on YouTube for People with Hearing Impairments"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -609,7 +619,7 @@
 									<div class="pub-venue">ASSETS 2021</div>
 									<div class="pub-title">Non-Visual Cooking: Exploring Practices and Challenges of Meal Preparation by People with Visual Impairments</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Jamie Dorst, Peter Cederberg, Patrick Carrington</div>
-									<div class="pub-links"><a href="2107.05783.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="2107.05783.pdf" class="pub-link" aria-label="PDF: Non-Visual Cooking: Exploring Practices and Challenges of Meal Preparation by People with Visual Impairments"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -619,7 +629,7 @@
 									<div class="pub-venue">MobileHCI 2021</div>
 									<div class="pub-title">ThumbTrak: Recognizing Micro-finger Poses Using a Ring with Proximity Sensing</div>
 									<div class="pub-authors">Wei Sun, <strong>Franklin Mingzhe Li</strong>, Congshu Huang, Zhenyu Lei, Benjamin Steeper, Songyun Tao, Feng Tian, Cheng Zhang</div>
-									<div class="pub-links"><a href="ThumbTrak_MobileHCI'21.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="ThumbTrak_MobileHCI'21.pdf" class="pub-link" aria-label="PDF: ThumbTrak: Recognizing Micro-finger Poses Using a Ring with Proximity Sensing"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -629,7 +639,7 @@
 									<div class="pub-venue">CHI 2021</div>
 									<div class="pub-title">"I Choose Assistive Devices That Save My Face" A Study on Perceptions of Accessibility and Assistive Technology Use Conducted in China</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Di Laura Chen, Mingming Fan, Khai N. Truong</div>
-									<div class="pub-links"><a href="ChineseATs.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="ChineseATs.pdf" class="pub-link" aria-label="PDF: &quot;I Choose Assistive Devices That Save My Face&quot; A Study on Perceptions of Accessibility and Assistive Technology Use Conducted in China"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -639,7 +649,7 @@
 									<div class="pub-venue">IUI 2021</div>
 									<div class="pub-title">TeethTap: Recognizing Discrete Teeth Gestures using Motion and Acoustic Sensing on an Earpiece</div>
 									<div class="pub-authors">Wei Sun*, <strong>Franklin Mingzhe Li*</strong>, Benjamin Steeper*, Songlin Xu, Feng Tian, Cheng Zhang (*Equal contribution)</div>
-									<div class="pub-links"><a href="iui21a-sub1165-i6 (2).pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="iui21a-sub1165-i6 (2).pdf" class="pub-link" aria-label="PDF: TeethTap: Recognizing Discrete Teeth Gestures using Motion and Acoustic Sensing on an Earpiece"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -650,7 +660,7 @@
 									<div class="pub-title">Eyelid Gestures on Mobile Devices for People with Motor Impairments</div>
 									<div class="pub-authors">Mingming Fan*, Zhen Li*, <strong>Franklin Mingzhe Li*</strong> (*Equal contribution)</div>
 									<div class="pub-links">
-										<a href="assets20a-sub1243-cam-i26.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+										<a href="assets20a-sub1243-cam-i26.pdf" class="pub-link" aria-label="PDF: Eyelid Gestures on Mobile Devices for People with Motor Impairments"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
 										<span class="pub-award"><i class="fa fa-trophy" aria-hidden="true"></i> Best Artifact Award</span>
 									</div>
 								</div>
@@ -662,7 +672,7 @@
 									<div class="pub-venue">IMWUT 2019</div>
 									<div class="pub-title">FMT: A Wearable Camera-Based Object Tracking Memory Aid for Older Adults</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Di Laura Chen, Mingming Fan, Khai N. Truong</div>
-									<div class="pub-links"><a href="FMT-IMWUT-19-CameraReady-FinalVersion-V2.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="FMT-IMWUT-19-CameraReady-FinalVersion-V2.pdf" class="pub-link" aria-label="PDF: FMT: A Wearable Camera-Based Object Tracking Memory Aid for Older Adults"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -672,7 +682,7 @@
 									<div class="pub-venue">IMWUT 2019</div>
 									<div class="pub-title">Face Recognition Assistant for People with Visual Impairments</div>
 									<div class="pub-authors">Mohammad Kianpisheh, <strong>Franklin Mingzhe Li</strong>, Khai N. Truong</div>
-									<div class="pub-links"><a href="imwut18c-sub2624-cam-i26 (2).pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="imwut18c-sub2624-cam-i26 (2).pdf" class="pub-link" aria-label="PDF: Face Recognition Assistant for People with Visual Impairments"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -682,7 +692,7 @@
 									<div class="pub-venue">ASSETS 2017</div>
 									<div class="pub-title">BrailleSketch: A Gesture-based Text Input Method for People with Visual Impairments</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Mingming Fan, Khai N. Truong</div>
-									<div class="pub-links"><a href="braillesketch.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="braillesketch.pdf" class="pub-link" aria-label="PDF: BrailleSketch: A Gesture-based Text Input Method for People with Visual Impairments"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -692,7 +702,7 @@
 									<div class="pub-venue">DIS 2016</div>
 									<div class="pub-title">The Living Room: Exploring the Haunted and Paranormal to Transform Design and Interaction</div>
 									<div class="pub-authors">Michelle Annett, Matthew Lakier, <strong>Franklin Mingzhe Li</strong>, Daniel Wigdor, Tovi Grossman, George Fitzmaurice</div>
-									<div class="pub-links"><a href="thelivingroom.pdf" class="pub-link"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="thelivingroom.pdf" class="pub-link" aria-label="PDF: The Living Room: Exploring the Haunted and Paranormal to Transform Design and Interaction"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
 								</div>
 							</div>
 
@@ -700,7 +710,7 @@
 					</section>
 
 				<!-- Professional Experiences -->
-					<section id="one">
+					<section id="professional-experiences">
 						<header class="major">
 							<h2>Professional Experiences</h2>
 						</header>
@@ -711,7 +721,7 @@
 					</section>
 
 				<!-- Grants and Fellowships -->
-					<section id="one">
+					<section id="grants-and-fellowships">
 						<header class="major">
 							<h2>Grants and Fellowships</h2>
 						</header>
@@ -729,7 +739,7 @@
 					</section>
 
 				<!-- Awards and Scholarship -->
-					<section id="one">
+					<section id="awards-and-scholarship">
 						<header class="major">
 							<h2>Awards and Scholarship</h2>
 						</header>
@@ -742,7 +752,7 @@
 					</section>
 
 				<!-- Selected Patent -->
-					<section id="one">
+					<section id="selected-patent">
 						<header class="major">
 							<h2>Selected Patent</h2>
 						</header>
@@ -751,7 +761,7 @@
 					</section>
 
 				<!-- Media Coverage -->
-					<section id="one">
+					<section id="media-coverage-and-featuring">
 						<header class="major">
 							<h2>Media Coverage and Featuring</h2>
 						</header>
@@ -767,7 +777,7 @@
 					</section>
 
 				<!-- Community Services -->
-					<section id="one">
+					<section id="community-services">
 						<header class="major">
 							<h2>Community Services</h2>
 						</header>
@@ -779,7 +789,7 @@
 					</section>
 
 				<!-- Teaching Experiences and Invited Talks -->
-					<section id="one">
+					<section id="teaching-experiences-and-invited-talks">
 						<header class="major">
 							<h2>Teaching Experiences and Invited Talks</h2>
 						</header>
