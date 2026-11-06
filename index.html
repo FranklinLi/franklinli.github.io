@@ -98,7 +98,7 @@
 
 			.pub-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+				grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
 				gap: 1.5rem;
 				margin-top: 2rem;
 			}
@@ -248,6 +248,13 @@
 			}
 
 
+			@media (prefers-reduced-motion: reduce) {
+				* {
+					transition: none !important;
+					animation: none !important;
+				}
+			}
+
 			/* Accessibility: visible keyboard focus, dark sidebar beyond the photo */
 			a:focus-visible, button:focus-visible {
 				outline: 3px solid #1d4ed8;
@@ -276,9 +283,9 @@
 					</p>
 					<p>
 					<strong><a href="Franklin_Mingzhe_Li_Resume_Final.pdf" class="icon-link" title="CV" aria-label="CV"><i class="fa fa-file-text-o" aria-hidden="true"></i></a></strong> &nbsp;
-					<strong><a href="https://scholar.google.com/citations?user=jZa4SPIAAAAJ&hl=en" class="icon-link" title="Google Scholar" aria-label="Google Scholar" target="_blank" rel="noopener"><i class="fa fa-google" aria-hidden="true"></i></a></strong> &nbsp;
-					<strong><a href="https://www.linkedin.com/in/franklin-mingzhe-li-4b3b8986/?skipRedirect=true" class="icon-link" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fa fa-linkedin" aria-hidden="true"></i></a></strong> &nbsp;
-					<strong><a href="https://x.com/Franklin_M_Li" class="icon-link" title="Twitter" aria-label="Twitter" target="_blank" rel="noopener"><i class="fa fa-twitter" aria-hidden="true"></i></a></strong>
+					<strong><a href="https://scholar.google.com/citations?user=jZa4SPIAAAAJ&hl=en" class="icon-link" title="Google Scholar" aria-label="Google Scholar"><i class="fa fa-google" aria-hidden="true"></i></a></strong> &nbsp;
+					<strong><a href="https://www.linkedin.com/in/franklin-mingzhe-li-4b3b8986/?skipRedirect=true" class="icon-link" title="LinkedIn" aria-label="LinkedIn"><i class="fa fa-linkedin" aria-hidden="true"></i></a></strong> &nbsp;
+					<strong><a href="https://x.com/Franklin_M_Li" class="icon-link" title="Twitter" aria-label="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></strong>
 					</p>
 				</div>
 			</header>
@@ -294,7 +301,7 @@
 						<p>Franklin Mingzhe Li is a Tenure-Track Assistant Professor at the School of Data and Information Sciences at UNC-Chapel Hill, where he directs the <a href="https://atlas.unc.edu/">ATLAS Lab</a>. Franklin Mingzhe Li is also a <a href="https://pittsburghfoundation.org/fund/10553">Betensky-Kraut Endowed Fellow</a>, a <a href="https://makepossible.cmu.edu/the-cards/">Stuart K. Card Fellow</a>, and a <a href="https://www.nserc-crsng.gc.ca/students-etudiants/pg-cs/bellandpostgrad-belletsuperieures_eng.asp">NSERC Postgraduate Fellow</a>. He obtained his PhD in the Human-Computer Interaction Institute at Carnegie Mellon University. He obtained Master of Science degree in the Department of Computer Science at the University of Toronto. He also obtained Bachelor of Electrical Engineering at the University of Toronto. His research interests are in Human-Computer Interaction (HCI), Assistive Technology, and Ubiquitous Computing (UbiComp). His research focuses on exploring, designing, and deploying Assistive Technologies for physical space and Activities of Daily Living for people with disabilities. His dissertation aims to support and enable non-visual cooking for people with vision impairments through AI and Assistive Technologies.</p>
 
 						<div class="recruit-callout">
-						<p class="recruit-text">I am open to recruit RA starting from Fall 2026 and PhD students starting from Fall 2027! Prospective PhD students should apply to the <a href="https://sdis.unc.edu/academics/doctoral/phd-data-science/" target="_blank" rel="noopener">PhD in Data Science</a> program.</p>
+						<p class="recruit-text">I am open to recruit RA starting from Fall 2026 and PhD students starting from Fall 2027! Prospective PhD students should apply to the <a href="https://sdis.unc.edu/academics/doctoral/phd-data-science/">PhD in Data Science</a> program.</p>
 					</div>
 					</section>
 
@@ -306,11 +313,11 @@
 					<div class="news-list">
 						<div class="news-item">
 							<span class="news-date">Sep 2026</span>
-							<span class="news-text">Panelist on "AI Opportunities for Accessibility" at the <a href="https://catai.ai.cornell.edu/summit.html" target="_blank" rel="noopener">AI and Accessibility Summit</a>, Cornell Tech, NYC</span>
+							<span class="news-text">Panelist on "AI Opportunities for Accessibility" at the <a href="https://catai.ai.cornell.edu/summit.html">AI and Accessibility Summit</a>, Cornell Tech, NYC</span>
 						</div>
 						<div class="news-item">
 							<span class="news-date">Aug 2026</span>
-							<span class="news-text">Accessibility Chair, <a href="https://aisummit.acm.org/organizers" target="_blank" rel="noopener">ACM AI Leadership Summit</a> in Atlanta</span>
+							<span class="news-text">Accessibility Chair, <a href="https://aisummit.acm.org/organizers">ACM AI Leadership Summit</a> in Atlanta</span>
 						</div>
 						<div class="news-item">
 							<span class="news-date">Jul 2026</span>
@@ -427,7 +434,7 @@
 									<div class="pub-venue">ACL 2026</div>
 									<div class="pub-title">OSCBench: Benchmarking Object State Change in Text-to-Video Generation</div>
 									<div class="pub-authors">Xianjing Han, Bin Zhu, Shiqi Hu, <strong>Franklin Mingzhe Li</strong>, Patrick Carrington, Roger Zimmermann, Jingjing Chen</div>
-									<div class="pub-links"><a href="2603.11698v2.pdf" class="pub-link" aria-label="PDF: OSCBench: Benchmarking Object State Change in Text-to-Video Generation"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://arxiv.org/html/2603.11698v2" class="pub-link" aria-label="HTML version on arXiv: OSCBench: Benchmarking Object State Change in Text-to-Video Generation"><i class="fa fa-file-text-o" aria-hidden="true"></i> HTML</a></div>
 								</div>
 							</div>
 
@@ -447,7 +454,7 @@
 									<div class="pub-venue">ASSETS 2025</div>
 									<div class="pub-title">More than One Step at a Time: Designing Procedural Feedback for Non-visual Makeup Routines</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Akihiko Oharazawa, Chloe Qingyu Zhu, Misty Fan, Daisuke Sato, Chieko Asakawa, Patrick Carrington</div>
-									<div class="pub-links"><a href="2507.03942v1.pdf.pdf" class="pub-link" aria-label="PDF: More than One Step at a Time: Designing Procedural Feedback for Non-visual Makeup Routines"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3663547.3746366" class="pub-link" aria-label="ACM Digital Library: More than One Step at a Time: Designing Procedural Feedback for Non-visual Makeup Routines"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
@@ -457,7 +464,7 @@
 									<div class="pub-venue">ASSETS 2025</div>
 									<div class="pub-title">VizXpress: Towards Expressive Visual Content by Blind Creators Through AI Support</div>
 									<div class="pub-authors">Lotus Zhang, Zhuohao Jerry Zhang, Gina Clepper, <strong>Franklin Mingzhe Li</strong>, Patrick Carrington, Jacob O Wobbrock, Leah Findlater</div>
-									<div class="pub-links"><a href="Camera_Ready_ASSETS25__VizXpress.pdf.pdf" class="pub-link" aria-label="PDF: VizXpress: Towards Expressive Visual Content by Blind Creators Through AI Support"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3663547.3746345" class="pub-link" aria-label="ACM Digital Library: VizXpress: Towards Expressive Visual Content by Blind Creators Through AI Support"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
@@ -467,7 +474,7 @@
 									<div class="pub-venue">ASSETS 2025</div>
 									<div class="pub-title">Exploring Object Status Recognition for Recipe Progress Tracking in Non-Visual Cooking</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Kaitlyn Ng, Bin Zhu, Patrick Carrington</div>
-									<div class="pub-links"><a href="2507.03330v1.pdf.pdf" class="pub-link" aria-label="PDF: Exploring Object Status Recognition for Recipe Progress Tracking in Non-Visual Cooking"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3663547.3746318" class="pub-link" aria-label="ACM Digital Library: Exploring Object Status Recognition for Recipe Progress Tracking in Non-Visual Cooking"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
@@ -477,7 +484,7 @@
 									<div class="pub-venue">UIST 2025</div>
 									<div class="pub-title">AROMA: Mixed-Initiative AI Assistance for Non-Visual Cooking by Grounding Multi-modal Information</div>
 									<div class="pub-authors">Zheng Ning, Leyang Li, Daniel Killough, JooYoung Seo, Patrick Carrington, Yapeng Tian, Yuhang Zhao, <strong>Franklin Mingzhe Li</strong>, Toby Jia-Jun Li</div>
-									<div class="pub-links"><a href="2507.10963v1.pdf.pdf" class="pub-link" aria-label="PDF: AROMA: Mixed-Initiative AI Assistance for Non-Visual Cooking by Grounding Multi-modal Information"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3746059.3747650" class="pub-link" aria-label="ACM Digital Library: AROMA: Mixed-Initiative AI Assistance for Non-Visual Cooking by Grounding Multi-modal Information"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
@@ -497,7 +504,7 @@
 									<div class="pub-venue">CHI 2025</div>
 									<div class="pub-title">SpellRing: Recognizing Continuous Fingerspelling in American Sign Language using a Ring</div>
 									<div class="pub-authors">Hyunchul Lim, Nam Anh Dang, Dylan Lee, Tianhong Catherine Yu, Jane Lu, <strong>Franklin Mingzhe Li</strong>, Yiqi Jin, Yan Ma, Xiaojun Bi, François Guimbretière, Cheng Zhang</div>
-									<div class="pub-links"><a href="2502.10830v1.pdf" class="pub-link" aria-label="PDF: SpellRing: Recognizing Continuous Fingerspelling in American Sign Language using a Ring"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3706598.3713721" class="pub-link" aria-label="ACM Digital Library: SpellRing: Recognizing Continuous Fingerspelling in American Sign Language using a Ring"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
@@ -517,7 +524,7 @@
 									<div class="pub-venue">ASSETS 2024</div>
 									<div class="pub-title">A Recipe for Success? Exploring Strategies for Improving Non-Visual Access to Cooking Instructions</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Ashley Wang, Patrick Carrington, Shaun K Kane</div>
-									<div class="pub-links"><a href="2407.19065v1.pdf" class="pub-link" aria-label="PDF: A Recipe for Success? Exploring Strategies for Improving Non-Visual Access to Cooking Instructions"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3663548.3675662" class="pub-link" aria-label="ACM Digital Library: A Recipe for Success? Exploring Strategies for Improving Non-Visual Access to Cooking Instructions"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
@@ -547,7 +554,7 @@
 									<div class="pub-venue">CHI 2024</div>
 									<div class="pub-title">Designing Upper-Body Gesture Interaction with and for People with Spinal Muscular Atrophy in VR</div>
 									<div class="pub-authors">Jingze Tian, Yingna Wang, Keye Yu, Liyi Xu, Junan Xie, <strong>Franklin Mingzhe Li</strong>, Yafeng Niu, Mingming Fan</div>
-									<div class="pub-links"><a href="Gesture VR.pdf" class="pub-link" aria-label="PDF: Designing Upper-Body Gesture Interaction with and for People with Spinal Muscular Atrophy in VR"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3613904.3642884" class="pub-link" aria-label="ACM Digital Library: Designing Upper-Body Gesture Interaction with and for People with Spinal Muscular Atrophy in VR"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
@@ -577,7 +584,7 @@
 									<div class="pub-venue">CHI 2023</div>
 									<div class="pub-title">Breaking the "Inescapable" Cycle of Pain: Supporting Wheelchair Users' Upper Extremity Health Awareness and Management with Tracking Technologies</div>
 									<div class="pub-authors">Yunzhi Li, <strong>Franklin Mingzhe Li</strong>, Patrick Carrington</div>
-									<div class="pub-links"><a href="upper_extremity_health.pdf" class="pub-link" aria-label="PDF: Breaking the &quot;Inescapable&quot; Cycle of Pain: Supporting Wheelchair Users&#x27; Upper Extremity Health Awareness and Management with Tracking Technologies"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3544548.3580660" class="pub-link" aria-label="ACM Digital Library: Breaking the &quot;Inescapable&quot; Cycle of Pain: Supporting Wheelchair Users&#x27; Upper Extremity Health Awareness and Management with Tracking Technologies"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
@@ -587,7 +594,7 @@
 									<div class="pub-venue">ASSETS 2022</div>
 									<div class="pub-title">Freedom to Choose: Understanding Input Modality Preferences of People with Upper-body Motor Impairments for Activities of Daily Living</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Michael Xieyang Liu, Yang Zhang, Patrick Carrington</div>
-									<div class="pub-links"><a href="multimodal.pdf" class="pub-link" aria-label="PDF: Freedom to Choose: Understanding Input Modality Preferences of People with Upper-body Motor Impairments for Activities of Daily Living"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3517428.3544814" class="pub-link" aria-label="ACM Digital Library: Freedom to Choose: Understanding Input Modality Preferences of People with Upper-body Motor Impairments for Activities of Daily Living"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
@@ -607,7 +614,7 @@
 									<div class="pub-venue">CSCW 2022</div>
 									<div class="pub-title">An Exploration of Captioning Practices and Challenges of Individual Content Creators on YouTube for People with Hearing Impairments</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Cheng Lu, Zhicong Lu, Patrick Carrington, Khai N. Truong</div>
-									<div class="pub-links"><a href="CSCW22_Craption.pdf" class="pub-link" aria-label="PDF: An Exploration of Captioning Practices and Challenges of Individual Content Creators on YouTube for People with Hearing Impairments"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3512922" class="pub-link" aria-label="ACM Digital Library: An Exploration of Captioning Practices and Challenges of Individual Content Creators on YouTube for People with Hearing Impairments"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
@@ -617,7 +624,7 @@
 									<div class="pub-venue">ASSETS 2021</div>
 									<div class="pub-title">Non-Visual Cooking: Exploring Practices and Challenges of Meal Preparation by People with Visual Impairments</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Jamie Dorst, Peter Cederberg, Patrick Carrington</div>
-									<div class="pub-links"><a href="2107.05783.pdf" class="pub-link" aria-label="PDF: Non-Visual Cooking: Exploring Practices and Challenges of Meal Preparation by People with Visual Impairments"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3441852.3471215" class="pub-link" aria-label="ACM Digital Library: Non-Visual Cooking: Exploring Practices and Challenges of Meal Preparation by People with Visual Impairments"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
@@ -627,7 +634,7 @@
 									<div class="pub-venue">MobileHCI 2021</div>
 									<div class="pub-title">ThumbTrak: Recognizing Micro-finger Poses Using a Ring with Proximity Sensing</div>
 									<div class="pub-authors">Wei Sun, <strong>Franklin Mingzhe Li</strong>, Congshu Huang, Zhenyu Lei, Benjamin Steeper, Songyun Tao, Feng Tian, Cheng Zhang</div>
-									<div class="pub-links"><a href="ThumbTrak_MobileHCI'21.pdf" class="pub-link" aria-label="PDF: ThumbTrak: Recognizing Micro-finger Poses Using a Ring with Proximity Sensing"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3447526.3472060" class="pub-link" aria-label="ACM Digital Library: ThumbTrak: Recognizing Micro-finger Poses Using a Ring with Proximity Sensing"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
@@ -637,7 +644,7 @@
 									<div class="pub-venue">CHI 2021</div>
 									<div class="pub-title">"I Choose Assistive Devices That Save My Face" A Study on Perceptions of Accessibility and Assistive Technology Use Conducted in China</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Di Laura Chen, Mingming Fan, Khai N. Truong</div>
-									<div class="pub-links"><a href="ChineseATs.pdf" class="pub-link" aria-label="PDF: &quot;I Choose Assistive Devices That Save My Face&quot; A Study on Perceptions of Accessibility and Assistive Technology Use Conducted in China"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3411764.3445321" class="pub-link" aria-label="ACM Digital Library: &quot;I Choose Assistive Devices That Save My Face&quot; A Study on Perceptions of Accessibility and Assistive Technology Use Conducted in China"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
@@ -647,7 +654,7 @@
 									<div class="pub-venue">IUI 2021</div>
 									<div class="pub-title">TeethTap: Recognizing Discrete Teeth Gestures using Motion and Acoustic Sensing on an Earpiece</div>
 									<div class="pub-authors">Wei Sun*, <strong>Franklin Mingzhe Li*</strong>, Benjamin Steeper*, Songlin Xu, Feng Tian, Cheng Zhang (*Equal contribution)</div>
-									<div class="pub-links"><a href="iui21a-sub1165-i6 (2).pdf" class="pub-link" aria-label="PDF: TeethTap: Recognizing Discrete Teeth Gestures using Motion and Acoustic Sensing on an Earpiece"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3397481.3450645" class="pub-link" aria-label="ACM Digital Library: TeethTap: Recognizing Discrete Teeth Gestures using Motion and Acoustic Sensing on an Earpiece"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
@@ -658,7 +665,7 @@
 									<div class="pub-title">Eyelid Gestures on Mobile Devices for People with Motor Impairments</div>
 									<div class="pub-authors">Mingming Fan*, Zhen Li*, <strong>Franklin Mingzhe Li*</strong> (*Equal contribution)</div>
 									<div class="pub-links">
-										<a href="assets20a-sub1243-cam-i26.pdf" class="pub-link" aria-label="PDF: Eyelid Gestures on Mobile Devices for People with Motor Impairments"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a>
+										<a href="https://doi.org/10.1145/3373625.3416987" class="pub-link" aria-label="ACM Digital Library: Eyelid Gestures on Mobile Devices for People with Motor Impairments"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a>
 										<span class="pub-award"><i class="fa fa-trophy" aria-hidden="true"></i> Best Artifact Award</span>
 									</div>
 								</div>
@@ -670,7 +677,7 @@
 									<div class="pub-venue">IMWUT 2019</div>
 									<div class="pub-title">FMT: A Wearable Camera-Based Object Tracking Memory Aid for Older Adults</div>
 									<div class="pub-authors"><strong>Franklin Mingzhe Li</strong>, Di Laura Chen, Mingming Fan, Khai N. Truong</div>
-									<div class="pub-links"><a href="FMT-IMWUT-19-CameraReady-FinalVersion-V2.pdf" class="pub-link" aria-label="PDF: FMT: A Wearable Camera-Based Object Tracking Memory Aid for Older Adults"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</a></div>
+									<div class="pub-links"><a href="https://doi.org/10.1145/3351253" class="pub-link" aria-label="ACM Digital Library: FMT: A Wearable Camera-Based Object Tracking Memory Aid for Older Adults"><i class="fa fa-book" aria-hidden="true"></i> ACM DL</a></div>
 								</div>
 							</div>
 
